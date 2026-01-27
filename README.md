@@ -1,4 +1,4 @@
-# IS Data Consulting
+# ISData Consulting
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e63dfdb1-22e1-4af4-be2b-129b954c872d/deploy-status)](https://app.netlify.com/projects/isdataconsulting/deploys)
 
@@ -102,4 +102,4 @@ bun run type-check # TypeScript strict mode
 
 ## License
 
-MIT © 2025 IS Data Consulting
+MIT © 2025 ISData Consulting
