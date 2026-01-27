@@ -1,37 +1,45 @@
-// Site metadata for SEO and social sharing
+/**
+ * Configuration centrale du site ISDATA Consulting
+ * Toutes les informations modifiables en un seul endroit
+ */
+
 export const SITE_CONFIG = {
-  name: "ISData Consulting",
-  description: "Data Analytics & Business Intelligence Solutions",
+  name: "ISDATA Consulting",
+  tagline: "L'ingénierie des données au service de la décision",
+  description:
+    "Cabinet de conseil spécialisé en Data Engineering, Architecture de données et Transformation digitale.",
   url: "https://isdataconsulting.com",
-  image: "https://isdataconsulting.com/logo.png",
-  author: "ISData Consulting",
+  image: "https://isdataconsulting.com/og-image.png",
+
+  // Contact
   email: "contact@isdataconsulting.com",
   phone: "+33 6 51 98 52 79",
-  // Legal information
+
+  // Légal
+  legalForm: "SASU",
   siren: "940 718 075",
   tva: "FR56940718075",
   address: "152 Avenue Gabriel Péri, 95870 Bezons",
-  legalForm: "SASU",
+  annuaire:
+    "https://annuaire-entreprises.data.gouv.fr/entreprise/isdata-consulting-940718075",
+
+  // Réseaux sociaux
   social: {
-    linkedin: "isdataconsulting",
     github: "ngsanogo",
+    linkedin: "isdataconsulting",
   },
+
+  // SEO
   seo: {
     keywords: [
       "data consulting",
-      "business intelligence",
-      "data analytics",
       "data engineering",
-      "système d'information",
-      "conseil IT",
-      "développement logiciel",
+      "architecture données",
+      "conseil data",
+      "business intelligence",
+      "ETL pipeline",
     ],
   },
 } as const;
 
-export const DEFAULT_OG_TAGS = {
-  "og:type": "website",
-  "og:site_name": SITE_CONFIG.name,
-  "og:image": SITE_CONFIG.image,
-  "og:url": SITE_CONFIG.url,
-} as const;
+export type SiteConfig = typeof SITE_CONFIG;

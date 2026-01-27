@@ -1,80 +1,88 @@
-import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const NAV_LINKS = [
+  { label: "Expertise", href: "#expertise" },
+  { label: "Méthodologie", href: "#methodology" },
+  { label: "Contact", href: "#contact" },
+] as const;
 
-  const navItems = [
-    { label: "Services", href: "#services" },
-    { label: "Méthodologie", href: "#methodology" },
-  ];
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          <a href="#" className="flex items-center gap-2">
-            <img src="/logo.png" alt={SITE_CONFIG.name} className="h-10 w-10" />
-            <span className="font-mono font-semibold text-lg tracking-tight">
-              {SITE_CONFIG.name.split(" ")[0]}<span className="text-muted-foreground">_</span>{SITE_CONFIG.name.split(" ")[1]}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+      <div className="container mx-auto">
+        <nav className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-3 group">
+            <img
+              src="/logo.svg"
+              alt={SITE_CONFIG.name}
+              className="h-8 w-8"
+              width={32}
+              height={32}
+            />
+            <span className="font-semibold text-lg tracking-tight">
+              <span className="text-navy">ISDATA</span>
+              <span className="text-slate font-normal"> Consulting</span>
             </span>
           </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
               <a
-                key={item.label}
-                href={item.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-slate hover:text-navy transition-colors"
               >
-                {item.label}
+                {link.label}
               </a>
             ))}
-            <a
-              href="mailto:contact@isdataconsulting.com"
-              className="text-sm font-medium text-foreground border border-foreground px-4 py-2 hover:bg-foreground hover:text-background transition-colors"
-            >
-              contact@isdataconsulting.com
+            <a href="#contact" className="btn-primary text-sm">
+              Discutons
             </a>
-          </nav>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            type="button"
+            className="md:hidden p-2 text-navy"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={isOpen}
           >
-            {isMenuOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-        </div>
+        </nav>
 
-        {/* Mobile Nav */}
-        {isMenuOpen && (
-          <nav className="md:hidden py-6 border-t border-border flex flex-col gap-4">
-            {navItems.map((item) => (
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden py-4 border-t border-slate-200">
+            <div className="flex flex-col gap-4">
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-base font-medium text-slate hover:text-navy transition-colors py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
               <a
-                key={item.label}
-                href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
+                href="#contact"
+                className="btn-primary text-center mt-2"
+                onClick={() => setIsOpen(false)}
               >
-                {item.label}
+                Discutons
               </a>
-            ))}
-            <a
-              href="mailto:contact@isdataconsulting.com"
-              className="text-foreground border border-foreground px-4 py-2 text-center hover:bg-foreground hover:text-background transition-colors mt-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              contact@isdataconsulting.com
-            </a>
-          </nav>
+            </div>
+          </div>
         )}
       </div>
     </header>
   );
-};
-
-export default Header;
+}

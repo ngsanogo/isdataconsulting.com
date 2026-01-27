@@ -1,78 +1,69 @@
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, ExternalLink } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
-const Footer = () => {
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="py-12 border-t border-border bg-background/50">
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Company info */}
+    <footer className="py-12 border-t border-slate-200 bg-white">
+      <div className="container mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+          {/* Left: Company info */}
           <div>
-            <p className="font-mono font-semibold text-sm mb-3">À propos</p>
-            <p className="font-mono text-xs text-muted-foreground leading-relaxed">
-              {SITE_CONFIG.name}
-              <br />
-              {SITE_CONFIG.legalForm} · SIREN {SITE_CONFIG.siren}
-              <br />
-              {SITE_CONFIG.address}
+            <p className="font-semibold text-lg mb-2">
+              <span className="text-navy">ISDATA</span>
+              <span className="text-slate font-normal"> Consulting</span>
+            </p>
+            <p className="text-sm text-slate max-w-md">
+              Ingénierie de Données & Business Intelligence
             </p>
           </div>
 
-          {/* Contact */}
-          <div>
-            <p className="font-mono font-semibold text-sm mb-3">Contact</p>
-            <div className="font-mono text-xs text-muted-foreground space-y-1">
-              <p>
-                <a href={`mailto:${SITE_CONFIG.email}`} className="hover:text-foreground transition-colors">
-                  {SITE_CONFIG.email}
-                </a>
-              </p>
-              <p>
-                <a href={`tel:${SITE_CONFIG.phone}`} className="hover:text-foreground transition-colors">
-                  {SITE_CONFIG.phone}
-                </a>
-              </p>
-            </div>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <p className="font-mono font-semibold text-sm mb-3">Légal</p>
-            <p className="font-mono text-xs text-muted-foreground leading-relaxed">
-              TVA: {SITE_CONFIG.tva}
-            </p>
+          {/* Right: Links */}
+          <div className="flex items-center gap-6">
+            <a
+              href={`https://github.com/${SITE_CONFIG.social.github}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate hover:text-navy transition-colors"
+              aria-label="GitHub"
+            >
+              <Github size={20} />
+            </a>
+            <a
+              href={`https://linkedin.com/company/${SITE_CONFIG.social.linkedin}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate hover:text-navy transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} />
+            </a>
+            <a
+              href={SITE_CONFIG.annuaire}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm text-slate hover:text-navy transition-colors"
+            >
+              <ExternalLink size={16} />
+              <span>Annuaire légal</span>
+            </a>
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-mono text-xs text-muted-foreground">
-            © {new Date().getFullYear()} {SITE_CONFIG.name}
-          </p>
-
-          <div className="flex items-center gap-6">
-            <a
-              href="https://github.com/ngsanogo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="GitHub"
-            >
-              <Github className="w-4 h-4" strokeWidth={1.5} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-4 h-4" strokeWidth={1.5} />
-            </a>
+        {/* Bottom: Legal */}
+        <div className="mt-8 pt-8 border-t border-slate-200">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate">
+            <p>
+              © {currentYear} {SITE_CONFIG.name}. Tous droits réservés.
+            </p>
+            <p className="text-xs">
+              {SITE_CONFIG.legalForm} · SIREN {SITE_CONFIG.siren} · TVA{" "}
+              {SITE_CONFIG.tva}
+            </p>
           </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

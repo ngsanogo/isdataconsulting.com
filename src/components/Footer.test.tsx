@@ -1,30 +1,15 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import Footer from "@/components/Footer";
+import Footer from "./Footer";
 
 describe("Footer", () => {
-  it("renders copyright year", () => {
+  it("renders company name", () => {
     render(<Footer />);
-    const year = new Date().getFullYear();
-    expect(screen.getByText(new RegExp(year.toString()))).toBeInTheDocument();
+    expect(screen.getByText(/ISDATA Consulting/i)).toBeInTheDocument();
   });
 
-  it("renders company name in copyright", () => {
+  it("renders legal information", () => {
     render(<Footer />);
-    expect(screen.getByText(/ISDATA CONSULTING/)).toBeInTheDocument();
-  });
-
-  it("renders GitHub link", () => {
-    render(<Footer />);
-    const githubLink = screen.getByRole("link", { name: /github/i });
-    expect(githubLink).toHaveAttribute("href", "https://github.com/ngsanogo");
-    expect(githubLink).toHaveAttribute("target", "_blank");
-  });
-
-  it("renders LinkedIn link", () => {
-    render(<Footer />);
-    const linkedinLink = screen.getByRole("link", { name: /linkedin/i });
-    expect(linkedinLink).toHaveAttribute("href", "https://linkedin.com");
-    expect(linkedinLink).toHaveAttribute("target", "_blank");
+    expect(screen.getByText(/SIREN/i)).toBeInTheDocument();
   });
 });

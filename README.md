@@ -1,105 +1,51 @@
-# ISData Consulting
+# ISDATA Consulting
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e63dfdb1-22e1-4af4-be2b-129b954c872d/deploy-status)](https://app.netlify.com/projects/isdataconsulting/deploys)
+Site vitrine B2B pour ISDATA Consulting - Ingénierie de Données & Business Intelligence.
 
-Modern website built with React 18, TypeScript, Vite, and Tailwind CSS. Deployed on Netlify.
+## Stack
 
-## Quick Start
+- **React 18** + **TypeScript** — Typage strict
+- **Vite** — Build ultra-rapide
+- **Tailwind CSS** — Design system utilitaire
+- **GitHub Pages** — Hébergement statique
 
-### Prerequisites
-- Node.js 18+ or Bun
-- Git
-
-### Installation
-
-```bash
-git clone https://github.com/ngsanogo/isdataconsulting.com.git
-cd isdataconsulting.com
-bun install
-```
-
-### Development
+## Développement
 
 ```bash
-bun run dev        # Start dev server (localhost:8080)
-bun run build      # Production build
-bun run preview    # Preview build locally
-bun run test       # Run tests
-bun run lint       # Check code quality
-bun run type-check # TypeScript check
+bun install        # Installation
+bun run dev        # Serveur local (localhost:5173)
+bun run build      # Build production
+bun run preview    # Aperçu du build
+bun run test       # Tests
+bun run lint       # Linting
+bun run type-check # Vérification TypeScript
 ```
 
-## Project Structure
+## Structure
 
 ```
 src/
-├── components/     # React components
-├── pages/          # Page components
-├── hooks/          # Custom hooks
-├── lib/            # Utilities
-├── config/         # Configuration
-└── test/           # Tests
+├── components/    # Composants React
+├── config/        # Configuration site
+├── pages/         # Pages
+└── test/          # Configuration tests
 
-public/            # Static assets
+public/            # Assets statiques
+.github/workflows/ # CI/CD GitHub Actions
 ```
 
-## Tech Stack
+## Déploiement
 
-- React 18, TypeScript, Vite
-- Tailwind CSS, shadcn/ui
-- Vitest, Testing Library
-- GitHub Actions → Netlify
+Le déploiement sur GitHub Pages est automatique via GitHub Actions sur push vers `main`.
 
-## Deployment
+**Configuration requise :**
+1. Settings → Pages → Source: GitHub Actions
+2. Ajouter le domaine custom `isdataconsulting.com`
 
-Push to `main` branch. GitHub Actions automatically deploys to Netlify.
+## Performance
 
-**Requirements:** Set `NETLIFY_AUTH_TOKEN` and `NETLIFY_SITE_ID` secrets in GitHub.
-#    - Node version: 18
+Objectif Lighthouse : **100** sur tous les critères.
 
-# 4. Deploy (automatic on main branch)
-```
+## Licence
 
-**Why Netlify?**
-- ✅ Zero-config for Vite
-- ✅ Automatic deployments on push
-- ✅ Fast CDN globally
-- ✅ Free tier with custom domain support
-- ✅ See [netlify.toml](netlify.toml) for configuration
-
-### Other Hosting Options
-
-- **Vercel**: `vercel deploy` (auto-detects Vite)
-- **GitHub Pages**: `bun run build && gh-pages -d dist`
-- **Traditional Server**: Upload `dist/` folder via FTP
-
-See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
-
----
-
-## 📋 Design Philosophy
-
-Our approach is inspired by **The Zen of Python**:
-
-- **Simple is better than complex** → Clean code, minimal abstractions
-- **Explicit is better than implicit** → Clear naming, documented decisions
-- **Readability counts** → Code for humans first, machines second
-- **Now is better than never** → Iterative delivery, quick feedback loops
-
----
-
-## ✅ Development Guidelines
-
-### Code Quality
-
-```bash
-bun run lint       # ESLint (required before commit)
-bun run test       # Unit tests
-bun run type-check # TypeScript strict mode
-```
-
-### Component Standards
-
-## License
-
-MIT © 2025 ISData Consulting
+[MIT](LICENSE)

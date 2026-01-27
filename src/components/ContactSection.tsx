@@ -1,78 +1,119 @@
-import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, ArrowRight } from "lucide-react";
+import { SITE_CONFIG } from "@/config/site";
 
-const ContactSection = () => {
+export default function ContactSection() {
   return (
-    <section id="contact" className="section-spacing">
-      <div className="container mx-auto px-6">
-        {/* Section header */}
-        <div className="mb-16">
-          <p className="font-mono text-sm text-muted-foreground mb-2">
-            ## Contact
-          </p>
-          <h2 className="text-3xl md:text-4xl font-mono font-semibold tracking-tighter mb-4">
-            Parlons de votre projet
-          </h2>
-          <p className="text-muted-foreground max-w-xl">
-            Un besoin en conseil IT, data ou développement ? 
-            Écrivez-nous, nous répondons sous 24h.
-          </p>
-        </div>
-
-        {/* Contact grid */}
-        <div className="grid md:grid-cols-3 gap-px bg-border max-w-3xl">
-          {/* Email */}
-          <a
-            href="mailto:contact@isdataconsulting.com"
-            className="group bg-background p-8 hover:bg-secondary/50 transition-colors"
-          >
-            <Mail className="w-5 h-5 text-muted-foreground mb-4" strokeWidth={1.5} />
-            <p className="font-mono text-xs text-muted-foreground mb-2">Email</p>
-            <p className="font-mono text-foreground flex items-center gap-2">
-              contact@isdataconsulting.com
-              <ArrowUpRight 
-                className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" 
-                strokeWidth={1.5} 
-              />
+    <section id="contact" className="section bg-navy text-white">
+      <div className="container mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* Left: CTA */}
+          <div>
+            <p className="text-sm text-white/60 mb-3 uppercase tracking-wide">
+              Contact
             </p>
-          </a>
-
-          {/* Phone */}
-          <a
-            href="tel:+33651985279"
-            className="group bg-background p-8 hover:bg-secondary/50 transition-colors"
-          >
-            <Phone className="w-5 h-5 text-muted-foreground mb-4" strokeWidth={1.5} />
-            <p className="font-mono text-xs text-muted-foreground mb-2">Téléphone</p>
-            <p className="font-mono text-foreground flex items-center gap-2">
-              +33 6 51 98 52 79
-              <ArrowUpRight 
-                className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" 
-                strokeWidth={1.5} 
-              />
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              Un projet data en tête ?
+            </h2>
+            <p className="text-lg text-white/80 leading-relaxed mb-8">
+              Échangeons sur vos enjeux. Premier appel de découverte offert pour
+              comprendre votre contexte et identifier les opportunités.
             </p>
-          </a>
 
-          {/* Location */}
-          <div className="bg-background p-8">
-            <MapPin className="w-5 h-5 text-muted-foreground mb-4" strokeWidth={1.5} />
-            <p className="font-mono text-xs text-muted-foreground mb-2">Localisation</p>
-            <p className="text-foreground">
-              152 Avenue Gabriel Péri
-              <br />
-              95870 Bezons, France
-            </p>
+            {/* Contact methods */}
+            <div className="space-y-4">
+              <a
+                href={`mailto:${SITE_CONFIG.email}`}
+                className="flex items-center gap-3 text-white hover:text-white/80 transition-colors group"
+              >
+                <Mail size={20} className="text-white/60" />
+                <span className="font-medium">{SITE_CONFIG.email}</span>
+                <ArrowRight
+                  size={16}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity"
+                />
+              </a>
+              <a
+                href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
+                className="flex items-center gap-3 text-white hover:text-white/80 transition-colors group"
+              >
+                <Phone size={20} className="text-white/60" />
+                <span className="font-medium">{SITE_CONFIG.phone}</span>
+                <ArrowRight
+                  size={16}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity"
+                />
+              </a>
+            </div>
           </div>
-        </div>
 
-        {/* Legal info */}
-        <div className="mt-16 pt-8 border-t border-border">
-          <p className="font-mono text-xs text-muted-foreground">
-            ISDATA CONSULTING · SAS au capital variable · SIREN 940 718 075
-          </p>
+          {/* Right: Simple form */}
+          <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8">
+            <form
+              action={`https://formspree.io/f/your-form-id`}
+              method="POST"
+              className="space-y-6"
+            >
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2 text-white/80"
+                >
+                  Nom
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-md text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors"
+                  placeholder="Votre nom"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2 text-white/80"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-md text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors"
+                  placeholder="vous@entreprise.com"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2 text-white/80"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-md text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors resize-none"
+                  placeholder="Décrivez brièvement votre projet..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-white text-navy font-medium py-3 rounded-md hover:bg-white/90 transition-colors"
+              >
+                Envoyer
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default ContactSection;
+}

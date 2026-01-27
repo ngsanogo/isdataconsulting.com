@@ -1,53 +1,47 @@
-const HeroSection = () => {
+import { ArrowRight } from "lucide-react";
+import { SITE_CONFIG } from "@/config/site";
+
+export default function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center pt-16">
-      <div className="container mx-auto px-6">
+    <section className="min-h-[90vh] flex items-center pt-16">
+      <div className="container mx-auto">
         <div className="max-w-3xl">
-          {/* Code comment style intro */}
-          <p className="font-mono text-sm text-muted-foreground mb-6">
-            # Conseil en systèmes et logiciels informatiques
+          {/* Tagline */}
+          <p className="text-sm text-slate mb-6 tracking-wide uppercase">
+            Conseil en Data Engineering & Architecture
           </p>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-mono font-semibold leading-tight mb-8 tracking-tighter">
-            L'ingénierie logicielle simplifiée.
-            <br />
-            <span className="text-muted-foreground">La donnée maîtrisée.</span>
+          {/* Titre principal */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+            Ingénierie de Données
+            <span className="block text-accent">& Business Intelligence</span>
           </h1>
 
-          <p className="text-lg text-muted-foreground leading-relaxed mb-12 max-w-xl">
-            ISDATA CONSULTING résout des problèmes complexes par des solutions simples. 
-            Expertise technique, fiabilité, transparence.
+          {/* Description */}
+          <p className="text-lg sm:text-xl text-slate leading-relaxed mb-10 max-w-2xl">
+            {SITE_CONFIG.description} Expertise technique, solutions
+            pragmatiques, résultats mesurables.
           </p>
 
-          {/* Simple CTA */}
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center px-6 py-3 border border-foreground text-foreground font-medium hover:bg-foreground hover:text-background transition-colors"
-            >
-              Discutons de votre projet →
+            <a href="#contact" className="btn-primary">
+              Discutons de votre projet
+              <ArrowRight size={18} />
             </a>
-            <a
-              href="#services"
-              className="group inline-flex items-center justify-center px-6 py-3 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <span className="underline underline-offset-4 decoration-1 decoration-muted-foreground/50 group-hover:decoration-foreground transition-all">
-                Voir les services
-              </span>
-              <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+            <a href="#expertise" className="btn-secondary">
+              Voir l'expertise
             </a>
           </div>
 
-          {/* Minimal info block */}
-          <div className="mt-20 pt-8 border-t border-border">
-            <p className="font-mono text-xs text-muted-foreground">
-              SAS · SIREN 940 718 075 · Bezons, France · Depuis 2025
+          {/* Trust indicators */}
+          <div className="mt-16 pt-8 border-t border-slate-200">
+            <p className="text-xs text-slate">
+              {SITE_CONFIG.legalForm} · SIREN {SITE_CONFIG.siren} · France
             </p>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}
