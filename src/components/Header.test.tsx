@@ -17,14 +17,14 @@ describe("Header", () => {
 
   it("renders contact email", () => {
     render(<Header />);
-    expect(screen.getByText("contact@isdata.fr")).toBeInTheDocument();
+    expect(screen.getByText("contact@isdataconsulting.com")).toBeInTheDocument();
   });
 
   it("has correct href for contact link", () => {
     render(<Header />);
-    const contactLinks = screen.getAllByText("contact@isdata.fr");
+    const contactLinks = screen.getAllByText("contact@isdataconsulting.com");
     contactLinks.forEach((link) => {
-      expect(link.closest("a")).toHaveAttribute("href", "mailto:contact@isdata.fr");
+      expect(link.closest("a")).toHaveAttribute("href", "mailto:contact@isdataconsulting.com");
     });
   });
 });

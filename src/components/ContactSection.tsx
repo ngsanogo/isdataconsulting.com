@@ -22,13 +22,13 @@ const ContactSection = () => {
         <div className="grid md:grid-cols-3 gap-px bg-border max-w-3xl">
           {/* Email */}
           <a
-            href="mailto:contact@isdata.fr"
+            href="mailto:contact@isdataconsulting.com"
             className="group bg-background p-8 hover:bg-secondary/50 transition-colors"
           >
             <Mail className="w-5 h-5 text-muted-foreground mb-4" strokeWidth={1.5} />
             <p className="font-mono text-xs text-muted-foreground mb-2">Email</p>
             <p className="font-mono text-foreground flex items-center gap-2">
-              contact@isdata.fr
+              contact@isdataconsulting.com
               <ArrowUpRight 
                 className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" 
                 strokeWidth={1.5} 

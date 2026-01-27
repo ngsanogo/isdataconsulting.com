@@ -1,5 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { SITE_CONFIG } from "@/config/site";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,9 +15,9 @@ const Header = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="flex items-center gap-2">
-            <img src="/logo.png" alt="IS Data Consulting" className="h-10 w-10" />
+            <img src="/logo.png" alt={SITE_CONFIG.name} className="h-10 w-10" />
             <span className="font-mono font-semibold text-lg tracking-tight">
-              ISDATA<span className="text-muted-foreground">_</span>CONSULTING
+              {SITE_CONFIG.name.split(" ")[0]}<span className="text-muted-foreground">_</span>{SITE_CONFIG.name.split(" ")[1]}
             </span>
           </a>
 
@@ -32,10 +33,10 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="mailto:contact@isdata.fr"
+              href="mailto:contact@isdataconsulting.com"
               className="text-sm font-medium text-foreground border border-foreground px-4 py-2 hover:bg-foreground hover:text-background transition-colors"
             >
-              contact@isdata.fr
+              contact@isdataconsulting.com
             </a>
           </nav>
 
@@ -63,11 +64,11 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="mailto:contact@isdata.fr"
+              href="mailto:contact@isdataconsulting.com"
               className="text-foreground border border-foreground px-4 py-2 text-center hover:bg-foreground hover:text-background transition-colors mt-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              contact@isdata.fr
+              contact@isdataconsulting.com
             </a>
           </nav>
         )}
