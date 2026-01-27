@@ -8,14 +8,14 @@ Site vitrine B2B pour **ISDATA Consulting** — Ingénierie de Données & Busine
 
 ## Stack Technique
 
-| Technologie | Usage |
-|-------------|-------|
-| **React 18** | Interface utilisateur |
-| **TypeScript** | Typage strict |
-| **Vite** | Build & dev server |
-| **Tailwind CSS** | Design system |
-| **Vitest** | Tests unitaires |
-| **Netlify** | Hébergement & CDN |
+| Technologie      | Usage                 |
+| ---------------- | --------------------- |
+| **React 18**     | Interface utilisateur |
+| **TypeScript**   | Typage strict         |
+| **Vite**         | Build & dev server    |
+| **Tailwind CSS** | Design system         |
+| **Vitest**       | Tests unitaires       |
+| **Netlify**      | Hébergement & CDN     |
 
 ---
 
@@ -34,20 +34,20 @@ npm install
 
 ### Commandes
 
-| Commande | Description |
-|----------|-------------|
-| `npm run dev` | Serveur local (localhost:3000) |
-| `npm run build` | Build production |
-| `npm run preview` | Aperçu du build |
-| `npm run test` | Tests unitaires |
-| `npm run lint` | Linting ESLint |
-| `npm run type-check` | Vérification TypeScript |
+| Commande             | Description                    |
+| -------------------- | ------------------------------ |
+| `npm run dev`        | Serveur local (localhost:3000) |
+| `npm run build`      | Build production               |
+| `npm run preview`    | Aperçu du build                |
+| `npm run test`       | Tests unitaires                |
+| `npm run lint`       | Linting ESLint                 |
+| `npm run type-check` | Vérification TypeScript        |
 
 ---
 
 ## Structure du Projet
 
-```
+```text
 .
 ├── public/             # Assets statiques
 │   ├── logo.svg
@@ -77,6 +77,7 @@ Le site est déployé automatiquement sur **Netlify** à chaque push sur `main`.
 ### CI/CD
 
 Le workflow GitHub Actions (`.github/workflows/ci.yml`) exécute :
+
 - Type checking
 - Linting
 - Tests

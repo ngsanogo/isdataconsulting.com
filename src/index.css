@@ -1,10 +1,10 @@
 /**
  * ISDATA Consulting - Design System
- * Palette : Bleu Marine (#0A1628) | Gris (#64748B) | Blanc (#FFFFFF)
+ * Palette: Black & White only
  * Philosophie : "Beautiful is better than ugly. Simple is better than complex."
  */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -16,64 +16,94 @@
   }
 
   body {
-    @apply bg-slate-50 text-navy antialiased;
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    @apply bg-white text-black antialiased;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight text-navy;
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply bg-black text-white;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-tight;
   }
 
   *:focus-visible {
-    @apply outline-none ring-2 ring-navy/30 ring-offset-2 ring-offset-white;
+    @apply outline-none ring-2 ring-black/30 ring-offset-2 ring-offset-white;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    *:focus-visible {
+      @apply ring-white/30 ring-offset-black;
+    }
   }
 
   ::selection {
-    @apply bg-navy/10 text-navy;
+    @apply bg-black/10 text-black;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    ::selection {
+      @apply bg-white/20 text-white;
+    }
   }
 }
 
 @layer components {
   .section {
-    @apply py-20 md:py-28;
+    @apply py-16 md:py-24;
   }
 
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
-           bg-navy text-white
-           px-6 py-3 font-medium rounded-md
-           transition-all duration-200
-           hover:bg-navy-600;
+           bg-black text-white
+           px-5 py-2.5 font-medium
+           border border-black
+           transition-colors duration-200
+           hover:bg-white hover:text-black;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .btn-primary {
+      @apply bg-white text-black border-white
+             hover:bg-black hover:text-white;
+    }
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
-           bg-transparent text-navy
-           border-2 border-navy
-           px-6 py-3 font-medium rounded-md
-           transition-all duration-200
-           hover:bg-navy hover:text-white;
+           bg-transparent text-black
+           border border-black
+           px-5 py-2.5 font-medium
+           transition-colors duration-200
+           hover:bg-black hover:text-white;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .btn-secondary {
+      @apply text-white border-white
+             hover:bg-white hover:text-black;
+    }
   }
 
   .card {
-    @apply bg-white border border-slate-200 rounded-lg p-6 md:p-8;
-  }
-}
-
-@layer utilities {
-  .fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+    @apply bg-white border border-black/10 p-6;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  @media (prefers-color-scheme: dark) {
+    .card {
+      @apply bg-black border-white/10;
     }
   }
 }

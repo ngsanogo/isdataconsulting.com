@@ -5,18 +5,15 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-slate-200 bg-white">
+    <footer className="py-10 border-t border-black/10 dark:border-white/10">
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           {/* Left: Company info */}
           <div>
-            <p className="font-semibold text-lg mb-2">
-              <span className="text-navy">ISDATA</span>
-              <span className="text-slate font-normal"> Consulting</span>
+            <p className="font-semibold text-lg mb-1">
+              ISDATA<span className="font-normal opacity-60"> Consulting</span>
             </p>
-            <p className="text-sm text-slate max-w-md">
-              Ingénierie de Données & Business Intelligence
-            </p>
+            <p className="text-sm opacity-50">Ingénierie de Données & BI</p>
           </div>
 
           {/* Right: Links */}
@@ -25,28 +22,28 @@ export default function Footer() {
               href={`https://linkedin.com/company/${SITE_CONFIG.social.linkedin}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate hover:text-navy transition-colors"
+              className="opacity-50 hover:opacity-100 transition-opacity"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
+              <Linkedin size={18} />
             </a>
             <a
               href={SITE_CONFIG.annuaire}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm text-slate hover:text-navy transition-colors"
+              className="flex items-center gap-1.5 text-sm opacity-50 hover:opacity-100 transition-opacity"
             >
-              <ExternalLink size={16} />
+              <ExternalLink size={14} />
               <span>Annuaire légal</span>
             </a>
           </div>
         </div>
 
         {/* Bottom: Legal */}
-        <div className="mt-8 pt-8 border-t border-slate-200">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate">
+        <div className="mt-6 pt-6 border-t border-black/10 dark:border-white/10">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-sm opacity-40">
             <p>
-              © {currentYear} {SITE_CONFIG.name}. Tous droits réservés.
+              © {currentYear} {SITE_CONFIG.name}
             </p>
             <p className="text-xs">
               {SITE_CONFIG.legalForm} · SIREN {SITE_CONFIG.siren} · TVA{" "}

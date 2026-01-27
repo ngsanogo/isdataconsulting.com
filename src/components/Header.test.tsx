@@ -12,11 +12,12 @@ describe("Header", () => {
     render(<Header />);
     expect(screen.getByText("Expertise")).toBeInTheDocument();
     expect(screen.getByText("Méthodologie")).toBeInTheDocument();
-    expect(screen.getByText("Contact")).toBeInTheDocument();
+    expect(screen.getAllByText("Contact").length).toBeGreaterThan(0);
   });
 
   it("renders CTA button", () => {
     render(<Header />);
-    expect(screen.getByText("Discutons")).toBeInTheDocument();
+    const ctaButtons = screen.getAllByRole("link", { name: "Contact" });
+    expect(ctaButtons.length).toBeGreaterThan(0);
   });
 });
