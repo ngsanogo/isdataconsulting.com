@@ -1,16 +1,15 @@
-name: Build and Deploy
+name: Build and Deploy to Netlify
 
 on:
   push:
     branches:
       - main
-      - develop
   pull_request:
     branches:
       - main
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
     
     permissions:
@@ -18,7 +17,8 @@ jobs:
       deployments: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -28,59 +28,53 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Run Type Check
+        run: bun run type-check
+
       - name: Run ESLint
         run: bun run lint
 
-      - name: Run tests
+      - name: Run Tests
         run: bun run test
 
-      - name: Build
+      - name: Build production
         run: bun run build
+        env:
+          NODE_ENV: production
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - name: Deploy to Netlify (Production)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: nwtgck/actions-netlify@v2.1
         with:
-          name: dist
-          path: dist/
-          retention-days: 7
+          publish-dir: './dist'
+          production-branch: main
+          production-deploy: true
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          netlify-config-path: './netlify.toml'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 5
 
-  deploy:
-    needs: build-and-test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    
-    environment:
-      name: production
-      url: https://isdataconsulting.com
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
+      - name: Deploy to Netlify (Preview)
+        if: github.event_name == 'pull_request'
+        uses: nwtgck/actions-netlify@v2.1
         with:
-          name: dist
-          path: dist/
+          publish-dir: './dist'
+          production-branch: main
+          enable-pull-request-comment: true
+          enable-commit-comment: false
+          netlify-config-path: './netlify.toml'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 5
 
-      - name: Deploy to Vercel
-        uses: vercel/action@v4
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          production: true
-
-      - name: Create GitHub Deployment
+      - name: Success notification
         if: success()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.repos.createDeployment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: context.ref,
-              environment: 'production',
-              description: 'Deployed to Vercel',
-              auto_merge: false,
-              required_contexts: []
-            });
+        run: echo "✅ Deployment successful!"
+
+      - name: Failure notification
+        if: failure()
+        run: echo "❌ Deployment failed - check logs above"

@@ -13,8 +13,11 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="font-mono font-semibold text-lg tracking-tight">
-            ISDATA<span className="text-muted-foreground">_</span>CONSULTING
+          <a href="#" className="flex items-center gap-2">
+            <img src="/logo.png" alt="IS Data Consulting" className="h-10 w-10" />
+            <span className="font-mono font-semibold text-lg tracking-tight">
+              ISDATA<span className="text-muted-foreground">_</span>CONSULTING
+            </span>
           </a>
 
           {/* Desktop Nav */}

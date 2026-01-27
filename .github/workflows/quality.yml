@@ -1,4 +1,4 @@
-name: Code Quality
+name: Code Quality & Testing
 
 on:
   pull_request:
@@ -10,9 +10,11 @@ on:
 jobs:
   quality:
     runs-on: ubuntu-latest
+    name: Lint, Type Check & Test
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -25,17 +27,25 @@ jobs:
       - name: Type check
         run: bun run type-check
 
-      - name: Lint
+      - name: Lint code
         run: bun run lint
 
-      - name: Test
+      - name: Run tests
         run: bun run test
 
-      - name: Build
+      - name: Build project
         run: bun run build
+        env:
+          NODE_ENV: production
 
-      - name: Check for console errors
+      - name: Success
+        if: success()
+        run: echo "✅ All quality checks passed!"
+
+      - name: Failure
+        if: failure()
         run: |
-          if grep -r "console\." src/ --include="*.ts" --include="*.tsx" | grep -v "console.log" | grep -v ".eslintignore"; then
-            echo "⚠️ Warning: Found console methods other than console.log"
-          fi
+          echo "❌ Quality checks failed"
+          echo "Please fix errors before merging"
+          exit 1
+
