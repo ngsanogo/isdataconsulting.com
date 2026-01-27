@@ -1,4 +1,4 @@
-import { Github, Linkedin, ExternalLink } from "lucide-react";
+import { Linkedin, ExternalLink } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
 export default function Footer() {
@@ -21,15 +21,6 @@ export default function Footer() {
 
           {/* Right: Links */}
           <div className="flex items-center gap-6">
-            <a
-              href={`https://github.com/${SITE_CONFIG.social.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate hover:text-navy transition-colors"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
             <a
               href={`https://linkedin.com/company/${SITE_CONFIG.social.linkedin}`}
               target="_blank"

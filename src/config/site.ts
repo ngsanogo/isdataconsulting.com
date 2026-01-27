@@ -25,7 +25,6 @@ export const SITE_CONFIG = {
 
   // Réseaux sociaux
   social: {
-    github: "ngsanogo",
     linkedin: "isdataconsulting",
   },
 
