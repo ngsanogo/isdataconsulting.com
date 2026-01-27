@@ -1,51 +1,93 @@
 # ISDATA Consulting
 
-Site vitrine B2B pour ISDATA Consulting - Ingénierie de Données & Business Intelligence.
+Site vitrine B2B pour **ISDATA Consulting** — Ingénierie de Données & Business Intelligence.
 
-## Stack
+🔗 **[isdataconsulting.com](https://isdataconsulting.com)**
 
-- **React 18** + **TypeScript** — Typage strict
-- **Vite** — Build ultra-rapide
-- **Tailwind CSS** — Design system utilitaire
-- **GitHub Pages** — Hébergement statique
+---
+
+## Stack Technique
+
+| Technologie | Usage |
+|-------------|-------|
+| **React 18** | Interface utilisateur |
+| **TypeScript** | Typage strict |
+| **Vite** | Build & dev server |
+| **Tailwind CSS** | Design system |
+| **Vitest** | Tests unitaires |
+| **Netlify** | Hébergement & CDN |
+
+---
 
 ## Développement
 
+### Prérequis
+
+- Node.js 20+
+- npm 9+
+
+### Installation
+
 ```bash
-bun install        # Installation
-bun run dev        # Serveur local (localhost:5173)
-bun run build      # Build production
-bun run preview    # Aperçu du build
-bun run test       # Tests
-bun run lint       # Linting
-bun run type-check # Vérification TypeScript
+npm install
 ```
 
-## Structure
+### Commandes
+
+| Commande | Description |
+|----------|-------------|
+| `npm run dev` | Serveur local (localhost:3000) |
+| `npm run build` | Build production |
+| `npm run preview` | Aperçu du build |
+| `npm run test` | Tests unitaires |
+| `npm run lint` | Linting ESLint |
+| `npm run type-check` | Vérification TypeScript |
+
+---
+
+## Structure du Projet
 
 ```
-src/
-├── components/    # Composants React
-├── config/        # Configuration site
-├── pages/         # Pages
-└── test/          # Configuration tests
-
-public/            # Assets statiques
-.github/workflows/ # CI/CD GitHub Actions
+.
+├── public/             # Assets statiques
+│   ├── logo.svg
+│   └── robots.txt
+├── src/
+│   ├── components/     # Composants React
+│   ├── config/         # Configuration centralisée
+│   ├── pages/          # Pages
+│   └── test/           # Configuration tests
+├── netlify.toml        # Configuration Netlify
+└── package.json
 ```
+
+---
 
 ## Déploiement
 
-Le déploiement sur GitHub Pages est automatique via GitHub Actions sur push vers `main`.
+Le site est déployé automatiquement sur **Netlify** à chaque push sur `main`.
 
-**Configuration requise :**
-1. Settings → Pages → Source: GitHub Actions
-2. Ajouter le domaine custom `isdataconsulting.com`
+### Configuration Netlify
 
-## Performance
+1. Connecter le repository GitHub
+2. Build command: `npm install && npm run build`
+3. Publish directory: `dist`
+4. Ajouter le domaine custom `isdataconsulting.com`
 
-Objectif Lighthouse : **100** sur tous les critères.
+### CI/CD
+
+Le workflow GitHub Actions (`.github/workflows/ci.yml`) exécute :
+- Type checking
+- Linting
+- Tests
+- Build
+
+---
 
 ## Licence
 
 [MIT](LICENSE)
+
+---
+
+© 2025 ISDATA Consulting
