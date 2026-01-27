@@ -1,0 +1,101 @@
+services:
+  # Development service
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: isdataconsulting-dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - BUN_RUNTIME_TRANSPILER_CACHE_DIR=/tmp/bun-cache
+    command: bun run dev
+    stdin_open: true
+    tty: true
+
+  # Production build service
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: isdataconsulting-builder
+    volumes:
+      - ./dist:/app/dist
+    command: echo "Build complete"
+    profiles:
+      - build
+
+  # Production service
+  production:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: isdataconsulting-prod
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    profiles:
+      - production
+
+  # Testing service
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: isdataconsulting-test
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=test
+    command: bun run test
+    profiles:
+      - test
+
+  # Linting service
+  lint:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: isdataconsulting-lint
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: bun run lint
+    profiles:
+      - lint
+
+  # Type checking service
+  typecheck:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: isdataconsulting-typecheck
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: bun run type-check
+    profiles:
+      - typecheck
