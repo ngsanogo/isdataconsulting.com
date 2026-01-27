@@ -1,5 +1,7 @@
 # IS Data Consulting
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e63dfdb1-22e1-4af4-be2b-129b954c872d/deploy-status)](https://app.netlify.com/projects/isdataconsulting/deploys)
+
 Modern website built with React 18, TypeScript, Vite, and Tailwind CSS. Deployed on Netlify.
 
 ## Quick Start
