@@ -4,30 +4,38 @@
  * Philosophie : "Beautiful is better than ugly. Simple is better than complex."
  */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-bg: white;
+    --color-text: black;
+    --color-border: rgba(0, 0, 0, 0.1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: black;
+      --color-text: white;
+      --color-border: rgba(255, 255, 255, 0.1);
+    }
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white text-black antialiased;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    @apply antialiased;
     font-family:
       "Inter",
       system-ui,
       -apple-system,
       sans-serif;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      @apply bg-black text-white;
-    }
   }
 
   h1,
