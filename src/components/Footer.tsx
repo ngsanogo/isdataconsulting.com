@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Left: Company info */}
           <div>
             <p className="font-semibold text-lg mb-1">
-              ISDATA<span className="font-normal opacity-60"> Consulting</span>
+              ISData<span className="font-normal opacity-60"> Consulting</span>
             </p>
             <p className="text-sm opacity-50">Ingénierie de Données & BI</p>
           </div>

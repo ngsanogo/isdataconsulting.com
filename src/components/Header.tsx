@@ -28,7 +28,7 @@ export default function Header() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <span className="font-semibold text-lg tracking-tight">
-              ISDATA<span className="font-normal opacity-60"> Consulting</span>
+              ISData<span className="font-normal opacity-60"> Consulting</span>
             </span>
           </a>
 
