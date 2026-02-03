@@ -76,36 +76,14 @@ const CASE_STUDIES = [
     ],
   },
   {
-    sector: "Finance",
-    title: "Plateforme de données réglementaires",
-    context: "Une banque européenne devait consolider ses données de reporting réglementaire dispersées dans 15+ systèmes legacy.",
-    solution: "Pipeline ELT avec dbt et Airflow, data warehouse Snowflake, automatisation des rapports COREP/FINREP.",
+    sector: "Association",
+    title: "Data Warehouse de gestion des adhérents",
+    context: "Une fédération associative nationale avec 500+ associations membres, des contrats, contacts et cotisations dispersés dans Excel, CRM legacy et outils métiers.",
+    solution: "Data warehouse BigQuery avec pipelines Airflow, modélisation dbt des dimensions adhérents/contrats/paiements, dashboards Looker Studio.",
     results: [
-      "Réduction de 70% du temps de production des rapports",
-      "Traçabilité complète des données (data lineage)",
-      "Économie de 3 ETP sur les tâches manuelles",
-    ],
-  },
-  {
-    sector: "Retail",
-    title: "Data Lake omnicanal temps réel",
-    context: "Un retailer national souhaitait unifier ses données e-commerce, magasins et CRM pour une vue client 360°.",
-    solution: "Architecture Lambda avec Kafka pour le streaming, Spark pour le batch, Delta Lake sur AWS S3.",
-    results: [
-      "Latence de données réduite de 24h à 5 minutes",
-      "Unification de 8 millions de profils clients",
-      "ROI de 300% sur les campagnes marketing personnalisées",
-    ],
-  },
-  {
-    sector: "Industrie",
-    title: "IoT & maintenance prédictive",
-    context: "Un industriel avec 500+ machines connectées générant 2TB/jour de données capteurs sans exploitation.",
-    solution: "Pipeline streaming Kafka → Flink → BigQuery, modèles ML de prédiction de pannes.",
-    results: [
-      "Réduction de 40% des arrêts non planifiés",
-      "Optimisation de la maintenance (-25% coûts)",
-      "Dashboard temps réel pour les opérations",
+      "Centralisation de 50 000 contrats et 200 000 contacts",
+      "Vision 360° des adhérents en temps réel",
+      "Automatisation du reporting fédéral (gain de 2 ETP)",
     ],
   },
 ] as const;

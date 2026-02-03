@@ -168,36 +168,14 @@ const CASE_STUDIES = [
     ],
   },
   {
-    sector: "Finance",
-    title: "Migration vers une Lakehouse Architecture",
-    context: "Une fintech en hypercroissance avec un data warehouse legacy Teradata coûteux et rigide.",
-    solution: "Migration vers Delta Lake sur Databricks, avec architecture medallion (Bronze/Silver/Gold) et gouvernance Unity Catalog.",
+    sector: "Association",
+    title: "Architecture data centralisée multi-sources",
+    context: "Une grande association caritative avec des données donateurs, bénévoles et projets éparpillées entre 10+ outils (CRM, comptabilité, terrain).",
+    solution: "Architecture moderne sur BigQuery avec couche d'ingestion Fivetran/Airbyte, modélisation dimensionnelle dbt, gouvernance centralisée.",
     results: [
-      "Réduction de 60% des coûts d'infrastructure",
-      "Temps de requête divisé par 5",
-      "Onboarding de nouveaux use cases en jours vs mois",
-    ],
-  },
-  {
-    sector: "Retail",
-    title: "Plateforme Data Mesh multi-domaines",
-    context: "Un groupe retail avec 5 BUs autonomes, chacune avec sa propre stack data, empêchant les synergies.",
-    solution: "Plateforme self-service GCP avec BigQuery, data contracts entre domaines, catalogue Dataplex.",
-    results: [
-      "5 domaines data autonomes et interopérables",
-      "Time-to-market divisé par 3 pour les nouveaux produits data",
-      "Gouvernance fédérée respectant l'autonomie des BUs",
-    ],
-  },
-  {
-    sector: "Industrie",
-    title: "Architecture événementielle IoT",
-    context: "Un industriel 4.0 collectant des données de 10 000 capteurs sans capacité d'exploitation temps réel.",
-    solution: "Architecture event-driven avec Kafka, traitement Flink, stockage Delta Lake, dashboards Grafana.",
-    results: [
-      "Latence de détection d'anomalies < 1 seconde",
-      "Scalabilité à 100 000+ capteurs sans refonte",
-      "Maintenance prédictive avec 95% de précision",
+      "Source unique de vérité pour 300 000 contacts",
+      "Coûts d'infrastructure < 500€/mois",
+      "Autonomie des équipes métiers sur les analyses",
     ],
   },
 ] as const;
