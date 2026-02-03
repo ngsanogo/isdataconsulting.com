@@ -1,23 +1,34 @@
-import { Database, GitBranch, Users, ArrowRight } from "lucide-react";
-import { SITE_CONFIG } from "@/config/site";
+import { Database, GitBranch, Users, ArrowRight, Check } from "lucide-react";
 
 const SERVICES = [
   {
     icon: Database,
     id: "data-engineering",
-    title: "Data Engineering Consulting",
+    title: "Data Engineering",
+    subtitle: "Pipelines robustes & performants",
     description:
-      "Conception et implémentation de pipelines de données robustes. Ingestion, ETL/ELT, traitement batch & streaming, data lakes et warehouses modernes.",
-    tags: ["Python", "SQL", "Spark", "Airflow", "dbt"],
+      "Conception et implémentation de pipelines de données fiables. ETL/ELT modernes, data lakes, warehouses cloud-native.",
+    benefits: [
+      "Pipelines qui tournent sans intervention",
+      "Coûts cloud maîtrisés",
+      "Documentation & tests inclus",
+    ],
+    tags: ["Python", "Spark", "Airflow", "dbt", "Kafka"],
     href: "/services/data-engineering",
-    cta: "Découvrir nos services Data Engineering",
+    cta: "Voir nos services Data Engineering",
   },
   {
     icon: GitBranch,
     id: "architecture-data",
-    title: "Architecture Data Cloud",
+    title: "Architecture Data",
+    subtitle: "Plateformes cloud évolutives",
     description:
-      "Design d'architectures data scalables et performantes sur AWS, GCP, Azure. Data Mesh, Lakehouse, architectures événementielles et cloud-native.",
+      "Design d'architectures data scalables sur AWS, GCP, Azure. Data Mesh, Lakehouse, architectures événementielles.",
+    benefits: [
+      "Architecture évolutive sans dette technique",
+      "Choix technologiques justifiés",
+      "Patterns éprouvés en production",
+    ],
     tags: ["AWS", "GCP", "Azure", "Terraform", "Databricks"],
     href: "/services/architecture-data",
     cta: "Explorer nos expertises Architecture",
@@ -26,8 +37,14 @@ const SERVICES = [
     icon: Users,
     id: "product-data",
     title: "Product Data Services",
+    subtitle: "PO Data • Data Manager • Chef de Projet",
     description:
-      "Product Owner Data, Data Manager, Chef de Projet Data. Pilotage agile de vos produits data, gouvernance et alignement métier/IT.",
+      "Pilotage agile de vos produits data, gouvernance, alignement métier/IT. Le pont entre vos équipes techniques et business.",
+    benefits: [
+      "Projets qui respectent le planning",
+      "Alignement métier/IT permanent",
+      "Adoption utilisateur maximisée",
+    ],
     tags: ["Product Owner", "Data Manager", "Agile", "Gouvernance"],
     href: "/services/product-data",
     cta: "Voir nos missions Product Data",
@@ -39,15 +56,16 @@ export default function ExpertiseSection() {
     <section id="expertise" className="section">
       <div className="container mx-auto">
         {/* Section Header */}
-        <div className="max-w-xl mb-12">
+        <div className="max-w-2xl mb-12">
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
-            Nos Expertises
+            Nos Solutions
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-            Trois piliers pour transformer vos données en valeur
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
+            Trois expertises complémentaires pour structurer vos données
           </h2>
-          <p className="opacity-60">
-            De l'ingénierie à la gouvernance, un accompagnement complet pour vos projets data.
+          <p className="opacity-60 text-lg">
+            Que vous ayez besoin de pipelines robustes, d'une architecture évolutive 
+            ou d'un pilotage projet efficace, nous avons l'expertise adaptée.
           </p>
         </div>
 
@@ -56,18 +74,31 @@ export default function ExpertiseSection() {
           {SERVICES.map((service) => (
             <article
               key={service.id}
-              className="group p-6 border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors flex flex-col"
+              className="group p-6 bg-white dark:bg-black border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors flex flex-col"
             >
-              <service.icon
-                className="w-10 h-10 mb-4 opacity-80"
-                strokeWidth={1.5}
-              />
+              <div className="flex items-start justify-between mb-4">
+                <service.icon
+                  className="w-10 h-10 opacity-80"
+                  strokeWidth={1.5}
+                />
+              </div>
 
-              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+              <h3 className="text-xl font-semibold mb-1">{service.title}</h3>
+              <p className="text-sm opacity-50 mb-4">{service.subtitle}</p>
 
-              <p className="opacity-60 mb-4 text-sm leading-relaxed flex-grow">
+              <p className="opacity-60 mb-4 text-sm leading-relaxed">
                 {service.description}
               </p>
+
+              {/* Benefits */}
+              <ul className="space-y-2 mb-6 flex-grow">
+                {service.benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-start gap-2 text-sm">
+                    <Check className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
+                    <span className="opacity-80">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
 
               <div className="flex flex-wrap gap-1.5 mb-6">
                 {service.tags.map((tag) => (
@@ -91,25 +122,12 @@ export default function ExpertiseSection() {
           ))}
         </div>
 
-        {/* CTA Banner */}
-        <div className="mt-12 p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <h3 className="text-lg font-semibold mb-1">
-                Besoin d'une expertise data sur mesure ?
-              </h3>
-              <p className="text-sm opacity-60">
-                Contactez-nous pour une évaluation gratuite de votre architecture data.
-              </p>
-            </div>
-            <a 
-              href="#contact" 
-              className="btn-primary shrink-0"
-            >
-              Évaluation gratuite
-              <ArrowRight size={16} />
-            </a>
-          </div>
+        {/* Reassurance */}
+        <div className="mt-12 text-center">
+          <p className="text-sm opacity-50 mb-4">
+            Toutes nos missions incluent : documentation technique complète, 
+            transfert de compétences et support post-projet.
+          </p>
         </div>
       </div>
     </section>
