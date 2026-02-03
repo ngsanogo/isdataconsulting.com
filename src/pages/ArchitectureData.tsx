@@ -146,6 +146,28 @@ const CLOUD_COMPARISON = [
 
 const CASE_STUDIES = [
   {
+    sector: "Santé",
+    title: "Plateforme Health Data Hub conforme",
+    context: "Un réseau de cliniques privées devant centraliser les données de soins tout en respectant les contraintes HDS et RGPD.",
+    solution: "Architecture cloud souveraine sur GCP avec chiffrement bout-en-bout, zones de données isolées par niveau de sensibilité, audit trail complet.",
+    results: [
+      "Certification HDS obtenue en 3 mois",
+      "Interopérabilité HL7 FHIR avec 8 systèmes",
+      "Temps de réponse aux requêtes recherche clinique / 10",
+    ],
+  },
+  {
+    sector: "Marketing",
+    title: "Architecture Composable CDP",
+    context: "Un groupe média avec 3 marques, chacune utilisant des outils marketing différents, sans vue unifiée des audiences.",
+    solution: "Architecture Lakehouse composable avec Snowflake, Fivetran pour l'ingestion, Census pour l'activation, dbt pour la modélisation.",
+    results: [
+      "Coût total / 4 vs CDP packagée",
+      "Flexibilité totale sur les destinations d'activation",
+      "First-party data strategy opérationnelle",
+    ],
+  },
+  {
     sector: "Finance",
     title: "Migration vers une Lakehouse Architecture",
     context: "Une fintech en hypercroissance avec un data warehouse legacy Teradata coûteux et rigide.",

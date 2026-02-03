@@ -54,6 +54,28 @@ const TECHNOLOGIES = [
 
 const CASE_STUDIES = [
   {
+    sector: "Santé",
+    title: "Plateforme de données patients multi-établissements",
+    context: "Un groupe hospitalier de 12 établissements avec des données patients fragmentées entre DPI, laboratoires et imagerie médicale.",
+    solution: "Pipeline ELT sécurisé avec Airflow, anonymisation automatique RGPD, data warehouse conforme HDS sur GCP.",
+    results: [
+      "Consolidation de 2M de dossiers patients",
+      "Temps d'accès aux données réduit de 48h à 2 minutes",
+      "Conformité HDS et RGPD garantie",
+    ],
+  },
+  {
+    sector: "Marketing",
+    title: "CDP (Customer Data Platform) temps réel",
+    context: "Une agence média gérant 50+ campagnes simultanées avec des données dispersées entre Google Ads, Meta, CRM et web analytics.",
+    solution: "Ingestion temps réel avec Airbyte, transformation dbt, activation Snowflake + Hightouch pour reverse ETL.",
+    results: [
+      "Unification de 15M de profils cross-canal",
+      "Attribution marketing en quasi temps réel",
+      "ROAS amélioré de 45% grâce aux audiences enrichies",
+    ],
+  },
+  {
     sector: "Finance",
     title: "Plateforme de données réglementaires",
     context: "Une banque européenne devait consolider ses données de reporting réglementaire dispersées dans 15+ systèmes legacy.",

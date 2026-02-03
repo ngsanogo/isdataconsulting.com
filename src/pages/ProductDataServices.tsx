@@ -108,6 +108,40 @@ const VALUE_PROPS = [
 
 const CASE_STUDIES = [
   {
+    sector: "Santé",
+    title: "Product Owner Entrepôt de Données de Santé",
+    context: "Un CHU lançant son entrepôt de données de santé (EDS) pour la recherche clinique, avec des parties prenantes multiples (DSI, DIM, chercheurs).",
+    role: "Product Owner de l'EDS, interface entre les équipes techniques et les chercheurs.",
+    actions: [
+      "Ateliers de priorisation avec 12 équipes de recherche",
+      "Définition des cohortes patients prioritaires",
+      "Coordination avec le DPO pour la conformité RGPD",
+      "Roadmap de 18 mois avec jalons réglementaires",
+    ],
+    results: [
+      "Première cohorte disponible en 6 mois",
+      "15 projets de recherche activés la première année",
+      "Labellisation EDS par le Health Data Hub",
+    ],
+  },
+  {
+    sector: "Marketing",
+    title: "Data Manager Attribution & Mesure",
+    context: "Une scale-up e-commerce avec 5M€/mois de budget média, incapable de mesurer le ROI réel de ses campagnes.",
+    role: "Data Manager responsable du référentiel attribution et de la qualité des données marketing.",
+    actions: [
+      "Audit des 12 sources de données marketing",
+      "Définition du modèle d'attribution multi-touch",
+      "Mise en place de la gouvernance des UTM",
+      "Formation des équipes acquisition",
+    ],
+    results: [
+      "Modèle d'attribution fiable déployé",
+      "Réallocation de 20% du budget vers les canaux performants",
+      "Dashboards self-service pour les équipes marketing",
+    ],
+  },
+  {
     sector: "Finance",
     title: "Product Owner pour Data Platform",
     context: "Une banque en transformation data cherchait à structurer le delivery de sa nouvelle plateforme analytics.",
