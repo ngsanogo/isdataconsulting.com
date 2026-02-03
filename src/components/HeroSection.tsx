@@ -8,34 +8,53 @@ export default function HeroSection() {
         <div className="max-w-2xl">
           {/* Tagline */}
           <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">
-            Data Engineering & Architecture
+            Consultant Data Engineering & Architecture
           </p>
 
           {/* Titre principal */}
           <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-            Ingénierie de Données & Business Intelligence
+            Transformez vos données en avantage compétitif
           </h1>
 
           {/* Description */}
           <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-xl">
-            {SITE_CONFIG.description}
+            Cabinet de conseil expert en <strong>Data Engineering</strong>, <strong>Architecture Data Cloud</strong> et <strong>Product Data Services</strong>. 
+            De la conception de pipelines à la gouvernance, nous accompagnons votre transformation data.
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-3">
             <a href="#contact" className="btn-primary">
-              Contact
+              Évaluation gratuite
               <ArrowRight size={16} />
             </a>
             <a href="#expertise" className="btn-secondary">
-              Expertise
+              Nos expertises
             </a>
           </div>
 
+          {/* Service highlights */}
+          <div className="mt-12 grid grid-cols-3 gap-4 pt-8 border-t border-black/10 dark:border-white/10">
+            {SITE_CONFIG.services.map((service) => (
+              <a 
+                key={service.id}
+                href={service.href}
+                className="group"
+              >
+                <p className="text-sm font-medium group-hover:opacity-100 opacity-70 transition-opacity">
+                  {service.shortTitle}
+                </p>
+                <p className="text-xs opacity-40 mt-0.5 hidden sm:block">
+                  {service.keywords[0]}
+                </p>
+              </a>
+            ))}
+          </div>
+
           {/* Trust indicators */}
-          <div className="mt-16 pt-6 border-t border-black/10 dark:border-white/10">
+          <div className="mt-8 pt-6 border-t border-black/10 dark:border-white/10">
             <p className="text-xs opacity-40">
-              {SITE_CONFIG.legalForm} · SIREN {SITE_CONFIG.siren} · France
+              {SITE_CONFIG.legalForm} · SIREN {SITE_CONFIG.siren} · +10 ans d'expérience data
             </p>
           </div>
         </div>
