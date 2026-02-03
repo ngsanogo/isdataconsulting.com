@@ -1,5 +1,4 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { SITE_CONFIG } from "@/config/site";
 
 const VALUE_POINTS = [
   "Pipelines ETL/ELT robustes et testés",

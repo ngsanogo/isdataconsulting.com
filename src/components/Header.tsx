@@ -2,7 +2,13 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
-const NAV_LINKS = [
+interface NavLink {
+  label: string;
+  href: string;
+  submenu?: { label: string; href: string; description: string }[];
+}
+
+const NAV_LINKS: NavLink[] = [
   { label: "Accueil", href: "/" },
   { 
     label: "Services", 
@@ -15,7 +21,7 @@ const NAV_LINKS = [
   },
   { label: "Méthodologie", href: "/#methodology" },
   { label: "Contact", href: "/#contact" },
-] as const;
+];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);

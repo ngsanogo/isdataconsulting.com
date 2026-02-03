@@ -1,8 +1,8 @@
 /**
- * Composant SEO pour les pages de services
- * Injecte les métadonnées dans le head de la page
+ * Composant SEO avec react-helmet-async
+ * Gestion propre des meta tags sans manipulation DOM directe
  */
-import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 interface SEOProps {
   title: string;
@@ -12,58 +12,37 @@ interface SEOProps {
   ogImage?: string;
 }
 
-export default function SEO({ 
-  title, 
-  description, 
-  keywords = [], 
+export default function SEO({
+  title,
+  description,
+  keywords = [],
   canonicalPath,
-  ogImage = "https://isdataconsulting.com/og-image.png"
+  ogImage = "https://isdataconsulting.com/og-image.png",
 }: SEOProps) {
-  useEffect(() => {
-    // Update document title
-    document.title = title;
-    
-    // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", description);
-    }
+  const canonicalUrl = `https://isdataconsulting.com${canonicalPath}`;
 
-    // Update keywords
-    if (keywords.length > 0) {
-      const metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (metaKeywords) {
-        metaKeywords.setAttribute("content", keywords.join(", "));
-      }
-    }
+  return (
+    <Helmet>
+      {/* Primary Meta Tags */}
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      {keywords.length > 0 && (
+        <meta name="keywords" content={keywords.join(", ")} />
+      )}
+      <link rel="canonical" href={canonicalUrl} />
 
-    // Update canonical
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.setAttribute("href", `https://isdataconsulting.com${canonicalPath}`);
-    }
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={ogImage} />
 
-    // Update OG tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", title);
-
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute("content", description);
-
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute("href", `https://isdataconsulting.com${canonicalPath}`);
-
-    const ogImg = document.querySelector('meta[property="og:image"]');
-    if (ogImg) ogImg.setAttribute("content", ogImage);
-
-    // Update Twitter tags
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) twitterTitle.setAttribute("content", title);
-
-    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDesc) twitterDesc.setAttribute("content", description);
-
-  }, [title, description, keywords, canonicalPath, ogImage]);
-
-  return null;
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
+    </Helmet>
+  );
 }

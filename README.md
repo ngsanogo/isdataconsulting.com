@@ -4,14 +4,16 @@ Site vitrine officiel de **ISData Consulting** — Cabinet de conseil spécialis
 
 🌐 **[isdataconsulting.com](https://isdataconsulting.com)**
 
+[![CI](https://github.com/ngsanogo/isdataconsulting.com/actions/workflows/ci.yml/badge.svg)](https://github.com/ngsanogo/isdataconsulting.com/actions/workflows/ci.yml)
+
 ---
 
 ## 🚀 Démarrage rapide
 
 ### Prérequis
 
-- [Node.js](https://nodejs.org/) 18+ (recommandé: LTS)
-- npm ou yarn
+- [Node.js](https://nodejs.org/) 20+ (recommandé: LTS)
+- npm
 
 ### Installation
 
@@ -22,6 +24,9 @@ cd isdataconsulting.com
 
 # Installer les dépendances
 npm install
+
+# Copier le fichier d'environnement (optionnel)
+cp .env.example .env
 ```
 
 ### Développement
@@ -35,6 +40,12 @@ npm run type-check
 
 # Linter le code
 npm run lint
+
+# Lancer les tests en mode watch
+npm run test
+
+# Lancer les tests avec couverture
+npm run test:coverage
 ```
 
 ### Build & Preview
@@ -56,25 +67,35 @@ isdataconsulting.com/
 ├── public/              # Assets statiques (robots.txt, sitemap.xml, images)
 ├── src/
 │   ├── components/      # Composants React réutilisables
-│   │   ├── Header.tsx
-│   │   ├── HeroSection.tsx
-│   │   ├── ExpertiseSection.tsx
-│   │   ├── MethodologySection.tsx
-│   │   ├── ContactSection.tsx
-│   │   ├── Footer.tsx
-│   │   └── ErrorBoundary.tsx
+│   │   ├── Header.tsx          # Navigation avec dropdown services
+│   │   ├── HeroSection.tsx     # Section hero avec CTAs
+│   │   ├── ProblemsSection.tsx # Pain points clients
+│   │   ├── ExpertiseSection.tsx# 3 offres principales
+│   │   ├── SocialProofSection.tsx # Preuves sociales
+│   │   ├── MethodologySection.tsx # Process en 4 étapes
+│   │   ├── FAQSection.tsx      # FAQ avec accordion
+│   │   ├── ContactSection.tsx  # Section contact
+│   │   ├── Footer.tsx          # Pied de page
+│   │   ├── SEO.tsx             # Gestion meta tags dynamiques
+│   │   ├── StickyCTA.tsx       # CTA sticky au scroll
+│   │   └── ErrorBoundary.tsx   # Error boundary React
 │   ├── config/          # Configuration centralisée
 │   │   └── site.ts      # Toutes les infos du site (email, téléphone, SEO...)
 │   ├── pages/
-│   │   └── Index.tsx    # Page d'accueil (composition des sections)
-│   ├── App.tsx          # Point d'entrée de l'app React
-│   ├── main.tsx         # Rendu React avec StrictMode + ErrorBoundary
+│   │   ├── Index.tsx           # Page d'accueil
+│   │   ├── DataEngineering.tsx # Service Data Engineering
+│   │   ├── ArchitectureData.tsx# Service Architecture Data
+│   │   └── ProductDataServices.tsx # Service Product Data
+│   ├── App.tsx          # Router principal
+│   ├── main.tsx         # Point d'entrée React
 │   └── index.css        # Styles Tailwind + design system
 ├── index.html           # Template HTML (SEO, meta tags, structured data)
-├── package.json
+├── package.json         # Dépendances et scripts
 ├── tsconfig.json        # Configuration TypeScript stricte
 ├── tailwind.config.ts   # Configuration Tailwind (palette noir/blanc)
 ├── vite.config.ts       # Configuration Vite
+├── netlify.toml         # Configuration Netlify (build, redirects, headers)
+├── eslint.config.js     # Configuration ESLint
 └── README.md
 ```
 
