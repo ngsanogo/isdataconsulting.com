@@ -1,5 +1,5 @@
 /**
- * ISDATA Consulting - Application principale
+ * ISData Consulting - Application principale
  * Site vitrine statique pour GitHub Pages
  */
 import Index from "./pages/Index";

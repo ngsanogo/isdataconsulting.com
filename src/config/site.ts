@@ -1,10 +1,10 @@
 /**
- * Configuration centrale du site ISDATA Consulting
+ * Configuration centrale du site ISData Consulting
  * Toutes les informations modifiables en un seul endroit
  */
 
 export const SITE_CONFIG = {
-  name: "ISDATA Consulting",
+  name: "ISData Consulting",
   tagline: "L'ingénierie des données au service de la décision",
   description:
     "Cabinet de conseil spécialisé en Data Engineering, Architecture de données et Transformation digitale.",

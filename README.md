@@ -1,6 +1,6 @@
-# ISDATA Consulting
+# ISData Consulting
 
-Site vitrine officiel de **ISDATA Consulting** — Cabinet de conseil spécialisé en Data Engineering, Architecture de données et Business Intelligence.
+Site vitrine officiel de **ISData Consulting** — Cabinet de conseil spécialisé en Data Engineering, Architecture de données et Business Intelligence.
 
 🌐 **[isdataconsulting.com](https://isdataconsulting.com)**
 
@@ -151,7 +151,7 @@ Toutes les informations du site sont centralisées dans **[src/config/site.ts](s
 
 ```typescript
 export const SITE_CONFIG = {
-  name: "ISDATA Consulting",
+  name: "ISData Consulting",
   email: "contact@isdataconsulting.com",
   phone: "+33 6 51 98 52 79",
   // ... autres infos
@@ -201,7 +201,7 @@ npm run lint
 
 ## 📄 Licence
 
-© 2026 ISDATA Consulting. Tous droits réservés.
+© 2026 ISData Consulting. Tous droits réservés.
 
 **SASU** · SIREN 940 718 075 · TVA FR56940718075
 
@@ -211,7 +211,7 @@ npm run lint
 
 - 📧 Email : [contact@isdataconsulting.com](mailto:contact@isdataconsulting.com)
 - 📞 Téléphone : [+33 6 51 98 52 79](tel:+33651985279)
-- 💼 LinkedIn : [ISDATA Consulting](https://linkedin.com/company/isdataconsulting)
+- 💼 LinkedIn : [ISData Consulting](https://linkedin.com/company/isdataconsulting)
 
 ---
 

@@ -1,5 +1,5 @@
 /**
- * Page d'accueil ISDATA Consulting
+ * Page d'accueil ISData Consulting
  * Structure : Hero → Expertise → Méthodologie → Contact → Footer
  */
 import Header from "@/components/Header";
