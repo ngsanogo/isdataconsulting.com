@@ -1,13 +1,15 @@
-FROM node:22-alpine AS base
+FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --frozen-lockfile
 
-FROM base AS dev
+FROM deps AS dev
 COPY . .
-EXPOSE 3000
+USER node
+EXPOSE 5173
 
-FROM dev AS builder
+FROM deps AS builder
+COPY . .
 RUN npm run build
 
 FROM nginx:alpine AS prod
