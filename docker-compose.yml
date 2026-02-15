@@ -1,6 +1,5 @@
 services:
   app:
-    container_name: app
     build:
       context: .
       dockerfile: Dockerfile
@@ -13,16 +12,14 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
+    command: npm run dev
 
   test:
-    container_name: test
     build:
       context: .
       dockerfile: Dockerfile
       target: dev
     image: isdataconsulting.com:dev
-    depends_on:
-      - app
     profiles:
       - test
     volumes:
@@ -30,4 +27,4 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=test
-    command: npm test
+    command: npm run test:coverage
