@@ -3,30 +3,31 @@ import { CheckCircle2, Award, Building2, Users } from "lucide-react";
 const CREDENTIALS = [
   {
     icon: Award,
-    value: "+10 ans",
-    label: "d'expérience en Data Engineering",
-    detail: "Grands groupes, scale-ups, associations",
+    value: "Experience senior",
+    label: "Data Engineering & Architecture",
+    detail: "Interventions sur missions courtes et longues",
   },
   {
     icon: Building2,
-    value: "50+",
-    label: "projets data livrés",
-    detail: "De la startup au CAC40",
+    value: "Interlocuteur unique",
+    label: "Decision et execution alignees",
+    detail: "Pas d'intermediaire",
   },
   {
     icon: Users,
-    value: "100%",
-    label: "de clients satisfaits",
-    detail: "Recommandation et récurrence",
+    value: "References sur demande",
+    label: "Missions verifiables",
+    detail: "Partage en echange confidentiel",
   },
 ] as const;
 
 const EXPERTISE_PROOF = [
-  "Certifié Google Cloud Professional Data Engineer",
-  "Contributeur open-source (dbt, Airflow)",
-  "Expérience en ESN et grands comptes",
-  "Formateur data engineering",
-  "Speaker conférences tech (Snowflake Summit, dbt meetups)",
+  "Architecture cible et ADR documentes",
+  "Pipelines testes avec monitoring",
+  "Runbooks et transfert de competences",
+  "Gouvernance et ownership des donnees",
+  "Securite et conformite selon contexte",
+  "Management d'equipe data et rituels",
 ] as const;
 
 const CLIENT_TYPES = [
@@ -48,8 +49,8 @@ export default function SocialProofSection() {
             Un expert senior, pas une ESN
           </h2>
           <p className="opacity-60 text-lg">
-            Vous travaillez directement avec un consultant senior expérimenté. 
-            Pas de junior, pas de turn-over, pas de surprise.
+            Vous travaillez directement avec un consultant senior.
+            Objectifs, livrables et responsabilites sont explicites.
           </p>
         </div>
 
@@ -75,7 +76,7 @@ export default function SocialProofSection() {
             <ul className="space-y-3">
               {EXPERTISE_PROOF.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="mt-0.5 text-green-600 dark:text-green-400 shrink-0" />
+                  <CheckCircle2 size={18} className="mt-0.5 opacity-70 shrink-0" />
                   <span className="text-sm opacity-80">{item}</span>
                 </li>
               ))}
@@ -104,15 +105,14 @@ export default function SocialProofSection() {
                 La différence ISData Consulting
               </h3>
               <p className="opacity-70">
-                Un interlocuteur unique qui comprend autant les enjeux techniques que business. 
-                Pas de commercial, pas de manager intermédiaire : vous parlez directement à celui qui fait.
+                Un interlocuteur unique, des livrables explicites et une execution directe.
               </p>
             </div>
             <a 
               href="#contact" 
               className="shrink-0 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-80 transition-opacity"
             >
-              Discutons de votre projet
+              Planifier un appel de cadrage
             </a>
           </div>
         </div>

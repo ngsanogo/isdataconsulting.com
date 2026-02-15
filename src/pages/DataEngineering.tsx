@@ -8,25 +8,25 @@ const SERVICES = [
   {
     icon: Database,
     title: "Ingestion de données",
-    description: "Collecte et centralisation de vos données depuis toutes vos sources : bases de données, APIs, fichiers, IoT, SaaS.",
+    description: "Ingestion depuis bases de donnees, APIs, fichiers, IoT ou SaaS, avec mapping et contrats de schema.",
     features: ["Connecteurs sur mesure", "CDC (Change Data Capture)", "APIs REST & GraphQL", "Fichiers (CSV, JSON, Parquet)"],
   },
   {
     icon: Zap,
     title: "Pipelines ETL/ELT",
-    description: "Conception et orchestration de flux de transformation robustes, testables et maintenables.",
+    description: "Orchestration et transformation avec tests, monitoring et runbooks.",
     features: ["Airflow & Dagster", "dbt transformations", "Data quality checks", "Observabilité intégrée"],
   },
   {
     icon: Shield,
     title: "Traitement Batch & Streaming",
-    description: "Architecture de traitement adaptée à vos besoins : temps réel ou traitements planifiés.",
+    description: "Traitements batch ou streaming, avec SLA et gestion des incidents.",
     features: ["Apache Spark", "Kafka & Pub/Sub", "Flink & Beam", "Lambda & Kappa architectures"],
   },
   {
     icon: TrendingUp,
     title: "Data Lakes & Warehouses",
-    description: "Mise en place de plateformes de stockage modernes, scalables et coût-optimisées.",
+    description: "Stockage et modeles analytiques avec gouvernance et controle des couts.",
     features: ["Snowflake & BigQuery", "Databricks Lakehouse", "Delta Lake & Iceberg", "Data Mesh patterns"],
   },
 ] as const;
@@ -53,9 +53,9 @@ const CASE_STUDIES = [
     context: "Un groupe hospitalier de 12 établissements avec des données patients fragmentées entre DPI, laboratoires et imagerie médicale.",
     solution: "Pipeline ELT sécurisé avec Airflow, anonymisation automatique RGPD, data warehouse conforme HDS sur GCP.",
     results: [
-      "Consolidation de 2M de dossiers patients",
-      "Temps d'accès aux données réduit de 48h à 2 minutes",
-      "Conformité HDS et RGPD garantie",
+      "Consolidation des dossiers patients",
+      "Reduction du temps d'acces aux donnees",
+      "Conformite HDS et RGPD selon contraintes",
     ],
   },
   {
@@ -64,9 +64,9 @@ const CASE_STUDIES = [
     context: "Une agence média gérant 50+ campagnes simultanées avec des données dispersées entre Google Ads, Meta, CRM et web analytics.",
     solution: "Ingestion temps réel avec Airbyte, transformation dbt, activation Snowflake + Hightouch pour reverse ETL.",
     results: [
-      "Unification de 15M de profils cross-canal",
-      "Attribution marketing en quasi temps réel",
-      "ROAS amélioré de 45% grâce aux audiences enrichies",
+      "Unification des profils cross-canal",
+      "Attribution marketing plus reactive",
+      "Audiences enrichies et activables",
     ],
   },
   {
@@ -75,29 +75,29 @@ const CASE_STUDIES = [
     context: "Une fédération associative nationale avec 500+ associations membres, des contrats, contacts et cotisations dispersés dans Excel, CRM legacy et outils métiers.",
     solution: "Data warehouse BigQuery avec pipelines Airflow, modélisation dbt des dimensions adhérents/contrats/paiements, dashboards Looker Studio.",
     results: [
-      "Centralisation de 50 000 contrats et 200 000 contacts",
-      "Vision 360° des adhérents en temps réel",
-      "Automatisation du reporting fédéral (gain de 2 ETP)",
+      "Centralisation des contrats et contacts",
+      "Vision 360 des adherents",
+      "Reporting automatise",
     ],
   },
 ] as const;
 
 const BENEFITS = [
   {
-    title: "Qualité des données garantie",
-    description: "Tests automatisés, validation des schémas, monitoring des anomalies pour des données fiables.",
+    title: "Qualite mesuree",
+    description: "Tests automatises, validation de schemas, alertes et monitoring.",
   },
   {
-    title: "Time-to-insight réduit",
-    description: "De la donnée brute à l'analyse en minutes plutôt qu'en jours grâce à des pipelines optimisés.",
+    title: "Time-to-insight",
+    description: "Flux optimises pour livrer des donnees utilisables.",
   },
   {
-    title: "Scalabilité native",
-    description: "Architectures conçues pour évoluer avec vos volumes sans refonte majeure.",
+    title: "Scalabilite",
+    description: "Architecture qui evolue avec les volumes et les usages.",
   },
   {
-    title: "Coûts maîtrisés",
-    description: "Optimisation du compute et du stockage cloud, FinOps intégré dès la conception.",
+    title: "Couts suivis",
+    description: "Suivi des couts et optimisations structurelles.",
   },
 ] as const;
 
@@ -106,7 +106,7 @@ export default function DataEngineering() {
     <div className="min-h-screen">
       <SEO 
         title="Consultant Data Engineering | Pipelines ETL/ELT & Data Platforms | ISData"
-        description="Expert en data engineering : conception de pipelines ETL/ELT, ingestion batch & streaming, data lakes et warehouses. Airflow, dbt, Spark. Transformez vos données en actifs stratégiques."
+        description="Conception de pipelines ETL/ELT, ingestion batch & streaming, data lakes et warehouses. Airflow, dbt, Spark. Tests, monitoring, documentation et runbooks."
         keywords={["consultant data engineering", "pipelines ETL ELT", "data platform", "Airflow", "dbt", "Spark", "data lake", "data warehouse"]}
         canonicalPath="/services/data-engineering"
       />
@@ -125,18 +125,17 @@ export default function DataEngineering() {
               </p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Transformez vos données en actifs stratégiques
+                Pipelines ETL/ELT livres avec tests et monitoring
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
-                Expert en <strong>data engineering</strong>, je conçois et implémente des 
-                <strong> pipelines de données robustes</strong> : ingestion, transformation ETL/ELT, 
-                traitement batch et streaming. De l'architecture à la mise en production.
+                Conception et implementation de pipelines: ingestion, transformation ETL/ELT,
+                traitement batch et streaming, observabilite et documentation.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href="#contact" className="btn-primary">
-                  Évaluation gratuite de votre architecture
+                  Planifier un appel de cadrage
                   <ArrowRight size={16} />
                 </a>
                 <a href="#services" className="btn-secondary">
@@ -154,10 +153,10 @@ export default function DataEngineering() {
                 Services Data Engineering
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                De l'ingestion à l'exploitation
+                De l'ingestion a l'exploitation
               </h2>
               <p className="opacity-60">
-                Solutions complètes pour industrialiser vos flux de données et fiabiliser vos analyses.
+                Livrables: pipelines, tests, monitoring, documentation.
               </p>
             </div>
 
@@ -190,13 +189,13 @@ export default function DataEngineering() {
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
               <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
-                Stack Technique
+                Stack technique
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Technologies maîtrisées
+                Technologies utilisees selon contexte
               </h2>
               <p className="opacity-60">
-                Expertise sur les outils leaders du marché, choisis selon votre contexte.
+                Choix d'outils justifies par contraintes techniques et budget.
               </p>
             </div>
 
@@ -217,10 +216,10 @@ export default function DataEngineering() {
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
               <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
-                Bénéfices Métier
+                Benefices metier
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Pourquoi investir dans le Data Engineering ?
+                Pourquoi investir dans le Data Engineering
               </h2>
             </div>
 
@@ -244,10 +243,10 @@ export default function DataEngineering() {
                 Cas Clients
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Projets data engineering réussis
+                Exemples de missions
               </h2>
               <p className="opacity-60">
-                Exemples de missions réalisées dans différents secteurs.
+                Exemples de missions anonymisees. Livrables et details sur demande.
               </p>
             </div>
 
@@ -293,11 +292,10 @@ export default function DataEngineering() {
         <section className="section bg-black dark:bg-white text-white dark:text-black">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-              Prêt à industrialiser vos données ?
+              Discutons de votre architecture data
             </h2>
             <p className="opacity-70 mb-8 max-w-xl mx-auto">
-              Contactez-nous pour une <strong>évaluation gratuite</strong> de votre architecture data 
-              et découvrez comment optimiser vos pipelines de données.
+              Cadrage technique, perimetre et livrables explicites.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -305,7 +303,7 @@ export default function DataEngineering() {
                 href={`mailto:${SITE_CONFIG.email}?subject=Demande d'évaluation Data Engineering`}
                 className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-80 transition-opacity"
               >
-                Demander une évaluation gratuite
+                Demander un cadrage technique
                 <ArrowRight size={16} />
               </a>
               <a

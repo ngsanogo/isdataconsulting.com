@@ -7,15 +7,15 @@ const SERVICES = [
     title: "Data Engineering",
     subtitle: "Pipelines robustes & performants",
     description:
-      "Conception et implémentation de pipelines de données fiables. ETL/ELT modernes, data lakes, warehouses cloud-native.",
+      "Conception et implementation de pipelines ETL/ELT: ingestion, transformation, tests et monitoring.",
     benefits: [
-      "Pipelines qui tournent sans intervention",
-      "Coûts cloud maîtrisés",
-      "Documentation & tests inclus",
+      "Tests automatises et alerting",
+      "Runbooks et documentation",
+      "Observabilite des flux",
     ],
     tags: ["Python", "Spark", "Airflow", "dbt", "Kafka"],
     href: "/services/data-engineering",
-    cta: "Voir nos services Data Engineering",
+    cta: "Voir le detail Data Engineering",
   },
   {
     icon: GitBranch,
@@ -23,31 +23,31 @@ const SERVICES = [
     title: "Architecture Data",
     subtitle: "Plateformes cloud évolutives",
     description:
-      "Design d'architectures data scalables sur AWS, GCP, Azure. Data Mesh, Lakehouse, architectures événementielles.",
+      "Architecture cible sur AWS, GCP ou Azure, avec choix d'outils justifies et securite integree.",
     benefits: [
-      "Architecture évolutive sans dette technique",
-      "Choix technologiques justifiés",
-      "Patterns éprouvés en production",
+      "Schema cible et ADR",
+      "Infrastructure as code",
+      "Couts et risques identifies",
     ],
     tags: ["AWS", "GCP", "Azure", "Terraform", "Databricks"],
     href: "/services/architecture-data",
-    cta: "Explorer nos expertises Architecture",
+    cta: "Voir le detail Architecture",
   },
   {
     icon: Users,
     id: "product-data",
     title: "Product Data Services",
-    subtitle: "PO Data • Data Manager • Chef de Projet",
+    subtitle: "Product Owner • Chef de Projet • Management d'equipe",
     description:
-      "Pilotage agile de vos produits data, gouvernance, alignement métier/IT. Le pont entre vos équipes techniques et business.",
+      "Pilotage et management data: backlog, gouvernance, delivery, KPI et rituels d'equipe.",
     benefits: [
-      "Projets qui respectent le planning",
-      "Alignement métier/IT permanent",
-      "Adoption utilisateur maximisée",
+      "Backlog priorise",
+      "Definition de KPI",
+      "Rituels et management d'equipe",
     ],
     tags: ["Product Owner", "Data Manager", "Agile", "Gouvernance"],
     href: "/services/product-data",
-    cta: "Voir nos missions Product Data",
+    cta: "Voir le detail Product Data",
   },
 ] as const;
 
@@ -60,11 +60,10 @@ export default function ExpertiseSection() {
             Nos Solutions
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-            Trois expertises complémentaires pour structurer vos données
+            Trois domaines pour livrer, piloter et manager la data
           </h2>
           <p className="opacity-60 text-lg">
-            Que vous ayez besoin de pipelines robustes, d'une architecture évolutive 
-            ou d'un pilotage projet efficace, nous avons l'expertise adaptée.
+            Data Engineering, Architecture Data, Product Data et management d'equipe data.
           </p>
         </div>
 
@@ -121,8 +120,7 @@ export default function ExpertiseSection() {
 
         <div className="mt-12 text-center">
           <p className="text-sm opacity-50 mb-4">
-            Toutes nos missions incluent : documentation technique complète, 
-            transfert de compétences et support post-projet.
+            Toutes nos missions incluent documentation, transfert de competences et support post-projet.
           </p>
         </div>
       </div>

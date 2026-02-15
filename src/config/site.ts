@@ -33,7 +33,7 @@ export const SITE_CONFIG = {
       id: "product-data",
       title: "Product Data Services",
       shortTitle: "Product Data",
-      description: "Product Owner Data, Data Manager, Chef de Projet Data. Pilotage agile de vos produits data.",
+      description: "Product Owner Data, Chef de Projet Data, Management d'equipe data. Pilotage et delivery data.",
       href: "/services/product-data",
     },
   ],

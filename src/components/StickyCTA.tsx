@@ -30,7 +30,7 @@ export default function StickyCTA() {
               Besoin d'un expert data ?
             </span>
             <span className="font-medium text-sm sm:text-base">
-              Réservez votre appel découverte gratuit
+              Planifier un appel de cadrage
             </span>
           </div>
           
@@ -40,7 +40,7 @@ export default function StickyCTA() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-black text-black dark:text-white text-sm font-medium hover:opacity-90 transition-opacity"
               onClick={() => setIsVisible(false)}
             >
-              Prendre RDV
+              Planifier
               <ArrowRight size={14} />
             </a>
             

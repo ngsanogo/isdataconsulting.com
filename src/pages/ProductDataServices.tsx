@@ -8,7 +8,7 @@ const ROLES = [
   {
     icon: Target,
     title: "Product Owner Data",
-    description: "Définition et priorisation de la roadmap produit data, maximisation de la valeur délivrée aux utilisateurs.",
+    description: "Vision produit, priorisation du backlog et definition des livrables data.",
     missions: [
       "Définition de la vision produit data",
       "Gestion et priorisation du backlog",
@@ -21,7 +21,7 @@ const ROLES = [
   {
     icon: Users,
     title: "Data Manager",
-    description: "Gouvernance et qualité des données, coordination des parties prenantes data de l'organisation.",
+    description: "Gouvernance, qualite des donnees et coordination des owners.",
     missions: [
       "Cartographie des données et des flux",
       "Définition des standards de qualité",
@@ -34,7 +34,7 @@ const ROLES = [
   {
     icon: ClipboardList,
     title: "Chef de Projet Data",
-    description: "Pilotage opérationnel des projets data, coordination des équipes techniques et métiers.",
+    description: "Pilotage delivery, risques et coordination metier/tech.",
     missions: [
       "Planning et suivi des sprints",
       "Gestion des risques et alertes",
@@ -44,31 +44,44 @@ const ROLES = [
       "Coordination fournisseurs/partenaires",
     ],
   },
+  {
+    icon: Users,
+    title: "Management d'equipe Data",
+    description: "Organisation de l'equipe, rituels, objectifs et progression des competences.",
+    missions: [
+      "Definition des roles et responsabilites",
+      "Rituels d'equipe et standards de delivery",
+      "Plan de competences et mentoring",
+      "Recrutement et onboarding",
+      "Alignement objectifs et KPIs",
+      "Coordination inter-equipes",
+    ],
+  },
 ] as const;
 
 const METHODOLOGY = [
   {
     step: "01",
     title: "Discovery & Cadrage",
-    description: "Compréhension des enjeux métiers, cartographie des parties prenantes, définition de la vision produit.",
+    description: "Enjeux, parties prenantes, definition de la vision produit.",
     deliverables: ["Product Vision Board", "Stakeholder Map", "Initial Backlog"],
   },
   {
     step: "02",
     title: "Sprint 0 & Setup",
-    description: "Mise en place des outils, définition des rituels, premiers éléments de roadmap.",
+    description: "Outils, rituels, backlog et roadmap initiale.",
     deliverables: ["Definition of Ready/Done", "Roadmap initiale", "Outils configurés"],
   },
   {
     step: "03",
     title: "Delivery Itératif",
-    description: "Sprints de 2 semaines, livraison continue de valeur, adaptation au feedback.",
+    description: "Sprints courts, livraison continue, adaptation au feedback.",
     deliverables: ["Increments fonctionnels", "Demos régulières", "Metrics de valeur"],
   },
   {
     step: "04",
     title: "Mesure & Amélioration",
-    description: "Analyse des KPIs d'adoption et de valeur, rétrospectives, amélioration continue.",
+    description: "KPIs d'adoption, retrospectives, amelioration continue.",
     deliverables: ["Dashboards d'adoption", "Retros documentées", "Plan d'amélioration"],
   },
 ] as const;
@@ -77,26 +90,26 @@ const VALUE_PROPS = [
   {
     icon: Rocket,
     title: "Time-to-Market accéléré",
-    description: "Livraison rapide de valeur grâce à une priorisation efficace et des cycles courts.",
-    metrics: "Réduction de 40% du délai de mise en production des use cases data",
+    description: "Livraison rapide par cycles courts et priorisation claire.",
+    metrics: "Backlog priorise et jalons clairs",
   },
   {
     icon: Target,
     title: "Alignement Métier/IT",
-    description: "Traduction des besoins métiers en spécifications techniques compréhensibles par tous.",
-    metrics: "95% de satisfaction des sponsors métiers sur les livrables",
+    description: "Traduction des besoins metier en livrables techniques.",
+    metrics: "Critere de succes explicites",
   },
   {
     icon: BarChart3,
     title: "Adoption maximisée",
-    description: "Produits data conçus avec et pour les utilisateurs finaux, garantissant l'adoption.",
-    metrics: "Taux d'adoption moyen de 80% sur les dashboards et data products",
+    description: "Produits data concus avec les utilisateurs finaux.",
+    metrics: "Mesure d'usage et feedback",
   },
   {
     icon: Lightbulb,
     title: "ROI démontrable",
-    description: "Mesure systématique de la valeur créée pour justifier les investissements data.",
-    metrics: "ROI moyen de 250% sur les projets data accompagnés",
+    description: "Mesure de valeur via KPIs definis au cadrage.",
+    metrics: "KPIs partages et suivis",
   },
 ] as const;
 
@@ -113,9 +126,9 @@ const CASE_STUDIES = [
       "Roadmap de 18 mois avec jalons réglementaires",
     ],
     results: [
-      "Première cohorte disponible en 6 mois",
-      "15 projets de recherche activés la première année",
-      "Labellisation EDS par le Health Data Hub",
+      "Premiere cohorte disponible",
+      "Activation de projets de recherche",
+      "Conformite reglementaire suivie",
     ],
   },
   {
@@ -130,9 +143,9 @@ const CASE_STUDIES = [
       "Formation des équipes acquisition",
     ],
     results: [
-      "Modèle d'attribution fiable déployé",
-      "Réallocation de 20% du budget vers les canaux performants",
-      "Dashboards self-service pour les équipes marketing",
+      "Modele d'attribution deploye",
+      "Budget realloue selon performance",
+      "Dashboards self-service",
     ],
   },
   {
@@ -147,9 +160,9 @@ const CASE_STUDIES = [
       "Accompagnement au changement et formation des utilisateurs",
     ],
     results: [
-      "Data warehouse opérationnel en 4 mois",
-      "100% des contrats et contacts centralisés",
-      "Adoption de 85% par les équipes dès le premier mois",
+      "Data warehouse operationnel",
+      "Contrats et contacts centralises",
+      "Adoption suivie par les equipes",
     ],
   },
 ] as const;
@@ -166,7 +179,7 @@ export default function ProductDataServices() {
     <div className="min-h-screen">
       <SEO 
         title="Product Owner Data | Data Manager | Chef de Projet Data | ISData Consulting"
-        description="Services Product Owner Data et Data Manager : pilotage agile de produits data, priorisation backlog, alignement métier/IT. Accélérez votre time-to-market data."
+        description="Services Product Owner Data et Data Manager: pilotage de produits data, priorisation backlog, alignement metier/IT."
         keywords={["product owner data", "data manager", "chef de projet data", "gouvernance données", "pilotage agile data", "backlog data"]}
         canonicalPath="/services/product-data"
       />
@@ -185,18 +198,18 @@ export default function ProductDataServices() {
               </p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Pilotage agile de vos produits data
+                Pilotage, delivery et management d'equipe data
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
-                Services de <strong>Product Owner Data</strong>, <strong>Data Manager</strong> et 
-                <strong> Chef de Projet Data</strong>. Maximisez la valeur de vos données 
-                grâce à un pilotage expert aligné sur vos enjeux métiers.
+                Services de <strong>Product Owner Data</strong>, <strong>Data Manager</strong>,
+                <strong> Chef de Projet Data</strong> et <strong>Management d'equipe Data</strong>.
+                Backlog, gouvernance, delivery, rituels et KPI explicites.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href="#contact" className="btn-primary">
-                  Discuter de votre projet
+                  Planifier un appel de cadrage
                   <ArrowRight size={16} />
                 </a>
                 <a href="#roles" className="btn-secondary">
@@ -214,15 +227,14 @@ export default function ProductDataServices() {
                 Rôles & Missions
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Des expertises complémentaires pour vos projets data
+                Product Owner, Chef de Projet, Management d'equipe
               </h2>
               <p className="opacity-60">
-                Que vous ayez besoin d'un Product Owner, d'un Data Manager ou d'un Chef de Projet, 
-                nous adaptons notre intervention à votre contexte.
+                Intervention definie selon perimetre, responsabilites et livrables.
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-6">
+            <div className="grid lg:grid-cols-4 gap-6">
               {ROLES.map((role) => (
                 <article
                   key={role.title}
@@ -253,10 +265,10 @@ export default function ProductDataServices() {
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
               <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
-                Valeur Ajoutée
+                Valeur ajoutee
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Pourquoi externaliser le pilotage de vos produits data ?
+                Pourquoi externaliser le pilotage
               </h2>
             </div>
 
@@ -287,10 +299,10 @@ export default function ProductDataServices() {
                 Méthodologie
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Une approche structurée et adaptable
+                Une approche structuree
               </h2>
               <p className="opacity-60">
-                De la discovery à l'amélioration continue, une démarche éprouvée.
+                De la discovery a l'amelioration continue.
               </p>
             </div>
 
@@ -322,10 +334,10 @@ export default function ProductDataServices() {
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
               <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
-                Compétences
+                Competences
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Outils et méthodologies maîtrisés
+                Outils et methodologies
               </h2>
             </div>
 
@@ -358,10 +370,10 @@ export default function ProductDataServices() {
                 Références
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Missions Product Data réalisées
+                Exemples de missions
               </h2>
               <p className="opacity-60">
-                Exemples de missions de pilotage et de gouvernance data.
+                Exemples de missions anonymisees. Livrables et details sur demande.
               </p>
             </div>
 
@@ -414,12 +426,10 @@ export default function ProductDataServices() {
         <section id="contact" className="section bg-black dark:bg-white text-white dark:text-black">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-              Besoin d'un expert pour piloter vos produits data ?
+              Cadrer une mission Product Data
             </h2>
             <p className="opacity-70 mb-8 max-w-xl mx-auto">
-              Discutons de vos enjeux et voyons comment je peux vous accompagner 
-              en tant que <strong>Product Owner Data</strong>, <strong>Data Manager</strong> ou 
-              <strong> Chef de Projet</strong>.
+              Perimetre, role, livrables et planning definis au cadrage.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -427,7 +437,7 @@ export default function ProductDataServices() {
                 href={`mailto:${SITE_CONFIG.email}?subject=Demande Product Data Services`}
                 className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-80 transition-opacity"
               >
-                Prendre rendez-vous
+                Planifier un appel de cadrage
                 <ArrowRight size={16} />
               </a>
               <a

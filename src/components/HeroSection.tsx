@@ -1,9 +1,9 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 const VALUE_POINTS = [
-  "Pipelines ETL/ELT robustes et testés",
-  "Architectures cloud scalables (AWS, GCP, Azure)",
-  "Pilotage agile de vos produits data",
+  "ETL/ELT testes, monitores, documentes",
+  "Architecture data documentee (AWS, GCP, Azure)",
+  "Backlog, KPI, rituels et management d'equipe data",
 ] as const;
 
 export default function HeroSection() {
@@ -16,12 +16,14 @@ export default function HeroSection() {
           </p>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight mb-6">
-            Vos données méritent mieux qu'un pipeline qui casse
+            Data engineering, architecture data, product data et management d'equipe data
           </h1>
 
           <p className="text-xl opacity-70 leading-relaxed mb-8 max-w-2xl">
-            Consultant senior <strong>Data Engineering</strong> & <strong>Architecture Cloud</strong>. 
-            Je construis des infrastructures data fiables qui accélèrent vos décisions métiers.
+            ISData Consulting accompagne en <strong>Data Engineering</strong>, <strong>Architecture Data</strong>,
+            <strong>Product Owner Data</strong>, <strong>Chef de Projet Data</strong> et
+            <strong>Management d'equipe data</strong>.
+            Livrables explicites: pipelines, architecture, backlog, KPI, rituels et runbooks.
           </p>
 
           <ul className="space-y-2 mb-8">
@@ -35,16 +37,16 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <a href="#contact" className="btn-primary text-base px-6 py-3">
-              Réserver un appel découverte gratuit
+              Planifier un appel de cadrage
               <ArrowRight size={18} />
             </a>
             <a href="#expertise" className="btn-secondary text-base px-6 py-3">
-              Voir mes expertises
+              Voir les domaines d'intervention
             </a>
           </div>
 
           <p className="text-sm opacity-50">
-            ✓ Réponse sous 24h &nbsp;&nbsp;✓ +10 ans d'expérience &nbsp;&nbsp;✓ 100% clients satisfaits
+            Réponse sous 24h · Interlocuteur unique
           </p>
         </div>
       </div>

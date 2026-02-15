@@ -4,35 +4,35 @@ import { ChevronDown } from "lucide-react";
 const FAQS = [
   {
     question: "Quelle est la différence entre un consultant data engineering indépendant et une ESN ?",
-    answer: "Avec un consultant indépendant comme ISData Consulting, vous travaillez directement avec un expert senior (+10 ans d'expérience). Pas de junior affecté à votre projet, pas de turn-over, pas de couche managériale. Vous bénéficiez d'une expertise pointue, d'une réactivité maximale et d'un engagement personnel sur la réussite de votre projet. Le coût est souvent équivalent voire inférieur, pour une qualité de livrable supérieure.",
+    answer: "Vous travaillez avec un interlocuteur unique qui conçoit et livre. Le perimetre, les livrables et le mode de collaboration sont definis avant demarrage.",
   },
   {
     question: "Quelles technologies maîtrisez-vous pour le data engineering ?",
-    answer: "Je maîtrise l'ensemble de la stack data moderne : orchestration (Airflow, Dagster, Prefect), transformation (dbt, Spark, SQL), ingestion (Airbyte, Fivetran, custom), stockage (Snowflake, BigQuery, Databricks, PostgreSQL), streaming (Kafka, Pub/Sub), et les trois clouds majeurs (AWS, GCP, Azure). Je choisis les technologies adaptées à votre contexte, pas mes préférences personnelles.",
+    answer: "Stack selon contexte: orchestration (Airflow, Dagster, Prefect), transformation (dbt, Spark, SQL), ingestion (Airbyte, Fivetran ou custom), stockage (Snowflake, BigQuery, Databricks, PostgreSQL), streaming (Kafka, Pub/Sub), AWS/GCP/Azure.",
   },
   {
     question: "Pouvez-vous intervenir en tant que Product Owner Data ou Chef de Projet ?",
-    answer: "Oui, c'est l'un de mes trois piliers d'expertise. J'accompagne les organisations en tant que Product Owner Data (vision produit, backlog, priorisation), Data Manager (gouvernance, qualité, catalogue) ou Chef de Projet Data (coordination, delivery, COPIL). Mon background technique me permet de faire le pont efficacement entre les équipes métiers et IT.",
+    answer: "Oui. Le role est defini au cadrage: Product Owner Data, Data Manager ou Chef de Projet Data. Objectif: backlog clair, gouvernance et delivery.",
   },
   {
     question: "Comment se déroule une mission type ?",
-    answer: "Chaque mission commence par un appel découverte gratuit (30 min) pour comprendre votre contexte. Ensuite : 1) Cadrage (1-2 semaines) : audit, architecture cible, roadmap. 2) Build (sprints de 2 semaines) : implémentation itérative avec démos régulières. 3) Transfert : documentation, formation, support. La durée totale varie de quelques semaines à plusieurs mois selon la complexité.",
+    answer: "Appel de cadrage (30 min), puis 1) cadrage (audit, architecture cible, roadmap), 2) delivery en sprints, 3) transfert (documentation, formation, support).",
   },
   {
     question: "Quels sont vos tarifs ?",
-    answer: "Je travaille au TJM (Tarif Journalier Moyen) adapté à la complexité de la mission et à l'engagement durée. Un devis détaillé est fourni après l'appel découverte. Pour les missions de plusieurs mois, des conditions préférentielles sont possibles. L'objectif est toujours un ROI positif et rapide pour vous.",
+    answer: "TJM ou forfait selon perimetre, duree et complexite. Devis apres cadrage.",
   },
   {
     question: "Intervenez-vous en remote ou sur site ?",
-    answer: "Les deux. La majorité de mes missions se font en remote (je suis basé en Île-de-France), avec des points réguliers en visio et des déplacements ponctuels sur site si nécessaire. Pour les clients parisiens, une présence hybride est tout à fait possible. L'essentiel est de définir un mode de fonctionnement qui vous convient.",
+    answer: "Les deux. Remote par defaut, onsite ou hybride selon le projet. Le mode de fonctionnement est defini au cadrage.",
   },
   {
-    question: "Que se passe-t-il si je ne suis pas satisfait ?",
-    answer: "Ma priorité est votre satisfaction. En début de mission, nous définissons des critères de succès clairs et mesurables. Des points réguliers permettent d'ajuster le tir si nécessaire. Si malgré tout le courant ne passe pas, nous pouvons arrêter la collaboration à tout moment avec un préavis raisonnable. Mon taux de satisfaction client de 100% témoigne de mon engagement.",
+    question: "Que se passe-t-il si les livrables ne conviennent pas ?",
+    answer: "Nous definissons des criteres de succes et des points de suivi. En cas d'ecart, nous ajustons le plan. Les conditions d'arret sont encadrees par le contrat.",
   },
   {
     question: "Pouvez-vous former nos équipes internes ?",
-    answer: "Absolument. Le transfert de compétences fait partie intégrante de ma méthodologie. Je peux également proposer des formations dédiées sur des sujets spécifiques : dbt, Airflow, architecture data, bonnes pratiques data engineering, etc. L'objectif est de vous rendre autonomes, pas dépendants.",
+    answer: "Oui. Le transfert de competences fait partie des livrables: documentation, ateliers et formation sur les outils du projet.",
   },
 ] as const;
 
@@ -76,7 +76,7 @@ export default function FAQSection() {
             Tout ce que vous devez savoir
           </h2>
           <p className="opacity-60">
-            Vous avez d'autres questions ? <a href="#contact" className="underline underline-offset-2">Contactez-moi directement</a>.
+            Questions sur le perimetre ou les livrables ? <a href="#contact" className="underline underline-offset-2">Contactez-moi</a>.
           </p>
         </div>
 

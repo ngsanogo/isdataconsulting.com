@@ -3,39 +3,39 @@ import { AlertTriangle, Clock, DollarSign, Users, TrendingDown, ShieldAlert } fr
 const PROBLEMS = [
   {
     icon: Clock,
-    title: "Vos équipes passent plus de temps à chercher des données qu'à les analyser",
-    description: "Données dispersées dans des silos, extractions manuelles chronophages, Excel qui se multiplient.",
-    impact: "Jusqu'à 40% du temps des analystes perdu",
+    title: "Recherche de données dispersées",
+    description: "Sources multiples, extractions manuelles, definitions non alignees.",
+    impact: "Decision lente et contexte incomplet",
   },
   {
     icon: TrendingDown,
-    title: "Vos pipelines de données sont fragiles et cassent régulièrement",
-    description: "Pas d'alerting, pas de tests, des échecs silencieux qui impactent les décisions métiers.",
-    impact: "Données erronées = mauvaises décisions",
+    title: "Pipelines fragiles",
+    description: "Tests absents, monitoring incomplet, incidents recurrents.",
+    impact: "Fiabilite insuffisante",
   },
   {
     icon: DollarSign,
-    title: "Vos coûts cloud explosent sans visibilité claire",
-    description: "Requêtes non optimisées, stockage dupliqué, absence de FinOps structuré.",
-    impact: "Budgets data hors de contrôle",
+    title: "Couts cloud non maitrises",
+    description: "Requetes non optimisees, stockage duplique, absence de suivi.",
+    impact: "Depenses difficiles a piloter",
   },
   {
     icon: Users,
-    title: "Le métier et la tech ne se comprennent pas",
-    description: "Specs mal traduites, livrables qui ne correspondent pas aux attentes, frustration des deux côtés.",
-    impact: "Projets data qui n'aboutissent pas",
+    title: "Decalage metier/tech",
+    description: "Specifications ambiguës, backlog instable, livrables en decalage.",
+    impact: "Priorites confuses",
   },
   {
     icon: ShieldAlert,
-    title: "Vous n'avez pas confiance dans la qualité de vos données",
-    description: "Pas de documentation, pas de catalogue, impossible de savoir si une donnée est fiable.",
-    impact: "Adoption des outils data en berne",
+    title: "Qualite non mesuree",
+    description: "Pas de regles de qualite, pas de catalogue ni d'ownership.",
+    impact: "Confiance limitee",
   },
   {
     icon: AlertTriangle,
-    title: "Vos projets data prennent des mois au lieu de semaines",
-    description: "Architecture legacy, dette technique, processus lourds qui freinent l'innovation.",
-    impact: "Concurrents plus agiles sur la data",
+    title: "Time-to-delivery eleve",
+    description: "Architecture legacy, dependances lourdes, processus lents.",
+    impact: "Livraisons tardives",
   },
 ] as const;
 
@@ -48,11 +48,10 @@ export default function ProblemsSection() {
             Vous vous reconnaissez ?
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-            Les défis data que rencontrent nos clients
+            Problemes typiques sur les systemes data
           </h2>
           <p className="opacity-60 text-lg">
-            Ces problématiques freinent votre transformation data. 
-            Nous les avons résolues des dizaines de fois.
+            Nous intervenons quand la donnee ralentit l'analyse, la delivery ou la gouvernance.
           </p>
         </div>
 
@@ -63,7 +62,7 @@ export default function ProblemsSection() {
               className="p-6 bg-white dark:bg-black border border-black/10 dark:border-white/10"
             >
               <problem.icon 
-                className="w-8 h-8 mb-4 text-red-500 dark:text-red-400" 
+                className="w-8 h-8 mb-4 opacity-70" 
                 strokeWidth={1.5} 
               />
               
@@ -75,8 +74,8 @@ export default function ProblemsSection() {
                 {problem.description}
               </p>
               
-              <p className="text-sm font-medium text-red-600 dark:text-red-400">
-                ⚠️ {problem.impact}
+              <p className="text-sm font-medium opacity-70">
+                {problem.impact}
               </p>
             </article>
           ))}

@@ -8,7 +8,7 @@ describe("HeroSection", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /vos données méritent mieux qu'un pipeline qui casse/i,
+        name: /data engineering, architecture data, product data et management d'equipe data/i,
       })
     ).toBeInTheDocument();
   });
@@ -22,16 +22,16 @@ describe("HeroSection", () => {
   it("renders value points", () => {
     render(<HeroSection />);
 
-    expect(screen.getByText(/pipelines etl\/elt robustes/i)).toBeInTheDocument();
-    expect(screen.getByText(/architectures cloud scalables/i)).toBeInTheDocument();
-    expect(screen.getByText(/pilotage agile/i)).toBeInTheDocument();
+    expect(screen.getByText(/etl\/elt testes, monitores, documentes/i)).toBeInTheDocument();
+    expect(screen.getByText(/architecture data documentee/i)).toBeInTheDocument();
+    expect(screen.getByText(/backlog, kpi, rituels et management/i)).toBeInTheDocument();
   });
 
   it("renders primary CTA button", () => {
     render(<HeroSection />);
 
     const ctaLink = screen.getByRole("link", {
-      name: /réserver un appel découverte gratuit/i,
+      name: /planifier un appel de cadrage/i,
     });
     expect(ctaLink).toHaveAttribute("href", "#contact");
   });
@@ -40,7 +40,7 @@ describe("HeroSection", () => {
     render(<HeroSection />);
 
     const secondaryCTA = screen.getByRole("link", {
-      name: /voir mes expertises/i,
+      name: /voir les domaines d'intervention/i,
     });
     expect(secondaryCTA).toHaveAttribute("href", "#expertise");
   });
@@ -49,6 +49,6 @@ describe("HeroSection", () => {
     render(<HeroSection />);
 
     expect(screen.getByText(/réponse sous 24h/i)).toBeInTheDocument();
-    expect(screen.getByText(/\+10 ans d'expérience/i)).toBeInTheDocument();
+    expect(screen.getByText(/interlocuteur unique/i)).toBeInTheDocument();
   });
 });

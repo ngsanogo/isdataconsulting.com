@@ -8,18 +8,18 @@ const ARCHITECTURE_SERVICES = [
   {
     icon: Cloud,
     title: "Architecture Cloud Native",
-    description: "Conception d'architectures data sur les trois grands cloud providers, optimisées pour votre contexte.",
+    description: "Conception d'architectures data sur AWS, GCP ou Azure, adaptees a vos contraintes.",
     features: [
       "AWS (S3, Redshift, Glue, EMR)",
       "GCP (BigQuery, Dataflow, Composer)",
       "Azure (Synapse, Data Factory, Databricks)",
-      "Multi-cloud & Hybrid strategies",
+      "Strategie multi-cloud si necessaire",
     ],
   },
   {
     icon: Layers,
     title: "Modern Data Platforms",
-    description: "Mise en place de plateformes data modernes combinant le meilleur du data lake et du data warehouse.",
+    description: "Plateformes data avec lakehouse, catalogues et gouvernance explicite.",
     features: [
       "Lakehouse Architecture",
       "Delta Lake, Iceberg, Hudi",
@@ -30,7 +30,7 @@ const ARCHITECTURE_SERVICES = [
   {
     icon: Network,
     title: "Data Mesh & Décentralisation",
-    description: "Transformation vers une architecture décentralisée orientée domaines métiers.",
+    description: "Architecture decentralisee par domaines avec standards et ownership.",
     features: [
       "Domain-oriented ownership",
       "Data as a Product",
@@ -41,7 +41,7 @@ const ARCHITECTURE_SERVICES = [
   {
     icon: GitBranch,
     title: "Architectures Événementielles",
-    description: "Design de systèmes event-driven pour le temps réel et la réactivité métier.",
+    description: "Systemes event-driven pour besoins temps reel.",
     features: [
       "Event Sourcing",
       "CQRS patterns",
@@ -56,84 +56,33 @@ const ARCHITECTURE_PATTERNS = [
     name: "Lakehouse",
     description: "Combinaison du data lake (flexibilité, coût) et du data warehouse (performance, gouvernance). Format open-source (Delta, Iceberg) sur stockage objet.",
     useCases: ["Analytics à grande échelle", "ML/AI workloads", "Historisation long-terme"],
-    diagram: `
-┌─────────────────────────────────────────────────────────┐
-│                    Bronze Layer                          │
-│  (Raw Data: JSON, CSV, Parquet - immutable)             │
-└────────────────────────┬────────────────────────────────┘
-                         │ Transformation
-┌────────────────────────▼────────────────────────────────┐
-│                    Silver Layer                          │
-│  (Cleansed, Validated, Conformed Data)                  │
-└────────────────────────┬────────────────────────────────┘
-                         │ Aggregation
-┌────────────────────────▼────────────────────────────────┐
-│                    Gold Layer                            │
-│  (Business-ready: Aggregates, Features, Marts)          │
-└─────────────────────────────────────────────────────────┘
-    `,
   },
   {
     name: "Data Mesh",
     description: "Architecture décentralisée où chaque domaine métier est responsable de ses données comme un produit, avec une plateforme self-service.",
     useCases: ["Grandes organisations", "Autonomie des équipes", "Scalabilité organisationnelle"],
-    diagram: `
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  Domain A   │     │  Domain B   │     │  Domain C   │
-│ ┌─────────┐ │     │ ┌─────────┐ │     │ ┌─────────┐ │
-│ │  Data   │ │     │ │  Data   │ │     │ │  Data   │ │
-│ │ Product │ │     │ │ Product │ │     │ │ Product │ │
-│ └────┬────┘ │     │ └────┬────┘ │     │ └────┬────┘ │
-└──────┼──────┘     └──────┼──────┘     └──────┼──────┘
-       │                   │                   │
-       └───────────────────┼───────────────────┘
-                           │
-            ┌──────────────▼──────────────┐
-            │    Self-Serve Platform      │
-            │  (Infra, Tools, Standards)  │
-            └─────────────────────────────┘
-    `,
   },
   {
     name: "Lambda Architecture",
     description: "Architecture hybride combinant traitement batch (exhaustivité) et streaming (temps réel) pour des analyses complètes et réactives.",
     useCases: ["IoT & capteurs", "Temps réel + historique", "Réconciliation de données"],
-    diagram: `
-                    ┌─────────────────┐
-                    │   Data Sources  │
-                    └────────┬────────┘
-           ┌─────────────────┼─────────────────┐
-           ▼                 ▼                 
-┌──────────────────┐  ┌──────────────────┐
-│   Batch Layer    │  │   Speed Layer    │
-│ (Spark, Hadoop)  │  │ (Kafka, Flink)   │
-│  T+1 accuracy    │  │  Real-time       │
-└────────┬─────────┘  └────────┬─────────┘
-         │                     │
-         └──────────┬──────────┘
-                    ▼
-         ┌──────────────────┐
-         │  Serving Layer   │
-         │ (Unified View)   │
-         └──────────────────┘
-    `,
   },
 ] as const;
 
 const CLOUD_COMPARISON = [
   {
     provider: "AWS",
-    strengths: ["Écosystème le plus mature", "Redshift pour le DWH", "Services managés complets"],
+    strengths: ["Ecosysteme large", "Redshift pour le DWH", "Services manages"],
     services: ["S3", "Redshift", "Glue", "EMR", "Athena", "Lake Formation"],
   },
   {
     provider: "Google Cloud",
-    strengths: ["BigQuery : référence analytique", "ML intégré (Vertex AI)", "Serverless native"],
+    strengths: ["BigQuery analytique", "ML integre (Vertex AI)", "Serverless"],
     services: ["BigQuery", "Dataflow", "Composer", "Dataproc", "Cloud Storage"],
   },
   {
     provider: "Azure",
-    strengths: ["Intégration Microsoft", "Synapse tout-en-un", "Fabric émergent"],
+    strengths: ["Integration Microsoft", "Synapse", "Fabric"],
     services: ["Synapse", "Data Factory", "Databricks", "ADLS Gen2", "Purview"],
   },
 ] as const;
@@ -145,9 +94,9 @@ const CASE_STUDIES = [
     context: "Un réseau de cliniques privées devant centraliser les données de soins tout en respectant les contraintes HDS et RGPD.",
     solution: "Architecture cloud souveraine sur GCP avec chiffrement bout-en-bout, zones de données isolées par niveau de sensibilité, audit trail complet.",
     results: [
-      "Certification HDS obtenue en 3 mois",
-      "Interopérabilité HL7 FHIR avec 8 systèmes",
-      "Temps de réponse aux requêtes recherche clinique / 10",
+      "Cadre de conformite et securite documente",
+      "Interopérabilité HL7 FHIR avec systemes internes",
+      "Optimisation des flux de recherche clinique",
     ],
   },
   {
@@ -156,9 +105,9 @@ const CASE_STUDIES = [
     context: "Un groupe média avec 3 marques, chacune utilisant des outils marketing différents, sans vue unifiée des audiences.",
     solution: "Architecture Lakehouse composable avec Snowflake, Fivetran pour l'ingestion, Census pour l'activation, dbt pour la modélisation.",
     results: [
-      "Coût total / 4 vs CDP packagée",
-      "Flexibilité totale sur les destinations d'activation",
-      "First-party data strategy opérationnelle",
+      "Flexibilite sur les destinations d'activation",
+      "Modele Lakehouse documente",
+      "Gouvernance des audiences clarifiee",
     ],
   },
   {
@@ -167,9 +116,9 @@ const CASE_STUDIES = [
     context: "Une grande association caritative avec des données donateurs, bénévoles et projets éparpillées entre 10+ outils (CRM, comptabilité, terrain).",
     solution: "Architecture moderne sur BigQuery avec couche d'ingestion Fivetran/Airbyte, modélisation dimensionnelle dbt, gouvernance centralisée.",
     results: [
-      "Source unique de vérité pour 300 000 contacts",
-      "Coûts d'infrastructure < 500€/mois",
-      "Autonomie des équipes métiers sur les analyses",
+      "Source unique de verite pour les contacts",
+      "Couts et volumetrie suivis",
+      "Autonomie accrue des equipes metier",
     ],
   },
 ] as const;
@@ -178,22 +127,22 @@ const DESIGN_PRINCIPLES = [
   {
     icon: Gauge,
     title: "Performance",
-    description: "Architectures optimisées pour vos patterns d'accès : OLAP, OLTP, time-series, graph.",
+    description: "Pattern d'acces explicites: OLAP, OLTP, time-series, graph.",
   },
   {
     icon: Shield,
     title: "Fiabilité",
-    description: "Haute disponibilité, disaster recovery, idempotence, exactly-once processing.",
+    description: "Disponibilite, reprise, idempotence, controle des erreurs.",
   },
   {
     icon: Layers,
     title: "Scalabilité",
-    description: "Design pour la croissance : partitionnement, sharding, auto-scaling, elasticité.",
+    description: "Partitionnement, sharding, auto-scaling.",
   },
   {
     icon: Network,
     title: "Maintenabilité",
-    description: "Code as Infrastructure (Terraform), documentation as code, observabilité native.",
+    description: "Infrastructure as code, documentation, observabilite.",
   },
 ] as const;
 
@@ -202,7 +151,7 @@ export default function ArchitectureData() {
     <div className="min-h-screen">
       <SEO 
         title="Architecture Data Cloud | AWS, GCP, Azure | Consultant Expert | ISData"
-        description="Expert en architecture data cloud : conception de plateformes scalables sur AWS, GCP, Azure. Data Mesh, Lakehouse, architectures événementielles. Design patterns modernes."
+        description="Conception d'architectures data cloud sur AWS, GCP, Azure. Lakehouse, data mesh, architectures evenementielles. Livrables documentes."
         keywords={["architecture data cloud", "AWS data", "GCP BigQuery", "Azure Synapse", "data mesh", "lakehouse", "Databricks", "Terraform"]}
         canonicalPath="/services/architecture-data"
       />
@@ -221,18 +170,17 @@ export default function ArchitectureData() {
               </p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Des architectures data scalables, performantes et fiables
+                Architectures data cloud documentees et maintenables
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
-                Expert en <strong>architecture data cloud</strong>, je conçois des plateformes 
-                modernes sur <strong>AWS, GCP et Azure</strong>. Data Mesh, Lakehouse, 
-                architectures événementielles : des patterns adaptés à vos enjeux de scalabilité et performance.
+                Conception d'architectures data cloud sur <strong>AWS, GCP et Azure</strong>.
+                Lakehouse, data mesh et event-driven selon vos contraintes techniques et budget.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href="#contact" className="btn-primary">
-                  Audit gratuit de votre architecture
+                  Planifier un appel de cadrage
                   <ArrowRight size={16} />
                 </a>
                 <a href="#patterns" className="btn-secondary">
@@ -250,10 +198,10 @@ export default function ArchitectureData() {
                 Expertise Architecture
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Conception de plateformes data modernes
+                Conception de plateformes data
               </h2>
               <p className="opacity-60">
-                Des architectures pensées pour durer, évoluer et créer de la valeur.
+                Architecture cible, ADR, standards et gouvernance.
               </p>
             </div>
 
@@ -288,11 +236,11 @@ export default function ArchitectureData() {
               <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
                 Design Patterns
               </p>
-              <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Patterns d'architecture modernes
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
+                  Patterns d'architecture et criteres de choix
               </h2>
               <p className="opacity-60">
-                Les architectures de référence adaptées à différents contextes.
+                Choix du pattern selon latence, volume, cout et organisation.
               </p>
             </div>
 
@@ -306,30 +254,19 @@ export default function ArchitectureData() {
                   <p className="opacity-70 mb-4 leading-relaxed">
                     {pattern.description}
                   </p>
-                  
-                  <div className="grid lg:grid-cols-2 gap-6">
-                    <div>
-                      <p className="text-sm uppercase tracking-wide opacity-50 mb-2">
-                        Cas d'usage
-                      </p>
-                      <ul className="space-y-1">
-                        {pattern.useCases.map((useCase) => (
-                          <li key={useCase} className="flex items-center gap-2 text-sm opacity-80">
-                            <CheckCircle2 size={14} className="text-green-600 dark:text-green-400" />
-                            {useCase}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div>
-                      <p className="text-sm uppercase tracking-wide opacity-50 mb-2">
-                        Schéma
-                      </p>
-                      <pre className="text-xs bg-gray-100 dark:bg-gray-800 p-4 overflow-x-auto font-mono opacity-80">
-                        {pattern.diagram.trim()}
-                      </pre>
-                    </div>
+
+                  <div>
+                    <p className="text-sm uppercase tracking-wide opacity-50 mb-2">
+                      Cas d'usage
+                    </p>
+                    <ul className="space-y-1">
+                      {pattern.useCases.map((useCase) => (
+                        <li key={useCase} className="flex items-center gap-2 text-sm opacity-80">
+                          <CheckCircle2 size={14} className="text-green-600 dark:text-green-400" />
+                          {useCase}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </article>
               ))}
@@ -344,10 +281,10 @@ export default function ArchitectureData() {
                 Multi-Cloud
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Expertise AWS, GCP & Azure
+                AWS, GCP et Azure
               </h2>
               <p className="opacity-60">
-                Choix du cloud adapté à votre contexte, ou stratégie multi-cloud maîtrisée.
+                Choix du cloud selon contraintes techniques et budget.
               </p>
             </div>
 
@@ -396,7 +333,7 @@ export default function ArchitectureData() {
                 Principes
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Nos principes de conception
+                Principes de conception
               </h2>
             </div>
 
@@ -421,10 +358,10 @@ export default function ArchitectureData() {
                 Références
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Architectures déployées
+                Exemples de missions
               </h2>
               <p className="opacity-60">
-                Exemples de plateformes conçues et mises en production.
+                Exemples de missions anonymisees. Livrables et details sur demande.
               </p>
             </div>
 
@@ -470,11 +407,10 @@ export default function ArchitectureData() {
         <section id="contact" className="section bg-black dark:bg-white text-white dark:text-black">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-              Votre architecture data a besoin d'évoluer ?
+              Audit d'architecture data
             </h2>
             <p className="opacity-70 mb-8 max-w-xl mx-auto">
-              Contactez-nous pour un <strong>audit gratuit</strong> de votre architecture actuelle 
-              et découvrez les opportunités d'optimisation.
+              Cadrage, risques, plan de migration et livrables explicites.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -482,7 +418,7 @@ export default function ArchitectureData() {
                 href={`mailto:${SITE_CONFIG.email}?subject=Demande d'audit Architecture Data`}
                 className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-80 transition-opacity"
               >
-                Demander un audit gratuit
+                Planifier un appel de cadrage
                 <ArrowRight size={16} />
               </a>
               <a

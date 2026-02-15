@@ -15,23 +15,23 @@ cp .env.example .env
 ## Development (Docker)
 
 ```bash
-docker compose up --build
+docker compose --profile dev up --build
 ```
 
 ## Quality (Docker)
 
 ```bash
-docker compose run --rm app npm run lint
-docker compose run --rm app npm run type-check
-docker compose run --rm app npm run test
-docker compose run --rm app npm run test:coverage
+docker compose --profile test run --rm test npm run lint
+docker compose --profile test run --rm test npm run type-check
+docker compose --profile test run --rm test npm run test
+docker compose --profile test run --rm test npm run test:coverage
 ```
 
 ## Build (Docker)
 
 ```bash
-docker compose run --rm app npm run build
-docker compose run --rm app npm run preview -- --host 0.0.0.0
+docker compose --profile build run --rm build
+docker compose --profile prod up -d
 ```
 
 ## Pre-commit (venv)

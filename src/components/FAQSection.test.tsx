@@ -38,12 +38,12 @@ describe("FAQSection", () => {
     });
 
     expect(
-      screen.queryByText(/je travaille au tjm/i)
+      screen.queryByText(/tjm ou forfait/i)
     ).not.toBeInTheDocument();
 
     await user.click(questionButton);
 
-    expect(screen.getByText(/je travaille au tjm/i)).toBeInTheDocument();
+    expect(screen.getByText(/tjm ou forfait/i)).toBeInTheDocument();
   });
 
   it("collapses FAQ answer on second click", async () => {
@@ -55,11 +55,11 @@ describe("FAQSection", () => {
     });
 
     await user.click(questionButton);
-    expect(screen.getByText(/je travaille au tjm/i)).toBeInTheDocument();
+    expect(screen.getByText(/tjm ou forfait/i)).toBeInTheDocument();
 
     await user.click(questionButton);
     expect(
-      screen.queryByText(/je travaille au tjm/i)
+      screen.queryByText(/tjm ou forfait/i)
     ).not.toBeInTheDocument();
   });
 
@@ -81,7 +81,7 @@ describe("FAQSection", () => {
     render(<FAQSection />);
 
     const contactLink = screen.getByRole("link", {
-      name: /contactez-moi directement/i,
+      name: /contactez-moi/i,
     });
     expect(contactLink).toHaveAttribute("href", "#contact");
   });

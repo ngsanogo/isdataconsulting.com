@@ -8,7 +8,7 @@ describe("ExpertiseSection", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /trois expertises complémentaires/i,
+        name: /trois domaines pour livrer, piloter et manager la data/i,
       })
     ).toBeInTheDocument();
   });
@@ -25,17 +25,17 @@ describe("ExpertiseSection", () => {
     render(<ExpertiseSection />);
 
     const dataEngLink = screen.getByRole("link", {
-      name: /voir nos services data engineering/i,
+      name: /voir le detail data engineering/i,
     });
     expect(dataEngLink).toHaveAttribute("href", "/services/data-engineering");
 
     const archLink = screen.getByRole("link", {
-      name: /explorer nos expertises architecture/i,
+      name: /voir le detail architecture/i,
     });
     expect(archLink).toHaveAttribute("href", "/services/architecture-data");
 
     const productLink = screen.getByRole("link", {
-      name: /voir nos missions product data/i,
+      name: /voir le detail product data/i,
     });
     expect(productLink).toHaveAttribute("href", "/services/product-data");
   });
@@ -53,13 +53,13 @@ describe("ExpertiseSection", () => {
     render(<ExpertiseSection />);
 
     expect(
-      screen.getByText(/pipelines qui tournent sans intervention/i)
+      screen.getByText(/tests automatises et alerting/i)
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/architecture évolutive sans dette technique/i)
+      screen.getByText(/schema cible et adr/i)
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/projets qui respectent le planning/i)
+      screen.getByText(/rituels et management d'equipe/i)
     ).toBeInTheDocument();
   });
 });

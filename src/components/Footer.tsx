@@ -12,7 +12,7 @@ export default function Footer() {
             <p className="font-semibold text-lg mb-1">
               ISData<span className="font-normal opacity-60"> Consulting</span>
             </p>
-            <p className="text-sm opacity-50">Ingénierie de Données & BI</p>
+            <p className="text-sm opacity-50">Data Engineering · Architecture Data · Product Data</p>
           </div>
 
           <div className="flex items-center gap-6">

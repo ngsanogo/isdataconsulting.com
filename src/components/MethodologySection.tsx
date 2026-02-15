@@ -5,29 +5,29 @@ const STEPS = [
     number: "01",
     title: "Comprendre",
     description:
-      "Audit de votre écosystème data : sources, flux, outils, équipes. Identification des quick wins et des chantiers structurants.",
-    deliverable: "Diagnostic & recommandations",
+      "Audit de l'ecosysteme data: sources, flux, outils, equipe, governance.",
+    deliverable: "Diagnostic et risques",
   },
   {
     number: "02",
     title: "Concevoir",
     description:
-      "Architecture cible adaptée à vos contraintes. Choix technologiques justifiés, roadmap réaliste et priorisée.",
-    deliverable: "Design technique & roadmap",
+      "Architecture cible et choix technologiques justifies.",
+    deliverable: "Design technique et roadmap",
   },
   {
     number: "03",
     title: "Construire",
     description:
-      "Implémentation itérative en sprints courts. Code propre, testé, documenté. Démos régulières pour valider l'alignement.",
-    deliverable: "Livrables incrémentaux",
+      "Implementation par sprints: code, tests, monitoring et documentation.",
+    deliverable: "Livrables incrementaux",
   },
   {
     number: "04",
     title: "Transférer",
     description:
-      "Formation de vos équipes, documentation complète, support post-projet. Vous devenez autonomes, pas dépendants.",
-    deliverable: "Autonomie garantie",
+      "Formation, runbooks, rituels d'equipe et support post-projet.",
+    deliverable: "Autonomie operationnelle",
   },
 ] as const;
 
@@ -38,19 +38,19 @@ const COMMITMENTS = [
     detail: "Maximum garanti",
   },
   {
-    value: "100%",
-    label: "Projets livrés",
-    detail: "Dans les délais convenus",
+    value: "1",
+    label: "Interlocuteur",
+    detail: "Decision et execution alignees",
   },
   {
-    value: "+10 ans",
-    label: "Expérience",
-    detail: "Data Engineering & Cloud",
+    value: "Plan",
+    label: "Planning",
+    detail: "Valide avant demarrage",
   },
   {
-    value: "0",
-    label: "Intermédiaire",
-    detail: "Vous parlez au consultant",
+    value: "Docs",
+    label: "Livrables",
+    detail: "Documentes et maintenables",
   },
 ] as const;
 
@@ -63,11 +63,10 @@ export default function MethodologySection() {
             Notre approche
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-            Une méthode éprouvée, focalisée sur la valeur
+            Une methode simple et livrable
           </h2>
           <p className="opacity-60 text-lg">
-            Pas de tunnel de 6 mois sans livrable. Des itérations courtes, 
-            des résultats visibles rapidement, une communication transparente.
+            Iterations courtes, livrables visibles, communication explicite.
           </p>
         </div>
 
@@ -108,7 +107,7 @@ export default function MethodologySection() {
             Prêt à structurer votre projet data ?
           </p>
           <a href="#contact" className="btn-primary inline-flex">
-            Réserver un appel découverte
+            Planifier un appel de cadrage
             <ArrowRight size={16} />
           </a>
         </div>

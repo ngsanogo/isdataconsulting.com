@@ -3,16 +3,16 @@ repos:
     hooks:
       - id: docker-lint
         name: docker lint
-        entry: docker compose run --rm app npm run lint
+        entry: docker compose --profile test run --rm test npm run lint
         language: system
         pass_filenames: false
       - id: docker-type-check
         name: docker type check
-        entry: docker compose run --rm app npm run type-check
+        entry: docker compose --profile test run --rm test npm run type-check
         language: system
         pass_filenames: false
       - id: docker-test
         name: docker test
-        entry: docker compose run --rm app npm run test:coverage
+        entry: docker compose --profile test run --rm test npm run test:coverage
         language: system
         pass_filenames: false
