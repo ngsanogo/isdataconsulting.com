@@ -1,22 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ArrowRight, X } from "lucide-react";
+
+const SCROLL_THROTTLE_MS = 100;
+const SCROLL_THRESHOLD = 600;
+const BOTTOM_THRESHOLD = 800;
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
+  const throttleRef = useRef<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 600;
-      
-      const nearBottom = 
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 800;
-      
+      if (throttleRef.current !== null) return;
+
+      const scrolled = window.scrollY > SCROLL_THRESHOLD;
+      const nearBottom =
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - BOTTOM_THRESHOLD;
+
       setIsVisible(scrolled && !nearBottom && !isDismissed);
+
+      throttleRef.current = window.setTimeout(() => {
+        throttleRef.current = null;
+      }, SCROLL_THROTTLE_MS);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (throttleRef.current !== null) {
+        clearTimeout(throttleRef.current);
+      }
+    };
   }, [isDismissed]);
 
   if (!isVisible) return null;
