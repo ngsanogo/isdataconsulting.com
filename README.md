@@ -12,36 +12,26 @@ Site for isdataconsulting.com.
 cp .env.example .env
 ```
 
-## Development (Docker)
+## Development
 
 ```bash
-docker compose --profile dev up --build
+npm run dev
 ```
 
-## Quality (Docker)
+## Quality
 
 ```bash
-docker compose --profile test run --rm test npm run lint
-docker compose --profile test run --rm test npm run type-check
-docker compose --profile test run --rm test npm run test
-docker compose --profile test run --rm test npm run test:coverage
+npm run lint
+npm run type-check
+npm run test
+npm run test:coverage
 ```
 
-## Build (Docker)
+## Build
 
 ```bash
-docker compose --profile build run --rm build
-docker compose --profile prod up -d
-```
-
-## Pre-commit (venv)
-
-```bash
-python3 -m venv .venv
-. .venv/bin/activate
-pip install pre-commit
-pre-commit install
-pre-commit run --all-files
+npm run build
+npm run preview
 ```
 
 ## Deployment

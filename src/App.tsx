@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Analytics from "./components/Analytics";
 import Index from "./pages/Index";
 
 const DataEngineering = lazy(() => import("./pages/DataEngineering"));
@@ -22,7 +21,6 @@ function PageLoader() {
 export default function App() {
   return (
     <HelmetProvider>
-      <Analytics />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
