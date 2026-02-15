@@ -16,7 +16,6 @@ export default function ContactSection() {
     >
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Content */}
           <div>
             <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
               Passons à l'action
@@ -29,7 +28,6 @@ export default function ContactSection() {
               identifier les quick wins et vous proposer une approche adaptée.
             </p>
 
-            {/* Reassurance points */}
             <ul className="space-y-3 mb-8">
               {REASSURANCE.map((item) => (
                 <li key={item} className="flex items-center gap-3">
@@ -39,7 +37,6 @@ export default function ContactSection() {
               ))}
             </ul>
 
-            {/* Contact options */}
             <div className="space-y-4">
               <a
                 href={`mailto:${SITE_CONFIG.email}?subject=Demande de rendez-vous découverte`}
@@ -60,7 +57,6 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Right: What to expect */}
           <div className="p-8 bg-white/10 dark:bg-black/10 border border-white/20 dark:border-black/20">
             <h3 className="font-semibold text-xl mb-6 flex items-center gap-3">
               <Calendar size={24} />

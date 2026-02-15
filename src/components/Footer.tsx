@@ -8,7 +8,6 @@ export default function Footer() {
     <footer className="py-10 border-t border-black/10 dark:border-white/10">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          {/* Left: Company info */}
           <div>
             <p className="font-semibold text-lg mb-1">
               ISData<span className="font-normal opacity-60"> Consulting</span>
@@ -16,7 +15,6 @@ export default function Footer() {
             <p className="text-sm opacity-50">Ingénierie de Données & BI</p>
           </div>
 
-          {/* Right: Links */}
           <div className="flex items-center gap-6">
             <a
               href={`https://linkedin.com/company/${SITE_CONFIG.social.linkedin}`}
@@ -39,7 +37,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom: Legal */}
         <div className="mt-6 pt-6 border-t border-black/10 dark:border-white/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-sm opacity-40">
             <p>

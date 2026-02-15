@@ -55,7 +55,6 @@ export default function ExpertiseSection() {
   return (
     <section id="expertise" className="section">
       <div className="container mx-auto">
-        {/* Section Header */}
         <div className="max-w-2xl mb-12">
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
             Nos Solutions
@@ -69,7 +68,6 @@ export default function ExpertiseSection() {
           </p>
         </div>
 
-        {/* Services Grid */}
         <div className="grid lg:grid-cols-3 gap-6">
           {SERVICES.map((service) => (
             <article
@@ -90,7 +88,6 @@ export default function ExpertiseSection() {
                 {service.description}
               </p>
 
-              {/* Benefits */}
               <ul className="space-y-2 mb-6 flex-grow">
                 {service.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-2 text-sm">
@@ -122,7 +119,6 @@ export default function ExpertiseSection() {
           ))}
         </div>
 
-        {/* Reassurance */}
         <div className="mt-12 text-center">
           <p className="text-sm opacity-50 mb-4">
             Toutes nos missions incluent : documentation technique complète, 

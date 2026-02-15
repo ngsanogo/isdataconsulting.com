@@ -3,9 +3,6 @@ import { render, RenderOptions } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
-/**
- * Custom render function with providers
- */
 function AllProviders({ children }: { children: React.ReactNode }) {
   return (
     <HelmetProvider>
@@ -21,6 +18,5 @@ function customRender(
   return render(ui, { wrapper: AllProviders, ...options });
 }
 
-// Re-export everything
 export * from "@testing-library/react";
 export { customRender as render };

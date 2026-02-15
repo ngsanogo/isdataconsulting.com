@@ -1,7 +1,3 @@
-/**
- * Section Problématiques Clients - Identification des douleurs
- * Objectif : Créer de l'empathie et montrer la compréhension des enjeux
- */
 import { AlertTriangle, Clock, DollarSign, Users, TrendingDown, ShieldAlert } from "lucide-react";
 
 const PROBLEMS = [
@@ -47,7 +43,6 @@ export default function ProblemsSection() {
   return (
     <section className="section bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto">
-        {/* Section Header */}
         <div className="max-w-2xl mb-12">
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
             Vous vous reconnaissez ?
@@ -61,7 +56,6 @@ export default function ProblemsSection() {
           </p>
         </div>
 
-        {/* Problems Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROBLEMS.map((problem) => (
             <article
@@ -88,7 +82,6 @@ export default function ProblemsSection() {
           ))}
         </div>
 
-        {/* Transition to solution */}
         <div className="mt-12 text-center">
           <p className="text-lg opacity-70 mb-4">
             <strong>La bonne nouvelle ?</strong> Ces problèmes ont des solutions éprouvées.

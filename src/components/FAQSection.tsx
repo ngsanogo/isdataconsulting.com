@@ -1,7 +1,3 @@
-/**
- * Section FAQ - Rich Snippets SEO + Réassurance
- * Objectif : Répondre aux objections et améliorer le SEO
- */
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
@@ -72,7 +68,6 @@ export default function FAQSection() {
   return (
     <section id="faq" className="section">
       <div className="container mx-auto max-w-3xl">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
             Questions fréquentes
@@ -85,14 +80,11 @@ export default function FAQSection() {
           </p>
         </div>
 
-        {/* FAQ List */}
         <div className="border border-black/10 dark:border-white/10 divide-y divide-black/10 dark:divide-white/10">
           {FAQS.map((faq) => (
             <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
           ))}
         </div>
-
-        {/* Schema.org FAQ structured data is added via SEO component */}
       </div>
     </section>
   );

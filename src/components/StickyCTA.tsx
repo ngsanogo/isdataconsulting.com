@@ -1,20 +1,14 @@
 import { useState, useEffect } from "react";
 import { ArrowRight, X } from "lucide-react";
 
-/**
- * Sticky CTA qui apparaît après un certain scroll
- * Objectif : Maximiser les conversions en gardant le CTA visible
- */
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Apparaît après 600px de scroll (après le Hero)
       const scrolled = window.scrollY > 600;
       
-      // Disparaît si on est proche du footer/contact
       const nearBottom = 
         window.innerHeight + window.scrollY >= document.body.offsetHeight - 800;
       

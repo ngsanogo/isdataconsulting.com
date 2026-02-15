@@ -31,7 +31,7 @@ jobs:
         run: npm run type-check
 
       - name: Run tests
-        run: npm run test:ci
+        run: npm run test:coverage
 
       - name: Upload coverage reports
         uses: codecov/codecov-action@v4
@@ -68,7 +68,6 @@ jobs:
           path: dist/
           retention-days: 7
 
-  # Optional: Lighthouse CI for performance monitoring
   lighthouse:
     name: Lighthouse CI
     runs-on: ubuntu-latest

@@ -16,7 +16,6 @@ describe("FAQSection", () => {
   it("renders all FAQ questions", () => {
     render(<FAQSection />);
 
-    // Check for some key questions
     expect(
       screen.getByText(
         /différence entre un consultant data engineering indépendant/i
@@ -34,20 +33,16 @@ describe("FAQSection", () => {
     const user = userEvent.setup();
     render(<FAQSection />);
 
-    // Find a question button
     const questionButton = screen.getByRole("button", {
       name: /quels sont vos tarifs/i,
     });
 
-    // Initially, answer should not be visible
     expect(
       screen.queryByText(/je travaille au tjm/i)
     ).not.toBeInTheDocument();
 
-    // Click to expand
     await user.click(questionButton);
 
-    // Answer should now be visible
     expect(screen.getByText(/je travaille au tjm/i)).toBeInTheDocument();
   });
 
@@ -59,11 +54,9 @@ describe("FAQSection", () => {
       name: /quels sont vos tarifs/i,
     });
 
-    // Click to expand
     await user.click(questionButton);
     expect(screen.getByText(/je travaille au tjm/i)).toBeInTheDocument();
 
-    // Click to collapse
     await user.click(questionButton);
     expect(
       screen.queryByText(/je travaille au tjm/i)
@@ -78,10 +71,8 @@ describe("FAQSection", () => {
       name: /quels sont vos tarifs/i,
     });
 
-    // Initially collapsed
     expect(questionButton).toHaveAttribute("aria-expanded", "false");
 
-    // Click to expand
     await user.click(questionButton);
     expect(questionButton).toHaveAttribute("aria-expanded", "true");
   });

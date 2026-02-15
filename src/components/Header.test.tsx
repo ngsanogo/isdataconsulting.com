@@ -30,14 +30,11 @@ describe("Header", () => {
     const user = userEvent.setup();
     render(<Header />);
 
-    // Find mobile menu button
     const menuButton = screen.getByRole("button", { name: /ouvrir le menu/i });
     expect(menuButton).toBeInTheDocument();
 
-    // Click to open
     await user.click(menuButton);
 
-    // Menu should be open - check for close button
     const closeButton = screen.getByRole("button", { name: /fermer le menu/i });
     expect(closeButton).toBeInTheDocument();
   });
@@ -52,13 +49,10 @@ describe("Header", () => {
     const user = userEvent.setup();
     render(<Header />);
 
-    // Find Services button (desktop)
     const servicesButton = screen.getByRole("button", { name: /services/i });
 
-    // Hover to show dropdown
     await user.hover(servicesButton);
 
-    // Check for service links
     expect(screen.getByText("Data Engineering")).toBeInTheDocument();
     expect(screen.getByText("Architecture Data")).toBeInTheDocument();
     expect(screen.getByText("Product Data Services")).toBeInTheDocument();

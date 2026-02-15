@@ -58,7 +58,6 @@ export default function MethodologySection() {
   return (
     <section id="methodology" className="section bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto">
-        {/* Section Header */}
         <div className="max-w-2xl mb-12">
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
             Notre approche
@@ -72,7 +71,6 @@ export default function MethodologySection() {
           </p>
         </div>
 
-        {/* Steps */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {STEPS.map((step) => (
             <div 
@@ -93,7 +91,6 @@ export default function MethodologySection() {
           ))}
         </div>
 
-        {/* Commitments */}
         <div className="py-8 border-t border-b border-black/10 dark:border-white/10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {COMMITMENTS.map((item) => (
@@ -106,7 +103,6 @@ export default function MethodologySection() {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="mt-12 text-center">
           <p className="opacity-60 mb-4">
             Prêt à structurer votre projet data ?

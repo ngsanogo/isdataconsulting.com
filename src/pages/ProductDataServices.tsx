@@ -1,9 +1,3 @@
-/**
- * Page Product Data Services - Product Owner Data / Data Manager / Chef de Projet Data
- * SEO Title: Product Owner Data | Data Manager | Chef de Projet Data | ISData Consulting
- * Meta Description: Services Product Owner Data et Data Manager : pilotage agile de produits data, 
- * priorisation backlog, alignement métier/IT. Accélérez votre time-to-market data.
- */
 import { ArrowRight, Users, Target, Rocket, ClipboardList, BarChart3, Lightbulb, CheckCircle2, ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -178,7 +172,6 @@ export default function ProductDataServices() {
       />
       <Header />
       <main>
-        {/* Hero Section */}
         <section className="min-h-[70vh] flex items-center pt-14">
           <div className="container mx-auto">
             <div className="max-w-3xl">
@@ -214,7 +207,6 @@ export default function ProductDataServices() {
           </div>
         </section>
 
-        {/* Roles Section */}
         <section id="roles" className="section">
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
@@ -257,7 +249,6 @@ export default function ProductDataServices() {
           </div>
         </section>
 
-        {/* Value Props Section */}
         <section className="section bg-gray-50 dark:bg-gray-900/30">
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
@@ -289,7 +280,6 @@ export default function ProductDataServices() {
           </div>
         </section>
 
-        {/* Methodology Section */}
         <section className="section">
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
@@ -328,7 +318,6 @@ export default function ProductDataServices() {
           </div>
         </section>
 
-        {/* Skills Section */}
         <section className="section bg-gray-50 dark:bg-gray-900/30">
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
@@ -362,7 +351,6 @@ export default function ProductDataServices() {
           </div>
         </section>
 
-        {/* Case Studies Section */}
         <section className="section">
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
@@ -423,7 +411,6 @@ export default function ProductDataServices() {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section id="contact" className="section bg-black dark:bg-white text-white dark:text-black">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-4">

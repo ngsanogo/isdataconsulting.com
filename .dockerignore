@@ -1,0 +1,10 @@
+node_modules
+coverage
+dist
+.vite
+.git
+.gitignore
+.DS_Store
+npm-debug.log*
+.idea
+.vscode

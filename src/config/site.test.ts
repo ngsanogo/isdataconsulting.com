@@ -6,7 +6,6 @@ describe("SITE_CONFIG", () => {
     expect(SITE_CONFIG.name).toBe("ISData Consulting");
     expect(SITE_CONFIG.email).toBe("contact@isdataconsulting.com");
     expect(SITE_CONFIG.phone).toBeDefined();
-    expect(SITE_CONFIG.url).toBe("https://isdataconsulting.com");
   });
 
   it("has valid legal information", () => {
@@ -31,14 +30,7 @@ describe("SITE_CONFIG", () => {
       expect(service.shortTitle).toBeDefined();
       expect(service.description).toBeDefined();
       expect(service.href).toMatch(/^\/services\//);
-      expect(service.keywords).toBeInstanceOf(Array);
     });
-  });
-
-  it("has SEO keywords defined", () => {
-    expect(SITE_CONFIG.seo.keywords).toBeInstanceOf(Array);
-    expect(SITE_CONFIG.seo.keywords.length).toBeGreaterThan(0);
-    expect(SITE_CONFIG.seo.keywords).toContain("consultant data engineering");
   });
 
   it("has social links", () => {

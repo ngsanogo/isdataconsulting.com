@@ -1,7 +1,3 @@
-/**
- * Section Social Proof & Crédibilité
- * Objectif : Rassurer les décideurs avec des preuves concrètes
- */
 import { CheckCircle2, Award, Building2, Users } from "lucide-react";
 
 const CREDENTIALS = [
@@ -44,7 +40,6 @@ export default function SocialProofSection() {
   return (
     <section className="section">
       <div className="container mx-auto">
-        {/* Section Header */}
         <div className="max-w-2xl mb-12">
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
             Pourquoi nous faire confiance
@@ -58,7 +53,6 @@ export default function SocialProofSection() {
           </p>
         </div>
 
-        {/* Stats */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {CREDENTIALS.map((cred) => (
             <div 
@@ -73,9 +67,7 @@ export default function SocialProofSection() {
           ))}
         </div>
 
-        {/* Two columns: Expertise + Client types */}
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* Expertise list */}
           <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
             <h3 className="font-semibold text-lg mb-4">
               Expertise démontrée
@@ -90,7 +82,6 @@ export default function SocialProofSection() {
             </ul>
           </div>
 
-          {/* Client types */}
           <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
             <h3 className="font-semibold text-lg mb-4">
               Clients accompagnés
@@ -106,7 +97,6 @@ export default function SocialProofSection() {
           </div>
         </div>
 
-        {/* Differentiator */}
         <div className="mt-12 p-6 bg-black dark:bg-white text-white dark:text-black">
           <div className="flex flex-col md:flex-row md:items-center gap-6">
             <div className="flex-grow">

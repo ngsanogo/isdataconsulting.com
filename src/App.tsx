@@ -1,19 +1,13 @@
-/**
- * ISData Consulting - Application principale
- * Site vitrine avec routing et lazy loading pour les pages de services
- */
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Analytics from "./components/Analytics";
 import Index from "./pages/Index";
 
-// Lazy load service pages for better initial bundle size
 const DataEngineering = lazy(() => import("./pages/DataEngineering"));
 const ArchitectureData = lazy(() => import("./pages/ArchitectureData"));
 const ProductDataServices = lazy(() => import("./pages/ProductDataServices"));
 
-// Loading fallback component
 function PageLoader() {
   return (
     <div className="min-h-screen flex items-center justify-center">

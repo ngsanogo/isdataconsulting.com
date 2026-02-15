@@ -2,12 +2,10 @@ import "@testing-library/jest-dom";
 import { cleanup } from "@testing-library/react";
 import { afterEach, vi } from "vitest";
 
-// Cleanup after each test
 afterEach(() => {
   cleanup();
 });
 
-// Mock window.matchMedia for dark mode tests
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: vi.fn().mockImplementation((query: string) => ({
@@ -22,13 +20,11 @@ Object.defineProperty(window, "matchMedia", {
   })),
 });
 
-// Mock scrollTo for scroll tests
 Object.defineProperty(window, "scrollTo", {
   writable: true,
   value: vi.fn(),
 });
 
-// Mock IntersectionObserver
 class MockIntersectionObserver {
   observe = vi.fn();
   disconnect = vi.fn();

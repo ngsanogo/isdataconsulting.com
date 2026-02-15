@@ -1,9 +1,3 @@
-/**
- * Page Data Engineering Consulting
- * SEO Title: Consultant Data Engineering | Pipelines ETL/ELT & Data Platforms | ISData
- * Meta Description: Expert en data engineering : conception de pipelines ETL/ELT, 
- * ingestion batch & streaming, data lakes et warehouses. Transformez vos données en actifs stratégiques.
- */
 import { ArrowRight, Database, Zap, Shield, TrendingUp, CheckCircle2, ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -118,7 +112,6 @@ export default function DataEngineering() {
       />
       <Header />
       <main>
-        {/* Hero Section */}
         <section className="min-h-[70vh] flex items-center pt-14">
           <div className="container mx-auto">
             <div className="max-w-3xl">
@@ -154,7 +147,6 @@ export default function DataEngineering() {
           </div>
         </section>
 
-        {/* Services Section */}
         <section id="services" className="section">
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
@@ -194,7 +186,6 @@ export default function DataEngineering() {
           </div>
         </section>
 
-        {/* Technologies Section */}
         <section className="section bg-gray-50 dark:bg-gray-900/30">
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
@@ -222,7 +213,6 @@ export default function DataEngineering() {
           </div>
         </section>
 
-        {/* Benefits Section */}
         <section className="section">
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
@@ -247,7 +237,6 @@ export default function DataEngineering() {
           </div>
         </section>
 
-        {/* Case Studies Section */}
         <section className="section bg-gray-50 dark:bg-gray-900/30">
           <div className="container mx-auto">
             <div className="max-w-xl mb-12">
@@ -301,7 +290,6 @@ export default function DataEngineering() {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section className="section bg-black dark:bg-white text-white dark:text-black">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
