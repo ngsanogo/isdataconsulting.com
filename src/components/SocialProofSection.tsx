@@ -86,24 +86,7 @@ export default function SocialProofSection() {
           </div>
         </div>
 
-        <div className="mt-12 p-6 bg-black dark:bg-white text-white dark:text-black">
-          <div className="flex flex-col md:flex-row md:items-center gap-6">
-            <div className="flex-grow">
-              <h3 className="font-semibold text-lg mb-2">
-                La différence ISData Consulting
-              </h3>
-              <p className="opacity-70">
-                Un interlocuteur unique, des livrables explicites et une execution directe.
-              </p>
-            </div>
-            <a 
-              href="#contact" 
-              className="shrink-0 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-80 transition-opacity"
-            >
-              Planifier un appel de cadrage
-            </a>
-          </div>
-        </div>
+
       </div>
     </section>
   );

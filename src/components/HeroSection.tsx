@@ -2,9 +2,9 @@ import { ArrowRight } from "lucide-react";
 import FeatureList from "./FeatureList";
 
 const VALUE_POINTS = [
-  "ETL/ELT testes, monitores, documentes",
-  "Architecture data documentee (AWS, GCP, Azure)",
-  "Backlog, KPI, rituels et management d'equipe data",
+  "ETL/ELT testés, monitorés, documentés",
+  "Architectures data documentées (AWS, GCP, Azure)",
+  "Backlog, KPI, rituels et management d'équipe data",
 ] as const;
 
 export default function HeroSection() {
@@ -12,10 +12,6 @@ export default function HeroSection() {
     <section className="min-h-[90vh] flex items-center pt-14">
       <div className="container mx-auto">
         <div className="max-w-3xl">
-          <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">
-            Pour les CTO, CDO et Head of Data
-          </p>
-
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight mb-6 text-black/95 dark:text-white/95">
             <span className="block">Pipelines</span>
             <span className="block text-base font-mono opacity-60 mb-2">→ Architecture</span>
@@ -23,10 +19,8 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-xl opacity-70 leading-relaxed mb-8 max-w-2xl">
-            ISData Consulting accompagne en <strong>Data Engineering</strong>, <strong>Architecture Data</strong>,
-            <strong>Product Owner Data</strong>, <strong>Chef de Projet Data</strong> et
-            <strong>Management d'equipe data</strong>.
-            Livrables explicites: pipelines, architecture, backlog, KPI, rituels et runbooks.
+            Conception de <strong>pipelines ETL/ELT</strong> testés, <strong>architectures data cloud</strong> sur AWS GCP Azure, 
+            <strong>pilotage agile</strong> et <strong>gouvernance data</strong>. Livrables documentés et maintenables.
           </p>
 
           <ul className="space-y-2 mb-8">
@@ -42,10 +36,6 @@ export default function HeroSection() {
               Voir les domaines d'intervention
             </a>
           </div>
-
-          <p className="text-sm opacity-50">
-            Réponse sous 24h · Interlocuteur unique
-          </p>
         </div>
       </div>
     </section>

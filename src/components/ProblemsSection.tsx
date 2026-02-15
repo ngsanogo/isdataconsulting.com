@@ -46,9 +46,9 @@ export default function ProblemsSection() {
     <section className="section bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto">
         <SectionHeader
-          tag="Vous vous reconnaissez ?"
-          title="Problemes typiques sur les systemes data"
-          description="Nous intervenons quand la donnee ralentit l'analyse, la delivery ou la gouvernance."
+          tag="Problèmes récurrents"
+          title="Sur les systèmes data"
+          description="Architectures fragmentées, pipelines fragiles, équipes désalignées. Les problèmes types que nous résolvons."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
