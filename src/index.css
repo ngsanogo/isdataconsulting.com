@@ -33,7 +33,15 @@
   body {
     background-color: var(--color-bg);
     color: var(--color-text);
-     {
+    @apply antialiased;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
+
+  h1 {
     @apply font-bold tracking-tight text-black/95 dark:text-white/95;
   }
 
@@ -49,15 +57,7 @@
   }
 
   p {
-    @apply leading-relaxed
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-semibold tracking-tight;
+    @apply leading-relaxed;
   }
 
   .text-success {
