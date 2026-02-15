@@ -24,11 +24,13 @@ export default function Header() {
               Accueil
             </a>
 
-            <div className="relative group">
+            <div
+              className="relative group"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
               <button
                 className="flex items-center gap-1 text-sm opacity-60 hover:opacity-100 transition-opacity py-4"
-                onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
               >
                 Services
                 <ChevronDown
