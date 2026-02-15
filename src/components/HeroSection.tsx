@@ -15,8 +15,10 @@ export default function HeroSection() {
             Pour les CTO, CDO et Head of Data
           </p>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight mb-6">
-            Data engineering, architecture data, product data et management d'equipe data
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight mb-6 text-black/95 dark:text-white/95">
+            <span className="block">Pipelines</span>
+            <span className="block text-base font-mono opacity-60 mb-2">→ Architecture</span>
+            <span className="block">Data qui scale</span>
           </h1>
 
           <p className="text-xl opacity-70 leading-relaxed mb-8 max-w-2xl">
@@ -35,12 +37,12 @@ export default function HeroSection() {
             ))}
           </ul>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <a href="#contact" className="btn-primary text-base px-6 py-3">
+          <div className="flex flex-col gap-3 mb-8 sm:flex-row sm:gap-4">
+            <a href="#contact" className="btn-primary text-base px-6 py-3 w-full sm:w-auto">
               Planifier un appel de cadrage
               <ArrowRight size={18} />
             </a>
-            <a href="#expertise" className="btn-secondary text-base px-6 py-3">
+            <a href="#expertise" className="btn-secondary text-base px-6 py-3 w-full sm:w-auto">
               Voir les domaines d'intervention
             </a>
           </div>

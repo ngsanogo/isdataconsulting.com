@@ -59,19 +59,19 @@ export default function ExpertiseSection() {
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
             Nos Solutions
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Trois domaines pour livrer, piloter et manager la data
           </h2>
-          <p className="opacity-60 text-lg">
+          <p className="opacity-60 text-lg leading-relaxed">
             Data Engineering, Architecture Data, Product Data et management d'equipe data.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-8">
           {SERVICES.map((service) => (
             <article
               key={service.id}
-              className="group p-6 bg-white dark:bg-black border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors flex flex-col"
+              className="group p-8 bg-white dark:bg-black border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors flex flex-col"
             >
               <div className="flex items-start justify-between mb-4">
                 <service.icon
@@ -80,31 +80,34 @@ export default function ExpertiseSection() {
                 />
               </div>
 
-              <h3 className="text-xl font-semibold mb-1">{service.title}</h3>
-              <p className="text-sm opacity-50 mb-4">{service.subtitle}</p>
+              <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+              <p className="text-sm opacity-50 font-medium mb-6">{service.subtitle}</p>
 
-              <p className="opacity-60 mb-4 text-sm leading-relaxed">
+              <p className="opacity-70 mb-6 text-base leading-relaxed flex-grow">
                 {service.description}
               </p>
 
-              <ul className="space-y-2 mb-6 flex-grow">
+              <ul className="space-y-3 mb-8">
                 {service.benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-2 text-sm">
+                  <li key={benefit} className="flex items-start gap-3 text-sm">
                     <Check className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
                     <span className="opacity-80">{benefit}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs px-2 py-0.5 border border-black/10 dark:border-white/10 opacity-60"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <div className="mb-6 pb-6 border-b border-black/10 dark:border-white/10">
+                <p className="text-xs opacity-50 mb-3 font-semibold tracking-wide">Tech Stack</p>
+                <div className="flex flex-wrap gap-2">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs font-medium px-3 py-1.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 opacity-70 hover:opacity-100 transition-opacity"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <a 

@@ -62,53 +62,53 @@ export default function MethodologySection() {
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
             Notre approche
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Une methode simple et livrable
           </h2>
-          <p className="opacity-60 text-lg">
+          <p className="opacity-70 text-lg leading-relaxed">
             Iterations courtes, livrables visibles, communication explicite.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {STEPS.map((step) => (
             <div 
               key={step.number}
-              className="p-6 bg-white dark:bg-black border border-black/10 dark:border-white/10"
+              className="p-8 bg-white dark:bg-black border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors"
             >
-              <span className="text-4xl font-semibold opacity-15 block mb-4">
+              <span className="text-5xl font-bold opacity-10 block mb-6">
                 {step.number}
               </span>
-              <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-              <p className="opacity-60 text-sm leading-relaxed mb-4">
+              <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+              <p className="opacity-70 text-base leading-relaxed mb-6">
                 {step.description}
               </p>
-              <p className="text-sm font-medium text-green-600 dark:text-green-400">
+              <p className="text-base font-medium text-green-600 dark:text-green-400">
                 → {step.deliverable}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="py-8 border-t border-b border-black/10 dark:border-white/10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="py-12 border-t border-b border-black/10 dark:border-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {COMMITMENTS.map((item) => (
-              <div key={item.label} className="text-center">
-                <p className="text-3xl font-semibold mb-1">{item.value}</p>
-                <p className="font-medium text-sm mb-0.5">{item.label}</p>
-                <p className="text-xs opacity-50">{item.detail}</p>
+              <div key={item.label} className="text-left sm:text-center">
+                <p className="text-4xl font-bold mb-2">{item.value}</p>
+                <p className="font-semibold text-base mb-1">{item.label}</p>
+                <p className="text-sm opacity-60">{item.detail}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="opacity-60 mb-4">
+        <div className="mt-16 text-center">
+          <p className="opacity-70 text-lg mb-6">
             Prêt à structurer votre projet data ?
           </p>
-          <a href="#contact" className="btn-primary inline-flex">
+          <a href="#contact" className="btn-primary inline-flex text-base">
             Planifier un appel de cadrage
-            <ArrowRight size={16} />
+            <ArrowRight size={18} />
           </a>
         </div>
       </div>

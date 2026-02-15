@@ -32,7 +32,7 @@ export default function Header() {
       <div className="container mx-auto">
         <nav className="flex items-center justify-between h-14">
           <a href="/" className="flex items-center gap-2">
-            <span className="font-semibold text-lg tracking-tight">
+            <span className="font-bold text-lg tracking-tight">
               ISData<span className="font-normal opacity-60"> Consulting</span>
             </span>
           </a>
@@ -59,10 +59,10 @@ export default function Header() {
                       <a
                         key={item.href}
                         href={item.href}
-                        className="block p-4 hover:bg-gray-50 dark:hover:bg-gray-900/50 transition-colors border-b border-black/5 dark:border-white/5 last:border-0"
+                        className="block p-5 hover:bg-gray-50 dark:hover:bg-gray-900/50 transition-colors border-b border-black/5 dark:border-white/5 last:border-0"
                       >
-                        <span className="font-medium text-sm block mb-1">{item.label}</span>
-                        <span className="text-xs opacity-50 line-clamp-2">{item.description}</span>
+                        <span className="font-semibold text-base block mb-2">{item.label}</span>
+                        <span className="text-sm opacity-60 line-clamp-2">{item.description}</span>
                       </a>
                     ))}
                   </div>

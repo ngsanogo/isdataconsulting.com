@@ -45,53 +45,53 @@ export default function SocialProofSection() {
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
             Pourquoi nous faire confiance
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Un expert senior, pas une ESN
           </h2>
-          <p className="opacity-60 text-lg">
+          <p className="opacity-70 text-lg leading-relaxed">
             Vous travaillez directement avec un consultant senior.
             Objectifs, livrables et responsabilites sont explicites.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           {CREDENTIALS.map((cred) => (
             <div 
               key={cred.label}
-              className="p-6 border border-black/10 dark:border-white/10 text-center"
+              className="p-8 border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors text-center"
             >
-              <cred.icon className="w-8 h-8 mx-auto mb-3 opacity-60" strokeWidth={1.5} />
-              <p className="text-3xl font-semibold mb-1">{cred.value}</p>
-              <p className="font-medium mb-1">{cred.label}</p>
-              <p className="text-sm opacity-50">{cred.detail}</p>
+              <cred.icon className="w-10 h-10 mx-auto mb-4 opacity-70" strokeWidth={1.5} />
+              <p className="text-4xl font-bold mb-2">{cred.value}</p>
+              <p className="font-semibold text-lg mb-2">{cred.label}</p>
+              <p className="text-base opacity-60">{cred.detail}</p>
             </div>
           ))}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
-            <h3 className="font-semibold text-lg mb-4">
+          <div className="p-8 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
+            <h3 className="font-bold text-xl mb-6">
               Expertise démontrée
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {EXPERTISE_PROOF.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="mt-0.5 opacity-70 shrink-0" />
-                  <span className="text-sm opacity-80">{item}</span>
+                  <CheckCircle2 size={20} className="mt-0.5 opacity-70 shrink-0" />
+                  <span className="text-base opacity-80">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
-            <h3 className="font-semibold text-lg mb-4">
+          <div className="p-8 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
+            <h3 className="font-bold text-xl mb-6">
               Clients accompagnés
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-6">
               {CLIENT_TYPES.map((client) => (
                 <div key={client.type}>
-                  <p className="font-medium mb-1">{client.type}</p>
-                  <p className="text-sm opacity-50">{client.examples}</p>
+                  <p className="font-semibold text-lg mb-2">{client.type}</p>
+                  <p className="text-base opacity-70">{client.examples}</p>
                 </div>
               ))}
             </div>

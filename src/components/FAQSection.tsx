@@ -42,11 +42,11 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
     <div className="border-b border-black/10 dark:border-white/10 last:border-0">
       <button
-        className="w-full py-5 flex items-start justify-between gap-4 text-left"
+        className="w-full py-6 flex items-start justify-between gap-4 text-left"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
       >
-        <span className="font-medium pr-4">{question}</span>
+        <span className="font-medium text-base leading-relaxed pr-4">{question}</span>
         <ChevronDown 
           size={20} 
           className={`shrink-0 opacity-50 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
@@ -54,8 +54,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       </button>
       
       {isOpen && (
-        <div className="pb-5 pr-8">
-          <p className="text-sm opacity-70 leading-relaxed">
+        <div className="pb-6 pr-8">
+          <p className="text-base opacity-70 leading-relaxed">
             {answer}
           </p>
         </div>
@@ -72,11 +72,11 @@ export default function FAQSection() {
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
             Questions fréquentes
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Tout ce que vous devez savoir
           </h2>
-          <p className="opacity-60">
-            Questions sur le perimetre ou les livrables ? <a href="#contact" className="underline underline-offset-2">Contactez-moi</a>.
+          <p className="opacity-70 text-lg">
+            Questions sur le perimetre ou les livrables ? <a href="#contact" className="underline underline-offset-2 font-medium">Contactez-moi</a>.
           </p>
         </div>
 

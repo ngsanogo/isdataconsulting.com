@@ -47,35 +47,35 @@ export default function ProblemsSection() {
           <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
             Vous vous reconnaissez ?
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Problemes typiques sur les systemes data
           </h2>
-          <p className="opacity-60 text-lg">
+          <p className="opacity-70 text-lg leading-relaxed">
             Nous intervenons quand la donnee ralentit l'analyse, la delivery ou la gouvernance.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PROBLEMS.map((problem) => (
             <article
               key={problem.title}
-              className="p-6 bg-white dark:bg-black border border-black/10 dark:border-white/10"
+              className="p-8 bg-white dark:bg-black border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors"
             >
               <problem.icon 
-                className="w-8 h-8 mb-4 opacity-70" 
+                className="w-10 h-10 mb-4 opacity-70" 
                 strokeWidth={1.5} 
               />
               
-              <h3 className="font-semibold mb-2 leading-snug">
+              <h3 className="font-bold mb-3 leading-snug text-lg">
                 {problem.title}
               </h3>
               
-              <p className="text-sm opacity-60 mb-3">
+              <p className="text-base opacity-70 mb-4 leading-relaxed">
                 {problem.description}
               </p>
               
-              <p className="text-sm font-medium opacity-70">
-                {problem.impact}
+              <p className="text-base font-medium opacity-80">
+                💡 {problem.impact}
               </p>
             </article>
           ))}
