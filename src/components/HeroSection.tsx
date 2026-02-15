@@ -1,4 +1,5 @@
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import FeatureList from "./FeatureList";
 
 const VALUE_POINTS = [
   "ETL/ELT testes, monitores, documentes",
@@ -29,12 +30,7 @@ export default function HeroSection() {
           </p>
 
           <ul className="space-y-2 mb-8">
-            {VALUE_POINTS.map((point) => (
-              <li key={point} className="flex items-center gap-3">
-                <CheckCircle2 size={18} className="text-green-600 dark:text-green-400 shrink-0" />
-                <span className="opacity-80">{point}</span>
-              </li>
-            ))}
+            <FeatureList items={VALUE_POINTS} />
           </ul>
 
           <div className="flex flex-col gap-3 mb-8 sm:flex-row sm:gap-4">

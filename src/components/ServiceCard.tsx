@@ -20,7 +20,17 @@ export default function ServiceCard({
       <article className="p-6 border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors">
         {Icon && <Icon className="w-8 h-8 mb-4 opacity-80" strokeWidth={1.5} />}
         <h3 className="font-semibold text-base mb-2">{title}</h3>
-        <p className="text-sm opacity-60">{description}</p>
+        <p className="text-sm opacity-60 mb-4">{description}</p>
+        {features && (
+          <ul className="space-y-1.5">
+            {features.map((feature) => (
+              <li key={feature} className="flex items-center gap-2 text-sm opacity-70">
+                <span className="text-green-600 dark:text-green-400 shrink-0">✓</span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        )}
       </article>
     );
   }

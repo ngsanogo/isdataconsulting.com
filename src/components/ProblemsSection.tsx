@@ -1,4 +1,6 @@
 import { AlertTriangle, Clock, DollarSign, Users, TrendingDown, ShieldAlert } from "lucide-react";
+import SectionHeader from "./SectionHeader";
+import ProblemCard from "./ProblemCard";
 
 const PROBLEMS = [
   {
@@ -43,41 +45,15 @@ export default function ProblemsSection() {
   return (
     <section className="section bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto">
-        <div className="max-w-2xl mb-12">
-          <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
-            Vous vous reconnaissez ?
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Problemes typiques sur les systemes data
-          </h2>
-          <p className="opacity-70 text-lg leading-relaxed">
-            Nous intervenons quand la donnee ralentit l'analyse, la delivery ou la gouvernance.
-          </p>
-        </div>
+        <SectionHeader
+          tag="Vous vous reconnaissez ?"
+          title="Problemes typiques sur les systemes data"
+          description="Nous intervenons quand la donnee ralentit l'analyse, la delivery ou la gouvernance."
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROBLEMS.map((problem) => (
-            <article
-              key={problem.title}
-              className="p-8 bg-white dark:bg-black border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors"
-            >
-              <problem.icon 
-                className="w-10 h-10 mb-4 opacity-70" 
-                strokeWidth={1.5} 
-              />
-              
-              <h3 className="font-bold mb-3 leading-snug text-lg">
-                {problem.title}
-              </h3>
-              
-              <p className="text-base opacity-70 mb-4 leading-relaxed">
-                {problem.description}
-              </p>
-              
-              <p className="text-base font-medium opacity-80">
-                💡 {problem.impact}
-              </p>
-            </article>
+            <ProblemCard key={problem.title} {...problem} />
           ))}
         </div>
 

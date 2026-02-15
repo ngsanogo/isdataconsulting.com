@@ -1,7 +1,9 @@
-import { ArrowRight, GitBranch, Cloud, Layers, Network, Shield, Gauge, CheckCircle2, ArrowLeft } from "lucide-react";
+import { ArrowRight, Cloud, Layers, Network, GitBranch, Gauge, Shield, CheckCircle2, ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import SectionHeader from "@/components/SectionHeader";
+import ServiceCard from "@/components/ServiceCard";
 import { SITE_CONFIG } from "@/config/site";
 
 const ARCHITECTURE_SERVICES = [
@@ -193,38 +195,22 @@ export default function ArchitectureData() {
 
         <section id="services" className="section">
           <div className="container mx-auto">
-            <div className="max-w-xl mb-12">
-              <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
-                Expertise Architecture
-              </p>
-              <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                Conception de plateformes data
-              </h2>
-              <p className="opacity-60">
-                Architecture cible, ADR, standards et gouvernance.
-              </p>
-            </div>
+            <SectionHeader
+              tag="Expertise Architecture"
+              title="Conception de plateformes data"
+              description="Architecture cible, ADR, standards et gouvernance."
+            />
 
             <div className="grid md:grid-cols-2 gap-6">
               {ARCHITECTURE_SERVICES.map((service) => (
-                <article
+                <ServiceCard
                   key={service.title}
-                  className="p-6 border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors"
-                >
-                  <service.icon className="w-8 h-8 mb-4 opacity-80" strokeWidth={1.5} />
-                  <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
-                  <p className="opacity-60 mb-4 text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-1.5">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm opacity-70">
-                        <CheckCircle2 size={14} className="text-green-600 dark:text-green-400" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                  features={service.features}
+                  variant="compact"
+                />
               ))}
             </div>
           </div>
