@@ -1,10 +1,11 @@
-version: '3.8'
-
 services:
+  # On définit la logique de build une seule fois ici
   app:
+    container_name: app
     build:
       context: .
       dockerfile: Dockerfile
+    image: isdataconsulting.com:latest # On donne un nom à l'image générée
     volumes:
       - .:/app
       - /app/node_modules
@@ -12,13 +13,16 @@ services:
       - NODE_ENV=development
 
   test:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    container_name: test
+    # Au lieu de 'build', on utilise l'image produite par 'app'
+    image: isdataconsulting.com:latest 
+    depends_on:
+      - app
+    profiles:
+      - test
     volumes:
       - .:/app
       - /app/node_modules
-    profiles:
-      - test
     environment:
       - NODE_ENV=test
+    command: npm test # On surcharge la commande pour les tests

@@ -1,0 +1,37 @@
+# @ngsanogo/isdataconsulting-website
+
+This file specifies code owners and automatic reviewers for consistency.
+
+# Default owners for everything
+* @ngsanogo
+
+# Critical infrastructure
+/.github/     @ngsanogo
+/Dockerfile*  @ngsanogo
+/docker-compose.yml @ngsanogo
+/*.toml       @ngsanogo
+/*.config.* @ngsanogo
+
+# Build & deployment config
+/netlify.toml @ngsanogo
+/vite.config.ts @ngsanogo
+/tsconfig.json @ngsanogo
+/eslint.config.js @ngsanogo
+
+# Security & compliance
+/SECURITY.md @ngsanogo
+/CONTRIBUTING.md @ngsanogo
+/.env* @ngsanogo
+
+# Package management
+/package.json @ngsanogo
+/package-lock.json @ngsanogo
+
+# Tests
+/*.test.* @ngsanogo
+/src/test/ @ngsanogo
+/vitest.config.ts @ngsanogo
+
+# Documentation
+/*.md @ngsanogo
+/docs/ @ngsanogo
