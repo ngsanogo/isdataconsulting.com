@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 const STEPS = [
   {
@@ -58,17 +59,11 @@ export default function MethodologySection() {
   return (
     <section id="methodology" className="section bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto">
-        <div className="max-w-2xl mb-12">
-          <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
-            Notre approche
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Une methode simple et livrable
-          </h2>
-          <p className="opacity-70 text-lg leading-relaxed">
-            Iterations courtes, livrables visibles, communication explicite.
-          </p>
-        </div>
+        <SectionHeader
+          tag="Notre approche"
+          title="Une methode simple et livrable"
+          description="Iterations courtes, livrables visibles, communication explicite."
+        />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {STEPS.map((step) => (

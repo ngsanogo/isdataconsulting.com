@@ -1,4 +1,6 @@
-import { CheckCircle2, Award, Building2, Users } from "lucide-react";
+import { Award, Building2, Users } from "lucide-react";
+import SectionHeader from "./SectionHeader";
+import FeatureList from "./FeatureList";
 
 const CREDENTIALS = [
   {
@@ -41,18 +43,11 @@ export default function SocialProofSection() {
   return (
     <section className="section">
       <div className="container mx-auto">
-        <div className="max-w-2xl mb-12">
-          <p className="text-sm opacity-50 mb-2 uppercase tracking-wide">
-            Pourquoi nous faire confiance
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Un expert senior, pas une ESN
-          </h2>
-          <p className="opacity-70 text-lg leading-relaxed">
-            Vous travaillez directement avec un consultant senior.
-            Objectifs, livrables et responsabilites sont explicites.
-          </p>
-        </div>
+        <SectionHeader
+          tag="Pourquoi nous faire confiance"
+          title="Un expert senior, pas une ESN"
+          description="Vous travaillez directement avec un consultant senior. Objectifs, livrables et responsabilites sont explicites."
+        />
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {CREDENTIALS.map((cred) => (
@@ -73,14 +68,7 @@ export default function SocialProofSection() {
             <h3 className="font-bold text-xl mb-6">
               Expertise démontrée
             </h3>
-            <ul className="space-y-4">
-              {EXPERTISE_PROOF.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="mt-0.5 opacity-70 shrink-0" />
-                  <span className="text-base opacity-80">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <FeatureList items={EXPERTISE_PROOF} variant="detailed" />
           </div>
 
           <div className="p-8 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
