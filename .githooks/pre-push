@@ -1,0 +1,13 @@
+#!/bin/sh
+# Pre-push hook - validates production build in Docker
+
+set -e
+
+echo "Running pre-push checks..."
+echo "\n→ Building production bundle..."
+
+docker compose run --rm build
+
+echo "\n✓ Production build successful\n"
+
+exit 0

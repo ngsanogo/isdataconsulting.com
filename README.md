@@ -4,33 +4,56 @@ Modern React + TypeScript website for ISData Consulting. Data engineering, archi
 
 **Live**: [isdataconsulting.com](https://isdataconsulting.com)
 
-## Quick Start
+## Development
 
-### Requirements
-- Node.js 22+
-- Docker (recommended)
+### Docker (Recommended)
 
-### Development
+**Requirements**: Docker Desktop or Docker Engine with Docker Compose
 
-**With Docker:**
+All development tools run in containers - no local Node.js installation required.
+
 ```bash
-docker compose up
+# Initial setup
+bash scripts/setup-git-hooks.sh
+
+# Start development server
+make dev
 ```
 
-**Local:**
+See [DOCKER.md](DOCKER.md) for complete Docker workflow documentation.
+
+#### Docker Commands
+
+```bash
+make dev              # Development server
+make test             # Run tests
+make test-coverage    # Tests with coverage
+make lint             # Lint code
+make lint-fix         # Lint and auto-fix
+make type-check       # TypeScript validation
+make build            # Production build
+make help             # List all commands
+```
+
+### Local Installation
+
+**Requirements**: Node.js 22+
+
 ```bash
 npm install
 npm run dev
 ```
 
-### Commands
+#### Available Scripts
 
 ```bash
-npm run build        # Build for production
-npm run type-check   # TypeScript validation
-npm run lint         # ESLint check
-npm run test         # Run tests
-npm run test:coverage # Coverage report
+npm run dev              # Development server
+npm run build            # Production build
+npm run type-check       # TypeScript validation
+npm run lint             # Lint code
+npm run lint:fix         # Lint and auto-fix
+npm run test             # Run tests
+npm run test:coverage    # Tests with coverage
 ```
 
 ## Architecture

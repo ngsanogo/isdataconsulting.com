@@ -1,17 +1,29 @@
+# Base image avec dépendances
 FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci --frozen-lockfile
 
+# Image de développement
 FROM deps AS dev
 COPY . .
-USER node
 EXPOSE 5173
 
+# Image pour les tests
+FROM deps AS test
+COPY . .
+ENV NODE_ENV=test
+
+# Image pour le linting
+FROM deps AS lint
+COPY . .
+
+# Image pour le build
 FROM deps AS builder
 COPY . .
 RUN npm run build
 
+# Image de production avec nginx
 FROM nginx:alpine AS prod
 COPY --from=builder /app/dist /usr/share/nginx/html
 COPY <<EOF /etc/nginx/conf.d/default.conf

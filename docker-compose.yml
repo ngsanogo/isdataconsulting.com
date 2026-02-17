@@ -3,7 +3,8 @@ volumes:
     driver: local
 
 services:
-  app:
+  # Service de développement avec hot-reload
+  dev:
     build:
       context: .
       dockerfile: Dockerfile
@@ -17,18 +18,121 @@ services:
     environment:
       - NODE_ENV=development
     command: npm run dev
+    stdin_open: true
+    tty: true
 
+  # Service pour exécuter les tests
   test:
     build:
       context: .
       dockerfile: Dockerfile
-      target: dev
-    image: isdataconsulting.com:dev
+      target: test
+    image: isdataconsulting.com:test
     profiles:
-      - test
+      - tools
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=test
+    command: npm run test
+
+  # Service pour exécuter les tests avec coverage
+  test-coverage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    image: isdataconsulting.com:test
+    profiles:
+      - tools
     volumes:
       - .:/app
       - node_modules:/app/node_modules
     environment:
       - NODE_ENV=test
     command: npm run test:coverage
+
+  # Service pour le linting
+  lint:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: lint
+    image: isdataconsulting.com:lint
+    profiles:
+      - tools
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    command: npm run lint
+
+  # Service pour le linting avec auto-fix
+  lint-fix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: lint
+    image: isdataconsulting.com:lint
+    profiles:
+      - tools
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    command: npm run lint:fix
+
+  # Service pour le type checking
+  type-check:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: lint
+    image: isdataconsulting.com:lint
+    profiles:
+      - tools
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    command: npm run type-check
+
+  # Service pour le build de production
+  build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    image: isdataconsulting.com:builder
+    profiles:
+      - tools
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    command: npm run build
+
+  # Service pour exécuter une commande shell
+  shell:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    image: isdataconsulting.com:dev
+    profiles:
+      - tools
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    command: sh
+    stdin_open: true
+    tty: true
+
+  # Service de production nginx
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+    image: isdataconsulting.com:prod
+    profiles:
+      - production
+    ports:
+      - "8080:80"
