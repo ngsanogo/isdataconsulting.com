@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import ScrollHandler from "./components/ScrollHandler";
 import Index from "./pages/Index";
 
 const DataEngineering = lazy(() => import("./pages/DataEngineering"));
@@ -22,6 +23,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <ScrollHandler />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route

@@ -1,4 +1,5 @@
 import { ArrowRight, Users, Target, Rocket, ClipboardList, BarChart3, Lightbulb, CheckCircle2, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -178,9 +179,9 @@ export default function ProductDataServices() {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Product Owner Data | Data Manager | Chef de Projet Data | ISData Consulting"
-        description="Services Product Owner Data et Data Manager: pilotage de produits data, priorisation backlog, alignement metier/IT."
-        keywords={["product owner data", "data manager", "chef de projet data", "gouvernance données", "pilotage agile data", "backlog data"]}
+        title="Pilotage de projet Data | Chef de Projet & Product Owner | Expert Bezons (95) | ISData"
+        description="Je pilote votre projet data de A à Z : cadrage, exécution agile, transfert. Gain de temps, livrables fiables. Expert indépendant basé en Île-de-France."
+        keywords={["pilotage projet data PME", "chef de projet data IDF", "product owner data", "gain de temps", "fiabilité données", "expert data Bezons", "Île-de-France"]}
         canonicalPath="/services/product-data"
       />
       <Header />
@@ -188,28 +189,27 @@ export default function ProductDataServices() {
         <section className="min-h-[70vh] flex items-center pt-14">
           <div className="container mx-auto">
             <div className="max-w-3xl">
-              <a href="/" className="inline-flex items-center gap-2 text-sm opacity-50 hover:opacity-100 mb-6 transition-opacity">
+              <Link to="/" className="inline-flex items-center gap-2 text-sm opacity-50 hover:opacity-100 mb-6 transition-opacity">
                 <ArrowLeft size={14} />
                 Retour à l'accueil
-              </a>
+              </Link>
               
               <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">
-                Product Data Services
+                Pilotage de projet Data
               </p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Pilotage, delivery et management d'equipe data
+                Je pilote votre projet data de A à Z
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
-                Services de <strong>Product Owner Data</strong>, <strong>Data Manager</strong>,
-                <strong> Chef de Projet Data</strong> et <strong>Management d'equipe Data</strong>.
-                Backlog, gouvernance, delivery, rituels et KPI explicites.
+                Cadrage, exécution agile et transfert à vos équipes. Un seul interlocuteur,
+                des livrables concrets et une gouvernance simple.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href="#contact" className="btn-primary">
-                  Planifier un appel de cadrage
+                  Réserver une visio découverte (1h)
                   <ArrowRight size={16} />
                 </a>
                 <a href="#roles" className="btn-secondary">
@@ -426,18 +426,18 @@ export default function ProductDataServices() {
         <section id="contact" className="section bg-black dark:bg-white text-white dark:text-black">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-              Cadrer une mission Product Data
+              Un projet data à piloter ?
             </h2>
             <p className="opacity-70 mb-8 max-w-xl mx-auto">
-              Perimetre, role, livrables et planning definis au cadrage.
+              Cadrage, livrables et planning : on fait le point ensemble.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={`mailto:${SITE_CONFIG.email}?subject=Demande Product Data Services`}
+                href={`mailto:${SITE_CONFIG.email}?subject=Visio découverte — Pilotage projet Data`}
                 className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-80 transition-opacity"
               >
-                Planifier un appel de cadrage
+                Réserver une visio découverte (1h)
                 <ArrowRight size={16} />
               </a>
               <a

@@ -32,7 +32,7 @@ export default class ErrorBoundary extends Component<Props, State> {
               Une erreur est survenue
             </h1>
             <p className="opacity-60 mb-6">
-              Nous nous excusons pour la gêne occasionnée.
+              Je m'excuse pour la gêne occasionnée.
             </p>
             <button
               onClick={() => window.location.reload()}

@@ -11,7 +11,7 @@ describe("SITE_CONFIG", () => {
   it("has valid legal information", () => {
     expect(SITE_CONFIG.siren).toMatch(/^\d{3}\s\d{3}\s\d{3}$/);
     expect(SITE_CONFIG.tva).toMatch(/^FR\d{11}$/);
-    expect(SITE_CONFIG.legalForm).toBe("SASU");
+    expect(SITE_CONFIG.legalForm).toBe("SAS");
   });
 
   it("has three services defined", () => {

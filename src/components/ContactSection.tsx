@@ -2,10 +2,10 @@ import { Mail, Phone, CheckCircle2, ArrowRight } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
 const REASSURANCE = [
-  "Diagnostic offert de 45-60 min",
-  "Réponse sous 24-48h garanti",
-  "Devis clair sans surprise",
-  "Vous décidez, je ne force rien",
+  "Visio de découverte offerte (1h)",
+  "Analyse de faisabilité sous 48h",
+  "Devis clair, sans surprise",
+  "Si je ne peux pas aider, je vous le dis",
 ] as const;
 
 export default function ContactSection() {
@@ -39,7 +39,7 @@ export default function ContactSection() {
 
             <div className="space-y-4 flex flex-col sm:flex-row sm:gap-4">
               <a
-                href={`mailto:${SITE_CONFIG.email}?subject=Visio de découverte métier (45-60 min)`}
+                href={`mailto:${SITE_CONFIG.email}?subject=Visio de découverte métier (1h)`}
                 className="flex items-center justify-center sm:justify-start gap-3 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-90 transition-opacity w-full sm:w-auto order-1"
               >
                 <Mail size={18} />
@@ -66,7 +66,7 @@ export default function ContactSection() {
               <li className="flex gap-5">
                 <span className="text-3xl font-bold opacity-30 leading-none">01</span>
                 <div>
-                  <p className="font-semibold text-lg mb-2">Visio de découverte métier (45-60 min)</p>
+                  <p className="font-semibold text-lg mb-2">Visio de découverte métier (1h)</p>
                   <p className="text-base opacity-70 mb-3">
                     On sort de la technique pure pour comprendre votre business.
                   </p>

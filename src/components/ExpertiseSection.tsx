@@ -6,7 +6,7 @@ const SERVICES = [
     icon: Database,
     id: "centralisation-warehouse",
     title: "Centralisation de vos données",
-    subtitle: "Data Warehouse",
+    subtitle: "Entrepôt de données",
     description:
       "Vos données sont réparties entre Excel, votre CRM et votre logiciel métier ? Je construis un socle unique (entrepôt de données) pour que vous ayez une vue d'ensemble fiable sur votre activité.",
     example: "Exemple : Institut de recherche avec données patients éparpillées → 1 base centralisée sécurisée",
@@ -92,9 +92,10 @@ export default function ExpertiseSection() {
             </p>
           </div>
           <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
-            <p className="font-semibold mb-2">Transfert de compétences</p>
+            <p className="font-semibold mb-2">Transparence totale</p>
             <p className="text-sm opacity-70">
-              Je ne vous laisse pas avec un système que vous ne comprenez pas. <strong>Formation et documentation incluses.</strong>
+              Mon code est documenté et mes architectures sont transférées à vos équipes. 
+              <strong>Mon but : que vous ne dépendiez jamais de moi.</strong>
             </p>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { ArrowRight, Database, Zap, Shield, TrendingUp, CheckCircle2, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -107,9 +108,9 @@ export default function DataEngineering() {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Consultant Data Engineering | Pipelines ETL/ELT & Data Platforms | ISData"
-        description="Conception de pipelines ETL/ELT, ingestion batch & streaming, data lakes et warehouses. Airflow, dbt, Spark. Tests, monitoring, documentation et runbooks."
-        keywords={["consultant data engineering", "pipelines ETL ELT", "data platform", "Airflow", "dbt", "Spark", "data lake", "data warehouse"]}
+        title="Pipelines de données automatisés | Expert Data indépendant Bezons (95) | ISData"
+        description="Automatisation de vos flux de données : gain de temps, fiabilité et vue d'ensemble. Expert data indépendant basé en Île-de-France (Bezons, 95). Cloud ou On-Premise."
+        keywords={["automatisation données PME", "pipelines données fiables", "gain de temps data", "expert data Bezons", "Île-de-France", "Airflow", "dbt", "Cloud On-Premise"]}
         canonicalPath="/services/data-engineering"
       />
       <Header />
@@ -117,27 +118,27 @@ export default function DataEngineering() {
         <section className="min-h-[70vh] flex items-center pt-14">
           <div className="container mx-auto">
             <div className="max-w-3xl">
-              <a href="/" className="inline-flex items-center gap-2 text-sm opacity-50 hover:opacity-100 mb-6 transition-opacity">
+              <Link to="/" className="inline-flex items-center gap-2 text-sm opacity-50 hover:opacity-100 mb-6 transition-opacity">
                 <ArrowLeft size={14} />
                 Retour à l'accueil
-              </a>
+              </Link>
               
               <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">
-                Consultant Data Engineering
+                Flux & Pipelines de données
               </p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Pipelines ETL/ELT livres avec tests et monitoring
+                Vos données circulent automatiquement, sans perte, sans erreur
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
-                Conception et implementation de pipelines: ingestion, transformation ETL/ELT,
-                traitement batch et streaming, observabilite et documentation.
+                Je construis les tuyaux qui font circuler vos données : ingestion, transformation,
+                automatisation. Résultat : gain de temps, fiabilité et une vue d'ensemble claire.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href="#contact" className="btn-primary">
-                  Planifier un appel de cadrage
+                  Réserver une visio découverte (1h)
                   <ArrowRight size={16} />
                 </a>
                 <a href="#services" className="btn-secondary">
@@ -275,21 +276,21 @@ export default function DataEngineering() {
           </div>
         </section>
 
-        <section className="section bg-black dark:bg-white text-white dark:text-black">
+        <section id="contact" className="section bg-black dark:bg-white text-white dark:text-black">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-              Discutons de votre architecture data
+              Vos données méritent de circuler sans accroc
             </h2>
             <p className="opacity-70 mb-8 max-w-xl mx-auto">
-              Cadrage technique, perimetre et livrables explicites.
+              Gain de temps, fiabilité, vue d'ensemble : on en parle ?
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={`mailto:${SITE_CONFIG.email}?subject=Demande d'évaluation Data Engineering`}
+                href={`mailto:${SITE_CONFIG.email}?subject=Visio découverte — Pipelines de données`}
                 className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-80 transition-opacity"
               >
-                Demander un cadrage technique
+                Réserver une visio découverte (1h)
                 <ArrowRight size={16} />
               </a>
               <a

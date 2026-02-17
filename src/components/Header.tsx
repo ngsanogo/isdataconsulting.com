@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
@@ -10,19 +11,19 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-black/10 dark:border-white/10">
       <div className="container mx-auto">
         <nav className="flex items-center justify-between h-14">
-          <a href="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <span className="font-bold text-lg tracking-tight">
               ISData<span className="font-normal opacity-60"> Consulting</span>
             </span>
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center gap-6">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-sm opacity-60 hover:opacity-100 transition-opacity"
             >
               Accueil
-            </a>
+            </Link>
 
             <div
               className="relative group"
@@ -49,9 +50,9 @@ export default function Header() {
                 }`}
               >
                 {SITE_CONFIG.services.map((service) => (
-                  <a
+                  <Link
                     key={service.href}
-                    href={service.href}
+                    to={service.href}
                     className="block p-5 hover:bg-gray-50 dark:hover:bg-gray-900/50 transition-colors border-b border-black/5 dark:border-white/5 last:border-0"
                   >
                     <span className="font-semibold text-base block mb-2">
@@ -60,20 +61,20 @@ export default function Header() {
                     <span className="text-sm opacity-60 line-clamp-2">
                       {service.description}
                     </span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
 
-            <a
-              href="#faq"
+            <Link
+              to="/#faq"
               className="text-sm opacity-60 hover:opacity-100 transition-opacity"
             >
               FAQ
-            </a>
-            <a href="/#contact" className="btn-primary text-sm">
+            </Link>
+            <Link to="/#contact" className="btn-primary text-sm">
               Contact
-            </a>
+            </Link>
           </div>
 
           <button
@@ -90,13 +91,13 @@ export default function Header() {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-black/10 dark:border-white/10">
             <div className="flex flex-col gap-2">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-base opacity-60 hover:opacity-100 transition-opacity py-2"
                 onClick={() => setIsOpen(false)}
               >
                 Accueil
-              </a>
+              </Link>
 
               <div className="py-2">
                 <p className="text-sm font-medium opacity-50 uppercase tracking-wide mb-2">
@@ -104,33 +105,33 @@ export default function Header() {
                 </p>
                 <div className="pl-4 space-y-2">
                   {SITE_CONFIG.services.map((service) => (
-                    <a
+                    <Link
                       key={service.href}
-                      href={service.href}
+                      to={service.href}
                       className="block text-base opacity-60 hover:opacity-100 transition-opacity py-1"
                       onClick={() => setIsOpen(false)}
                     >
                       {service.title}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
 
-              <a
-                href="#faq"
+              <Link
+                to="/#faq"
                 className="text-base opacity-60 hover:opacity-100 transition-opacity py-2"
                 onClick={() => setIsOpen(false)}
               >
                 FAQ
-              </a>
+              </Link>
 
-              <a
-                href="/#contact"
+              <Link
+                to="/#contact"
                 className="btn-primary text-center mt-2"
                 onClick={() => setIsOpen(false)}
               >
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         )}

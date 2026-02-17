@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProblemsSection from "@/components/ProblemsSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
-import VisionSection from "@/components/VisionSection";
 import SocialProofSection from "@/components/SocialProofSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
@@ -17,7 +16,6 @@ export default function Index() {
         <HeroSection />
         <ProblemsSection />
         <ExpertiseSection />
-        <VisionSection />
         <SocialProofSection />
         <FAQSection />
         <ContactSection />

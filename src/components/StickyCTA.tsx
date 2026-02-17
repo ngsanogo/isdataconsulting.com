@@ -43,10 +43,10 @@ export default function StickyCTA() {
         <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <span className="text-sm hidden sm:inline opacity-80">
-              Besoin d'un expert data ?
+              Un problème de données ?
             </span>
             <span className="font-medium text-sm sm:text-base">
-              Planifier un appel de cadrage
+              Réserver une visio découverte (1h)
             </span>
           </div>
           
@@ -56,7 +56,7 @@ export default function StickyCTA() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-black text-black dark:text-white text-sm font-medium hover:opacity-90 transition-opacity"
               onClick={() => setIsVisible(false)}
             >
-              Planifier
+              Me contacter
               <ArrowRight size={14} />
             </a>
             

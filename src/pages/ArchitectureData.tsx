@@ -1,4 +1,5 @@
 import { ArrowRight, Cloud, Layers, Network, GitBranch, Gauge, Shield, CheckCircle2, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -152,9 +153,9 @@ export default function ArchitectureData() {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Architecture Data Cloud | AWS, GCP, Azure | Consultant Expert | ISData"
-        description="Conception d'architectures data cloud sur AWS, GCP, Azure. Lakehouse, data mesh, architectures evenementielles. Livrables documentes."
-        keywords={["architecture data cloud", "AWS data", "GCP BigQuery", "Azure Synapse", "data mesh", "lakehouse", "Databricks", "Terraform"]}
+        title="Architecture Data Cloud & On-Premise | Expert indépendant Bezons (95) | ISData"
+        description="Architecture de données fiable sur Cloud (AWS, Azure) ou vos serveurs locaux (On-Premise). Gain de temps, fiabilité et souveraineté. Expert basé en Île-de-France."
+        keywords={["architecture data Cloud On-Premise", "expert data Bezons", "souveraineté données", "AWS Azure", "fiabilité données", "gain de temps data", "Île-de-France"]}
         canonicalPath="/services/architecture-data"
       />
       <Header />
@@ -162,27 +163,27 @@ export default function ArchitectureData() {
         <section className="min-h-[70vh] flex items-center pt-14">
           <div className="container mx-auto">
             <div className="max-w-3xl">
-              <a href="/" className="inline-flex items-center gap-2 text-sm opacity-50 hover:opacity-100 mb-6 transition-opacity">
+              <Link to="/" className="inline-flex items-center gap-2 text-sm opacity-50 hover:opacity-100 mb-6 transition-opacity">
                 <ArrowLeft size={14} />
                 Retour à l'accueil
-              </a>
+              </Link>
               
               <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">
-                Architecture Data Cloud
+                Architecture Data · Cloud ou On-Premise
               </p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Architectures data cloud documentees et maintenables
+                Une architecture de données fiable, sur le Cloud ou vos serveurs
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
-                Conception d'architectures data cloud sur <strong>AWS, GCP et Azure</strong>.
-                Lakehouse, data mesh et event-driven selon vos contraintes techniques et budget.
+                Je conçois des architectures data adaptées à votre contexte : <strong>AWS, Azure</strong> ou <strong>On-Premise</strong>.
+                Gain de temps, fiabilité des données et souveraineté selon vos contraintes.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href="#contact" className="btn-primary">
-                  Planifier un appel de cadrage
+                  Réserver une visio découverte (1h)
                   <ArrowRight size={16} />
                 </a>
                 <a href="#patterns" className="btn-secondary">
@@ -393,18 +394,18 @@ export default function ArchitectureData() {
         <section id="contact" className="section bg-black dark:bg-white text-white dark:text-black">
           <div className="container mx-auto max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-              Audit d'architecture data
+              Une architecture de données fiable, à votre mesure
             </h2>
             <p className="opacity-70 mb-8 max-w-xl mx-auto">
-              Cadrage, risques, plan de migration et livrables explicites.
+              Cloud, On-Premise ou hybride : on en parle pendant 1h ?
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={`mailto:${SITE_CONFIG.email}?subject=Demande d'audit Architecture Data`}
+                href={`mailto:${SITE_CONFIG.email}?subject=Visio découverte — Architecture Data`}
                 className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-80 transition-opacity"
               >
-                Planifier un appel de cadrage
+                Réserver une visio découverte (1h)
                 <ArrowRight size={16} />
               </a>
               <a

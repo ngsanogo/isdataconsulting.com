@@ -3,36 +3,36 @@ import { ChevronDown } from "lucide-react";
 
 const FAQS = [
   {
-    question: "Quelle est la différence entre un consultant data engineering indépendant et une ESN ?",
-    answer: "Vous travaillez avec un interlocuteur unique qui conçoit et livre. Le perimetre, les livrables et le mode de collaboration sont definis avant demarrage.",
+    question: "Quelle est la différence avec une ESN ?",
+    answer: "Vous travaillez directement avec moi, de la première réunion à la mise en production. Pas d'intermédiaire, pas de commercial, pas de turnover. Le périmètre et les livrables sont définis avant démarrage.",
   },
   {
-    question: "Quelles technologies maîtrisez-vous pour le data engineering ?",
-    answer: "Stack selon contexte: orchestration (Airflow, Dagster, Prefect), transformation (dbt, Spark, SQL), ingestion (Airbyte, Fivetran ou custom), stockage (Snowflake, BigQuery, Databricks, PostgreSQL), streaming (Kafka, Pub/Sub), AWS/GCP/Azure.",
+    question: "Quelles technologies maîtrisez-vous ?",
+    answer: "J'adapte les outils au contexte. Pour l'orchestration : Airflow, Dagster. Pour la transformation : dbt, Spark. Pour le stockage : Snowflake, BigQuery, PostgreSQL. Cloud (AWS, Azure) ou sur vos propres serveurs (On-Premise). Je choisis ce qui est le plus adapté à votre budget et vos contraintes.",
   },
   {
-    question: "Pouvez-vous intervenir en tant que Product Owner Data ou Chef de Projet ?",
-    answer: "Oui. Le role est defini au cadrage: Product Owner Data, Data Manager ou Chef de Projet Data. Objectif: backlog clair, gouvernance et delivery.",
+    question: "Pouvez-vous aussi piloter le projet ?",
+    answer: "Oui. Je peux intervenir comme Chef de Projet Data ou Product Owner Data. L'objectif reste le même : un backlog clair, une gouvernance simple et des livrables concrets.",
   },
   {
     question: "Comment se déroule une mission type ?",
-    answer: "Appel de cadrage (30 min), puis 1) cadrage (audit, architecture cible, roadmap), 2) delivery en sprints, 3) transfert (documentation, formation, support).",
+    answer: "Visio de découverte métier (1h), puis analyse de faisabilité technique (48h). Si c'est faisable, on contractualise et j'exécute en sprints courts avec des livrables visibles. Sinon, je vous le dis franchement.",
   },
   {
     question: "Quels sont vos tarifs ?",
-    answer: "TJM ou forfait selon perimetre, duree et complexite. Devis apres cadrage.",
+    answer: "TJM ou forfait selon le périmètre, la durée et la complexité. Je vous envoie un devis clair après la phase d'évaluation technique.",
   },
   {
     question: "Intervenez-vous en remote ou sur site ?",
-    answer: "Les deux. Remote par defaut, onsite ou hybride selon le projet. Le mode de fonctionnement est defini au cadrage.",
+    answer: "Les deux. Remote par défaut, mais je me déplace facilement en Île-de-France (basé à Bezons, 95). Hybride ou onsite selon le projet.",
   },
   {
     question: "Que se passe-t-il si les livrables ne conviennent pas ?",
-    answer: "Nous definissons des criteres de succes et des points de suivi. En cas d'ecart, nous ajustons le plan. Les conditions d'arret sont encadrees par le contrat.",
+    answer: "Je définis des critères de succès clairs et des points de suivi réguliers. En cas d'écart, j'ajuste le plan. Les conditions d'arrêt sont encadrées par le contrat.",
   },
   {
-    question: "Pouvez-vous former nos équipes internes ?",
-    answer: "Oui. Le transfert de competences fait partie des livrables: documentation, ateliers et formation sur les outils du projet.",
+    question: "Pouvez-vous former mes équipes ?",
+    answer: "Oui. Le transfert de compétences fait partie de mes livrables : documentation, ateliers pratiques et formation sur les outils du projet. Mon but est que vous ne dépendiez jamais de moi.",
   },
 ] as const;
 
