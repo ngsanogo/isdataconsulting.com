@@ -1,4 +1,4 @@
-import { Database, RefreshCw, BarChart3, Wrench } from "lucide-react";
+import { Database, RefreshCw, BarChart3 } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
 const SERVICES = [
@@ -44,20 +44,6 @@ const SERVICES = [
       "Formation de vos équipes sur le nouvel outil",
     ],
   },
-  {
-    icon: Wrench,
-    id: "audit-nettoyage",
-    title: "Audit & Nettoyage de bases",
-    subtitle: "Qualité des données",
-    description:
-      "Vos fichiers clients comportent des erreurs, des doublons ou des formats incohérents ? J'interviens pour diagnostiquer, standardiser et fiabiliser vos référentiels de données.",
-    example: "Exemple : PME avec base clients polluée → Données nettoyées et normalisées",
-    benefits: [
-      "Diagnostic complet de la qualité",
-      "Dédoublonnage et normalisation",
-      "Règles de validation pour l'avenir",
-    ],
-  },
 ] as const;
 
 export default function ExpertiseSection() {
@@ -97,12 +83,20 @@ export default function ExpertiseSection() {
           ))}
         </div>
 
-        <div className="max-w-2xl mx-auto text-center p-8 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
-          <p className="text-lg leading-relaxed opacity-80">
-            <strong>Ma philosophie :</strong> Je ne vous laisse pas avec un système que vous ne comprenez pas. 
-            Chaque mission inclut de la formation et de la documentation claire. 
-            <strong> Vous devez pouvoir reprendre la main.</strong>
-          </p>
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-12">
+          <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
+            <p className="font-semibold mb-2">Architecture adaptée</p>
+            <p className="text-sm opacity-70">
+              <strong>Je ne vous impose pas le Cloud.</strong> Je travaille aussi bien sur AWS/Azure que sur vos serveurs locaux (On-Premise) 
+              pour garantir votre souveraineté. L'architecture est <strong>adaptée à vos murs, pas aux tendances</strong>.
+            </p>
+          </div>
+          <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
+            <p className="font-semibold mb-2">Transfert de compétences</p>
+            <p className="text-sm opacity-70">
+              Je ne vous laisse pas avec un système que vous ne comprenez pas. <strong>Formation et documentation incluses.</strong>
+            </p>
+          </div>
         </div>
       </div>
     </section>

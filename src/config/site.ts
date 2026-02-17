@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   email: "contact@isdataconsulting.com",
   phone: "+33 6 51 98 52 79",
 
-  legalForm: "SASU",
+  legalForm: "SAS",
   siren: "940 718 075",
   tva: "FR56940718075",
   annuaire:

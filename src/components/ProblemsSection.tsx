@@ -15,7 +15,7 @@ const REALITY_POINTS = [
   {
     icon: TrendingUp,
     title: "Une croissance freinée",
-    description: "Vos process manuels ne suivent plus. Il vous faudrait 3 personnes en plus juste pour consolider.",
+    description: "Vos process manuels ne suivent plus. Vous perdez du temps à consolider au lieu de décider.",
   },
 ] as const;
 
@@ -35,7 +35,7 @@ export default function ProblemsSection() {
             <strong> Résultat : vous pilotez à vue</strong>, ou pire, avec des chiffres faux. 
           </p>
           <p className="text-xl opacity-80 leading-relaxed text-center mt-4">
-            Vous méritez la <strong>même précision qu'un groupe du CAC40</strong>, sans l'usine à gaz.
+            Vous méritez <strong>des données fiables et centralisées</strong>, sans l'usine à gaz.
           </p>
         </div>
 

@@ -2,8 +2,8 @@ import { Mail, Phone, CheckCircle2, ArrowRight } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
 const REASSURANCE = [
-  "Diagnostic offert de 15 min",
-  "Réponse sous 24h garanti",
+  "Diagnostic offert de 45-60 min",
+  "Réponse sous 24-48h garanti",
   "Devis clair sans surprise",
   "Vous décidez, je ne force rien",
 ] as const;
@@ -39,7 +39,7 @@ export default function ContactSection() {
 
             <div className="space-y-4 flex flex-col sm:flex-row sm:gap-4">
               <a
-                href={`mailto:${SITE_CONFIG.email}?subject=Demande de diagnostic (15 min)`}
+                href={`mailto:${SITE_CONFIG.email}?subject=Visio de découverte métier (45-60 min)`}
                 className="flex items-center justify-center sm:justify-start gap-3 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-90 transition-opacity w-full sm:w-auto order-1"
               >
                 <Mail size={18} />
@@ -59,43 +59,52 @@ export default function ContactSection() {
 
           <div className="p-8 bg-white/10 dark:bg-black/10 border border-white/20 dark:border-black/20">
             <h3 className="font-bold text-2xl mb-8">
-              Comment ça se passe ?
+              Une approche en 3 temps
             </h3>
             
             <ol className="space-y-8">
               <li className="flex gap-5">
                 <span className="text-3xl font-bold opacity-30 leading-none">01</span>
                 <div>
-                  <p className="font-semibold text-lg mb-2">Vous m'expliquez votre situation</p>
-                  <p className="text-base opacity-70">
-                    Par email ou téléphone. 2 minutes suffisent.
+                  <p className="font-semibold text-lg mb-2">Visio de découverte métier (45-60 min)</p>
+                  <p className="text-base opacity-70 mb-3">
+                    On sort de la technique pure pour comprendre votre business.
+                  </p>
+                  <p className="text-sm opacity-60">
+                    <strong>Objectif :</strong> Identifier vos sources de données (ERP, CRM, Excel), 
+                    vos flux actuels et vos points de douleur opérationnels.
                   </p>
                 </div>
               </li>
               <li className="flex gap-5">
                 <span className="text-3xl font-bold opacity-30 leading-none">02</span>
                 <div>
-                  <p className="font-semibold text-lg mb-2">Je vous appelle (15 min)</p>
-                  <p className="text-base opacity-70">
-                    Questions rapides pour comprendre vos besoins.
+                  <p className="font-semibold text-lg mb-2">Phase d'étude et d'évaluation (24-48h)</p>
+                  <p className="text-base opacity-70 mb-3">
+                    Le travail de l'ingénieur se fait ici, à tête reposée.
+                  </p>
+                  <p className="text-sm opacity-60">
+                    <strong>La réponse :</strong> Sous 48h, je vous reviens avec une proposition concrète. 
+                    Si je ne peux pas garantir une solution fiable et industrielle, je vous le dis franchement 
+                    et je vous oriente vers un confrère.
                   </p>
                 </div>
               </li>
               <li className="flex gap-5">
                 <span className="text-3xl font-bold opacity-30 leading-none">03</span>
                 <div>
-                  <p className="font-semibold text-lg mb-2">Je vous fais une proposition claire</p>
-                  <p className="text-base opacity-70">
-                    Périmètre, durée, prix. Vous décidez, pas de pression.
+                  <p className="font-semibold text-lg mb-2">Contractualisation et Delivery Agile</p>
+                  <p className="text-base opacity-70 mb-3">
+                    Une fois d'accord sur la direction, on lance l'exécution.
+                  </p>
+                  <p className="text-sm opacity-60">
+                    <strong>Méthode Agile :</strong> On avance par itérations. Vous voyez des résultats concrets 
+                    rapidement (pipelines testés, premiers dashboards), pas dans 6 mois. 
+                    Chaque brique posée est documentée pour que vos équipes soient autonomes après mon passage.
                   </p>
                 </div>
               </li>
             </ol>
-
-            <p className="mt-8 text-sm opacity-60 italic">
-              Si je ne peux pas vous aider, je vous le dis franchement. 
-              Je peux aussi vous orienter vers d'autres experts si besoin.
-            </p>
           </div>
         </div>
       </div>

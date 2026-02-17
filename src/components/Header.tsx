@@ -66,16 +66,10 @@ export default function Header() {
             </div>
 
             <a
-              href="/#methodology"
+              href="#faq"
               className="text-sm opacity-60 hover:opacity-100 transition-opacity"
             >
-              Méthodologie
-            </a>
-            <a
-              href="/#contact"
-              className="text-sm opacity-60 hover:opacity-100 transition-opacity"
-            >
-              Contact
+              FAQ
             </a>
             <a href="/#contact" className="btn-primary text-sm">
               Contact
@@ -123,11 +117,11 @@ export default function Header() {
               </div>
 
               <a
-                href="/#methodology"
+                href="#faq"
                 className="text-base opacity-60 hover:opacity-100 transition-opacity py-2"
                 onClick={() => setIsOpen(false)}
               >
-                Méthodologie
+                FAQ
               </a>
 
               <a
