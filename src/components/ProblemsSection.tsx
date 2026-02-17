@@ -1,43 +1,21 @@
-import { AlertTriangle, Clock, DollarSign, Users, TrendingDown, ShieldAlert } from "lucide-react";
+import { FileSpreadsheet, Database, TrendingUp } from "lucide-react";
 import SectionHeader from "./SectionHeader";
-import ProblemCard from "./ProblemCard";
 
-const PROBLEMS = [
+const REALITY_POINTS = [
   {
-    icon: Clock,
-    title: "Recherche de données dispersées",
-    description: "Sources multiples, extractions manuelles, definitions non alignees.",
-    impact: "Decision lente et contexte incomplet",
+    icon: FileSpreadsheet,
+    title: "Des données éparpillées",
+    description: "Entre Excel, votre ERP, vos outils marketing... Impossible d'avoir une vue d'ensemble claire.",
   },
   {
-    icon: TrendingDown,
-    title: "Pipelines fragiles",
-    description: "Tests absents, monitoring incomplet, incidents recurrents.",
-    impact: "Fiabilite insuffisante",
+    icon: Database,
+    title: "Un pilotage à vue",
+    description: "Vous prenez des décisions importantes sans être certain de vos chiffres. Et ça vous pèse.",
   },
   {
-    icon: DollarSign,
-    title: "Couts cloud non maitrises",
-    description: "Requetes non optimisees, stockage duplique, absence de suivi.",
-    impact: "Depenses difficiles a piloter",
-  },
-  {
-    icon: Users,
-    title: "Decalage metier/tech",
-    description: "Specifications ambiguës, backlog instable, livrables en decalage.",
-    impact: "Priorites confuses",
-  },
-  {
-    icon: ShieldAlert,
-    title: "Qualite non mesuree",
-    description: "Pas de regles de qualite, pas de catalogue ni d'ownership.",
-    impact: "Confiance limitee",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Time-to-delivery eleve",
-    description: "Architecture legacy, dependances lourdes, processus lents.",
-    impact: "Livraisons tardives",
+    icon: TrendingUp,
+    title: "Une croissance freinée",
+    description: "Vos process manuels ne suivent plus. Il vous faudrait 3 personnes en plus juste pour consolider.",
   },
 ] as const;
 
@@ -46,24 +24,40 @@ export default function ProblemsSection() {
     <section className="section bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto">
         <SectionHeader
-          tag="Problèmes récurrents"
-          title="Sur les systèmes data"
-          description="Architectures fragmentées, pipelines fragiles, équipes désalignées. Les problèmes types que nous résolvons."
+          tag="Pourquoi les PME ?"
+          title="Vous méritez mieux qu'un pilotage à vue"
+          description=""
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PROBLEMS.map((problem) => (
-            <ProblemCard key={problem.title} {...problem} />
+        <div className="max-w-3xl mx-auto mb-12">
+          <p className="text-xl opacity-80 leading-relaxed text-center">
+            Vous avez des données, mais elles sont éparpillées entre Excel, votre ERP et vos outils marketing. 
+            <strong> Résultat : vous pilotez à vue</strong>, ou pire, avec des chiffres faux. 
+          </p>
+          <p className="text-xl opacity-80 leading-relaxed text-center mt-4">
+            Vous méritez la <strong>même précision qu'un groupe du CAC40</strong>, sans l'usine à gaz.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {REALITY_POINTS.map((point) => (
+            <div 
+              key={point.title}
+              className="p-8 bg-white dark:bg-gray-900 border border-black/10 dark:border-white/10 text-center"
+            >
+              <point.icon className="w-12 h-12 mx-auto mb-4 opacity-60" strokeWidth={1.5} />
+              <h3 className="font-bold text-lg mb-3">{point.title}</h3>
+              <p className="opacity-70 leading-relaxed">{point.description}</p>
+            </div>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-lg opacity-70 mb-4">
-            <strong>La bonne nouvelle ?</strong> Ces problèmes ont des solutions éprouvées.
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-lg leading-relaxed opacity-70">
+            <strong>La bonne nouvelle ?</strong> Ces problèmes ont des solutions. 
+            Je ne suis pas là pour vous vendre une transformation digitale à 6 chiffres. 
+            Je suis là pour <strong>nettoyer, connecter et automatiser</strong> ce qui doit l'être.
           </p>
-          <a href="#expertise" className="text-sm font-medium underline underline-offset-4 opacity-70 hover:opacity-100 transition-opacity">
-            Découvrir comment nous les résolvons →
-          </a>
         </div>
       </div>
     </section>
