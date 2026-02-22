@@ -93,7 +93,7 @@ export default function DataEngineering() {
             <SectionHeader
               tag="Services"
               title="Interventions principales"
-              description="Prestations alignées avec mes missions récentes (Padoa, Peasy, Institut Jérôme Lejeune)."
+              description="Approche orientée stack, qualité et industrialisation des flux."
             />
 
             <div className="grid md:grid-cols-3 gap-6">

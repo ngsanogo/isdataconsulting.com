@@ -40,9 +40,9 @@ export default function ProductDataServices() {
         Aller au contenu principal
       </a>
       <SEO
-        title="Pilotage de projet data | ISData Consulting"
-        description="Cadrage, coordination et livraison de projets data avec les équipes métier et techniques."
-        keywords={["pilotage data", "gestion de projet data", "jira", "confluence", "data manager"]}
+        title="Data Product Owner & Chef de projet Data | ISData Consulting"
+        description="Cadrage, priorisation, coordination métier/tech et delivery data."
+        keywords={["data product owner", "chef de projet data", "pilotage data", "jira", "confluence"]}
         canonicalPath="/services/product-data"
       />
       <Header />
@@ -55,14 +55,14 @@ export default function ProductDataServices() {
                 Retour à l'accueil
               </Link>
 
-              <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Pilotage de projet data</p>
+              <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Data Product Owner & Chef de projet Data</p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Cadrer et faire avancer vos projets data
+                Structurer et piloter vos produits data
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
-                J'interviens sur la coordination métier/tech, la priorisation et la livraison de projets data.
+                J'interviens sur le cadrage, la priorisation, la coordination des équipes et la livraison des sujets data.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
@@ -83,7 +83,7 @@ export default function ProductDataServices() {
             <SectionHeader
               tag="Interventions"
               title="Rôle en mission"
-              description="Approche pragmatique issue de contextes santé, recherche et SaaS."
+              description="Approche pragmatique orientée méthodologie et delivery."
             />
 
             <div className="grid md:grid-cols-3 gap-6">

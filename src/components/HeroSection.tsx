@@ -58,7 +58,7 @@ export default function HeroSection() {
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold mb-2">Mission freelance</p>
-              <p className="text-sm opacity-70">Padoa (depuis 08/2025), Peasy (2025)</p>
+              <p className="text-sm opacity-70">Data engineering, data product et pilotage</p>
             </div>
           </div>
         </div>

@@ -28,10 +28,11 @@ const ARCHITECTURE_SERVICES = [
   },
 ] as const;
 
-const EXPERIENCE_CONTEXT = [
-  "AP-HP : gestion de données d'essais cliniques et reporting.",
-  "Institut Jérôme Lejeune : entrepôt de données et gouvernance.",
-  "Padoa & Peasy : migration, industrialisation et architecture de flux.",
+const PRINCIPLES = [
+  "Architecture orientée cas d'usage métier.",
+  "Modélisation explicite et maintenable.",
+  "Qualité de données mesurable (règles + contrôles).",
+  "Documentation et passation systématique.",
 ] as const;
 
 export default function ArchitectureData() {
@@ -108,12 +109,12 @@ export default function ArchitectureData() {
         <section className="section bg-gray-50 dark:bg-gray-900/30">
           <div className="container mx-auto max-w-3xl">
             <SectionHeader
-              tag="Contexte"
-              title="Expériences de référence"
-              description="Quelques contextes de mission correspondant à mon CV."
+              tag="Méthodologie"
+              title="Principes d'architecture"
+              description="Cadre d'intervention appliqué sur chaque projet."
             />
             <ul className="space-y-4">
-              {EXPERIENCE_CONTEXT.map((item) => (
+              {PRINCIPLES.map((item) => (
                 <li key={item} className="p-4 border border-black/10 dark:border-white/10">
                   {item}
                 </li>

@@ -1,26 +1,18 @@
 import { Briefcase, Clock, Users } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
-const EXPERIENCES = [
+const POSITIONING = [
   {
-    company: "Padoa (Freelance)",
-    period: "Août 2025 – Aujourd'hui",
-    details: "Migration de données clients, refonte de pipelines à fort volume, maintenance et évolution de la base produit.",
+    title: "Data Engineer",
+    details: "Conception de pipelines, fiabilisation de données, automatisation et reporting opérationnel.",
   },
   {
-    company: "Peasy (Freelance)",
-    period: "Mars 2025 – Juillet 2025",
-    details: "Construction et optimisation de base de données, pipelines d'intégration, gouvernance CRM et dashboards automatisés.",
+    title: "Data Product Owner",
+    details: "Cadrage des besoins, priorisation des sujets data et alignement métier/technique.",
   },
   {
-    company: "Institut Jérôme Lejeune",
-    period: "Oct. 2021 – Janv. 2025",
-    details: "Diagnostic de référentiels, mise en place d'entrepôt de données, workflows ETL, gouvernance et support équipes médicales.",
-  },
-  {
-    company: "AP-HP",
-    period: "Sept. 2017 – Sept. 2021",
-    details: "Data management d'essais cliniques, administration de bases et automatisation de reporting.",
+    title: "Chef de projet Data",
+    details: "Pilotage des chantiers, coordination transverse et livraison de livrables documentés.",
   },
 ] as const;
 
@@ -47,24 +39,23 @@ export default function SocialProofSection() {
     <section className="section bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto">
         <SectionHeader
-          tag="Parcours"
-          title="Expériences clés"
+          tag="Positionnement"
+          title="Rôles et périmètre d'intervention"
           description=""
         />
 
-        <div className="grid lg:grid-cols-2 gap-6 mb-16">
-          {EXPERIENCES.map((experience) => (
+        <div className="grid lg:grid-cols-3 gap-6 mb-16">
+          {POSITIONING.map((item) => (
             <div 
-              key={experience.company}
+              key={item.title}
               className="flex flex-col p-8 bg-white dark:bg-gray-900 border border-black/10 dark:border-white/10"
             >
               <div className="mb-4">
                 <span className="inline-block px-3 py-1 bg-black dark:bg-white text-white dark:text-black text-xs font-medium uppercase tracking-wide">
-                  {experience.company}
+                  {item.title}
                 </span>
-                <p className="text-sm opacity-50 mt-2">{experience.period}</p>
               </div>
-              <p className="opacity-80 leading-relaxed">{experience.details}</p>
+              <p className="opacity-80 leading-relaxed">{item.details}</p>
             </div>
           ))}
         </div>
