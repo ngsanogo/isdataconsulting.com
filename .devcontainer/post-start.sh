@@ -4,5 +4,3 @@ set -euo pipefail
 cd /workspace
 
 bash .devcontainer/doctor.sh /workspace
-
-npm ci
