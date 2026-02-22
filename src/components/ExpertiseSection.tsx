@@ -1,11 +1,13 @@
 import { Database, RefreshCw, BarChart3 } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import { Layers } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SERVICES = [
   {
     icon: Database,
     id: "data-engineering",
+    href: "/services/data-engineering",
     title: "Data Engineering",
     subtitle: "Pipelines et qualité de données",
     description:
@@ -19,6 +21,7 @@ const SERVICES = [
   {
     icon: Layers,
     id: "architecte-data",
+    href: "/services/architecture-data",
     title: "Architecte Data",
     subtitle: "Modélisation et architecture de plateforme",
     description:
@@ -32,6 +35,7 @@ const SERVICES = [
   {
     icon: RefreshCw,
     id: "data-product-owner",
+    href: "/services/product-data",
     title: "Data Product Owner",
     subtitle: "Cadrage et priorisation",
     description:
@@ -45,6 +49,7 @@ const SERVICES = [
   {
     icon: BarChart3,
     id: "chef-projet-data",
+    href: "/services/product-data",
     title: "Chef de projet Data",
     subtitle: "Pilotage et coordination",
     description:
@@ -74,6 +79,12 @@ export default function ExpertiseSection() {
               <h3 className="font-bold text-2xl mb-2">{service.title}</h3>
               <p className="text-sm opacity-50 mb-4 italic">{service.subtitle}</p>
               <p className="opacity-70 leading-relaxed mb-4">{service.description}</p>
+              <Link
+                to={service.href}
+                className="text-sm font-medium underline underline-offset-4 opacity-80 hover:opacity-100 mb-6"
+              >
+                Voir l'offre
+              </Link>
 
               <div className="mt-auto">
                 <p className="text-sm font-semibold mb-3 opacity-60">Résultats attendus :</p>

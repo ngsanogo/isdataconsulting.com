@@ -40,6 +40,11 @@ const STACK = [
   "Git",
 ] as const;
 
+const RELATED_SERVICES = [
+  { label: "Architecte Data", href: "/services/architecture-data" },
+  { label: "Data Product Owner & Chef de projet Data", href: "/services/product-data" },
+] as const;
+
 export default function DataEngineering() {
   return (
     <div className="min-h-screen">
@@ -125,6 +130,23 @@ export default function DataEngineering() {
                 >
                   {item}
                 </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container mx-auto max-w-3xl">
+            <SectionHeader
+              tag="Navigation"
+              title="Autres services"
+              description="Découvrez les autres accompagnements selon votre contexte." 
+            />
+            <div className="flex flex-wrap gap-3">
+              {RELATED_SERVICES.map((service) => (
+                <Link key={service.href} to={service.href} className="btn-secondary">
+                  {service.label}
+                </Link>
               ))}
             </div>
           </div>

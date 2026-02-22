@@ -30,6 +30,11 @@ const ROLES = [
 
 const TOOLS = ["Jira", "Confluence", "Power BI", "Tableau", "Looker Studio"] as const;
 
+const RELATED_SERVICES = [
+  { label: "Data Engineering", href: "/services/data-engineering" },
+  { label: "Architecte Data", href: "/services/architecture-data" },
+] as const;
+
 export default function ProductDataServices() {
   return (
     <div className="min-h-screen">
@@ -116,6 +121,23 @@ export default function ProductDataServices() {
                 >
                   {item}
                 </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container mx-auto max-w-3xl">
+            <SectionHeader
+              tag="Navigation"
+              title="Autres services"
+              description="Complétez cet accompagnement avec une expertise technique ciblée." 
+            />
+            <div className="flex flex-wrap gap-3">
+              {RELATED_SERVICES.map((service) => (
+                <Link key={service.href} to={service.href} className="btn-secondary">
+                  {service.label}
+                </Link>
               ))}
             </div>
           </div>

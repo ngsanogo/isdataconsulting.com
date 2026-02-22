@@ -35,6 +35,11 @@ const PRINCIPLES = [
   "Documentation et passation systématique.",
 ] as const;
 
+const RELATED_SERVICES = [
+  { label: "Data Engineering", href: "/services/data-engineering" },
+  { label: "Data Product Owner & Chef de projet Data", href: "/services/product-data" },
+] as const;
+
 export default function ArchitectureData() {
   return (
     <div className="min-h-screen">
@@ -120,6 +125,23 @@ export default function ArchitectureData() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container mx-auto max-w-3xl">
+            <SectionHeader
+              tag="Navigation"
+              title="Autres services"
+              description="Explorez les autres formats d'accompagnement data." 
+            />
+            <div className="flex flex-wrap gap-3">
+              {RELATED_SERVICES.map((service) => (
+                <Link key={service.href} to={service.href} className="btn-secondary">
+                  {service.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
