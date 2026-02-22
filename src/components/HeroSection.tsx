@@ -32,7 +32,7 @@ export default function HeroSection() {
 
             <div className="max-w-3xl mx-auto space-y-4 text-xl opacity-80 leading-relaxed mb-12">
               <p>
-                <strong>Issa Sanogo</strong> — j'interviens de la collecte à la décision : data engineering, architecture data, pilotage produit et pilotage projet.
+                <strong>Issa Sanogo</strong> — j'interviens de la collecte à la décision : Data Engineering, Architecture Data, pilotage produit et pilotage projet.
               </p>
             </div>
 
@@ -58,7 +58,7 @@ export default function HeroSection() {
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold mb-2">Mission freelance</p>
-              <p className="text-sm opacity-70">Data engineering, data product et pilotage</p>
+              <p className="text-sm opacity-70">Data Engineering, data product et pilotage</p>
             </div>
           </div>
         </div>

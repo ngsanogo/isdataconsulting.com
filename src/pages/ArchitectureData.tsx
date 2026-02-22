@@ -50,7 +50,7 @@ export default function ArchitectureData() {
         Aller au contenu principal
       </a>
       <SEO
-        title="Architecte Data freelance | Architecture de plateforme data | ISData Consulting"
+        title="Architecte Data freelance | Architecture Data de plateforme | ISData Consulting"
         description="Architecte Data freelance: plateforme data maintenable, modélisation claire et gouvernance pour des flux robustes."
         keywords={["architecte data", "architecture data", "qualité des données", "gouvernance", "modélisation"]}
         canonicalPath="/services/architecture-data"
@@ -65,10 +65,10 @@ export default function ArchitectureData() {
                 Retour à l'accueil
               </Link>
 
-              <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Architecte Data</p>
+              <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Architecture Data</p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Concevoir une architecture data solide
+                Architecture Data : des fondations solides
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
@@ -80,15 +80,15 @@ export default function ArchitectureData() {
                   Réserver une visio découverte (1h)
                   <ArrowRight size={16} />
                 </a>
-                <a href="#services" className="btn-secondary">
-                  Voir l'approche
+                <a href="#details" className="btn-secondary">
+                  Voir le détail
                 </a>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="services" className="section">
+        <section id="details" className="section">
           <div className="container mx-auto">
             <SectionHeader
               tag="Services"
@@ -152,7 +152,7 @@ export default function ArchitectureData() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={`mailto:${SITE_CONFIG.email}?subject=Visio découverte — Architecture data`}
+                href={`mailto:${SITE_CONFIG.email}?subject=Visio découverte — Architecture Data`}
                 className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-80 transition-opacity"
               >
                 Réserver une visio découverte (1h)

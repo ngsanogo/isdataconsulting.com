@@ -1,5 +1,6 @@
 import { Linkedin, ExternalLink, MapPin } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,6 +18,28 @@ export default function Footer() {
               <MapPin size={16} className="mt-0.5 shrink-0" />
               <span>Interventions remote et sur site selon projet</span>
             </p>
+            <div className="mt-5 space-y-2">
+              <p className="text-xs uppercase tracking-wide opacity-50">Services</p>
+              <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm opacity-80">
+                {SITE_CONFIG.services.map((service) => (
+                  <Link
+                    key={service.href}
+                    to={service.href}
+                    className="hover:opacity-100 underline underline-offset-4"
+                  >
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-4 text-sm opacity-70 pt-1">
+                <Link to="/#solutions" className="hover:opacity-100 transition-opacity">
+                  Voir les services
+                </Link>
+                <Link to="/#contact" className="hover:opacity-100 transition-opacity">
+                  Réserver une visio découverte (1h)
+                </Link>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col gap-4">

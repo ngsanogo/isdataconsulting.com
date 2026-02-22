@@ -41,7 +41,7 @@ const STACK = [
 ] as const;
 
 const RELATED_SERVICES = [
-  { label: "Architecte Data", href: "/services/architecture-data" },
+  { label: "Architecture Data", href: "/services/architecture-data" },
   { label: "Data Product Owner & Chef de projet Data", href: "/services/product-data" },
 ] as const;
 
@@ -55,7 +55,7 @@ export default function DataEngineering() {
         Aller au contenu principal
       </a>
       <SEO
-        title="Data Engineer freelance | Flux & Pipelines de données | ISData Consulting"
+        title="Data Engineer freelance | Data Engineering & Pipelines | ISData Consulting"
         description="Conception de pipelines data fiables: migration, qualité, automatisation et reporting pour des décisions plus rapides."
         keywords={["data engineer freelance", "data engineering", "pipelines", "migration de données", "airflow", "sql", "python"]}
         canonicalPath="/services/data-engineering"
@@ -70,10 +70,10 @@ export default function DataEngineering() {
                 Retour à l'accueil
               </Link>
 
-              <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Flux & Pipelines de données</p>
+              <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Data Engineering</p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Industrialiser vos flux data
+                Data Engineering : industrialiser vos flux data
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
@@ -85,15 +85,15 @@ export default function DataEngineering() {
                   Réserver une visio découverte (1h)
                   <ArrowRight size={16} />
                 </a>
-                <a href="#services" className="btn-secondary">
-                  Voir les services
+                <a href="#details" className="btn-secondary">
+                  Voir le détail
                 </a>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="services" className="section">
+        <section id="details" className="section">
           <div className="container mx-auto">
             <SectionHeader
               tag="Services"

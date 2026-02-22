@@ -30,7 +30,7 @@ const COMMITMENTS = [
   {
     icon: Briefcase,
     value: "8 ans",
-    label: "expérience en data engineering",
+    label: "expérience en Data Engineering",
   },
 ] as const;
 

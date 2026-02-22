@@ -17,16 +17,16 @@ export const SITE_CONFIG = {
   services: [
     {
       id: "data-engineering",
-      title: "Flux & Pipelines de données",
-      shortTitle: "Pipelines",
+      title: "Data Engineering",
+      shortTitle: "Data Engineering",
       description: "Je construis les tuyaux qui font circuler vos données automatiquement, sans perte et sans erreur.",
       href: "/services/data-engineering",
     },
     {
       id: "architecture-data",
-      title: "Architecte Data",
-      shortTitle: "Architecte Data",
-      description: "Une structure de données fiable et maintenable selon votre contexte.",
+      title: "Architecture Data",
+      shortTitle: "Architecture Data",
+      description: "Une structure de données fiable et maintenable, avec une intervention en tant qu'Architecte Data.",
       href: "/services/architecture-data",
     },
     {

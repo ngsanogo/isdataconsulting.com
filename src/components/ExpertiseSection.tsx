@@ -9,7 +9,7 @@ const SERVICES = [
     id: "data-engineering",
     href: "/services/data-engineering",
     title: "Data Engineering",
-    subtitle: "Pipelines et qualité de données",
+    subtitle: "Intervention en tant que Data Engineer",
     description:
       "Conception et industrialisation des flux de données de bout en bout.",
     benefits: [
@@ -22,8 +22,8 @@ const SERVICES = [
     icon: Layers,
     id: "architecte-data",
     href: "/services/architecture-data",
-    title: "Architecte Data",
-    subtitle: "Modélisation et architecture de plateforme",
+    title: "Architecture Data",
+    subtitle: "Intervention en tant qu'Architecte Data",
     description:
       "Structuration d'une plateforme data claire, robuste et adaptée à vos contraintes.",
     benefits: [

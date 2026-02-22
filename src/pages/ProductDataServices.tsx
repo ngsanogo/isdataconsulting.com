@@ -32,7 +32,7 @@ const TOOLS = ["Jira", "Confluence", "Power BI", "Tableau", "Looker Studio"] as 
 
 const RELATED_SERVICES = [
   { label: "Data Engineering", href: "/services/data-engineering" },
-  { label: "Architecte Data", href: "/services/architecture-data" },
+  { label: "Architecture Data", href: "/services/architecture-data" },
 ] as const;
 
 export default function ProductDataServices() {
@@ -75,15 +75,15 @@ export default function ProductDataServices() {
                   Réserver une visio découverte (1h)
                   <ArrowRight size={16} />
                 </a>
-                <a href="#roles" className="btn-secondary">
-                  Voir les interventions
+                <a href="#details" className="btn-secondary">
+                  Voir le détail
                 </a>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="roles" className="section">
+        <section id="details" className="section">
           <div className="container mx-auto">
             <SectionHeader
               tag="Interventions"
