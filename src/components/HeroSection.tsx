@@ -27,12 +27,12 @@ export default function HeroSection() {
             </p>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight mb-8 text-black/95 dark:text-white/95">
-              Vos données deviennent fiables, exploitables et pilotables.
+              Transformez vos données en décisions fiables.
             </h1>
 
             <div className="max-w-3xl mx-auto space-y-4 text-xl opacity-80 leading-relaxed mb-12">
               <p>
-                <strong>Issa Sanogo</strong> — j'interviens de la collecte à la décision: data engineering, architecture data, pilotage produit et pilotage projet.
+                <strong>Issa Sanogo</strong> — j'interviens de la collecte à la décision : data engineering, architecture data, pilotage produit et pilotage projet.
               </p>
             </div>
 
@@ -42,7 +42,7 @@ export default function HeroSection() {
                 <ArrowRight size={18} />
               </a>
               <a href="#solutions" className="btn-secondary text-base px-6 py-3 w-full sm:w-auto">
-                Voir des exemples concrets
+                Voir les services
               </a>
             </div>
           </div>

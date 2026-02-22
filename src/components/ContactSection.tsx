@@ -4,8 +4,8 @@ import { SITE_CONFIG } from "@/config/site";
 const REASSURANCE = [
   "Visio de découverte offerte (1h)",
   "Analyse de faisabilité sous 48h",
+  "Plan d'action priorisé",
   "Devis clair, sans surprise",
-  "Si je ne peux pas aider, je vous le dis",
 ] as const;
 
 export default function ContactSection() {
@@ -24,7 +24,7 @@ export default function ContactSection() {
               Parlons de vos données
             </h2>
             <p className="opacity-70 mb-8 text-lg leading-relaxed">
-              Cadrage rapide, évaluation de faisabilité, puis plan d'action clair.
+              En 48h, vous savez quoi faire, dans quel ordre, et avec quels livrables.
             </p>
 
             <ul className="space-y-4 mb-10">

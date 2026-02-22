@@ -50,7 +50,7 @@ export default function ProblemsSection() {
 
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg leading-relaxed opacity-70">
-            Objectif : fiabiliser, connecter et automatiser les flux utiles.
+            Résultat : des flux fiabilisés, des données exploitables et des décisions plus rapides.
           </p>
         </div>
       </div>

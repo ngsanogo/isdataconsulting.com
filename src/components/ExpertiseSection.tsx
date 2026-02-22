@@ -64,7 +64,7 @@ export default function ExpertiseSection() {
         <SectionHeader
           tag="Compétences"
           title="Services proposés"
-          description="4 offres claires pour structurer, fiabiliser et piloter vos données."
+          description="4 offres claires pour structurer, fiabiliser et piloter vos données rapidement."
         />
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
@@ -76,7 +76,7 @@ export default function ExpertiseSection() {
               <p className="opacity-70 leading-relaxed mb-4">{service.description}</p>
 
               <div className="mt-auto">
-                <p className="text-sm font-semibold mb-3 opacity-60">Ce que vous obtenez :</p>
+                <p className="text-sm font-semibold mb-3 opacity-60">Résultats attendus :</p>
                 <ul className="space-y-2">
                   {service.benefits.map((benefit) => (
                     <li key={benefit} className="flex items-start gap-2">
