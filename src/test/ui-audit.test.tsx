@@ -128,6 +128,44 @@ describe("UI quality audit", () => {
     expect(servicesButton).toHaveAttribute("aria-expanded", "false");
   });
 
+  it("closes services dropdown on service item click", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const servicesButton = screen.getByRole("button", { name: "Services" });
+    fireEvent.focus(servicesButton);
+    expect(servicesButton).toHaveAttribute("aria-expanded", "true");
+
+    fireEvent.click(screen.getAllByRole("menuitem")[0]);
+    expect(servicesButton).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("closes services dropdown when focus leaves menu container", () => {
+    render(
+      <div>
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>
+        <button type="button">Outside target</button>
+      </div>,
+    );
+
+    const servicesButton = screen.getByRole("button", { name: "Services" });
+    const menuContainer = servicesButton.closest("div");
+    expect(menuContainer).toBeTruthy();
+
+    fireEvent.focus(servicesButton);
+    expect(servicesButton).toHaveAttribute("aria-expanded", "true");
+
+    fireEvent.blur(menuContainer as HTMLDivElement, {
+      relatedTarget: screen.getByRole("button", { name: "Outside target" }),
+    });
+    expect(servicesButton).toHaveAttribute("aria-expanded", "false");
+  });
+
   it("renders skip link to main content", () => {
     render(
       <MemoryRouter>

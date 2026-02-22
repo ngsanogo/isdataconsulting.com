@@ -74,6 +74,7 @@ export default function Header() {
                     key={service.href}
                     to={service.href}
                     role="menuitem"
+                    onClick={() => setServicesOpen(false)}
                     className="block p-5 hover:bg-gray-50 dark:hover:bg-gray-900/50 transition-colors border-b border-black/5 dark:border-white/5 last:border-0"
                   >
                     <span className="font-semibold text-base block mb-2">
