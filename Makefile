@@ -1,4 +1,4 @@
-.PHONY: help dev launch doctor deps-refresh stop clean reset install test test-watch test-coverage lint lint-fix type-check build shell prod setup-hooks pre-commit npm
+.PHONY: help dev launch doctor deps-refresh stop clean reset install test test-watch test-coverage lint lint-fix type-check build shell prod gate setup-hooks pre-commit npm
 
 help: ## Show available commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -55,6 +55,18 @@ shell: ## Open interactive shell
 
 prod: ## Start production server
 	docker compose --profile production up prod
+
+gate: ## Run full pre-production gate in Docker (quality + prod smoke test)
+	docker compose --profile tools run --rm lint
+	docker compose --profile tools run --rm type-check
+	docker compose --profile tools run --rm test
+	docker compose --profile tools run --rm test-coverage
+	docker compose --profile tools run --rm build
+	@set -e; \
+	trap 'docker compose --profile production down -v --remove-orphans' EXIT; \
+	docker compose --profile production up -d --build prod; \
+	wget -qO- http://127.0.0.1:8080/ > /dev/null; \
+	wget -qO- http://127.0.0.1:8080/manifest.json > /dev/null
 
 pre-commit: ## Run pre-commit checks
 	@$(MAKE) lint-fix

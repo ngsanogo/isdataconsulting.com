@@ -1,0 +1,104 @@
+name: Preprod Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: preprod-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docker-build:
+    name: Docker multi-target build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build dev-runtime target
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          target: dev-runtime
+          push: false
+          load: false
+
+      - name: Build prod target
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          target: prod
+          push: false
+          load: false
+
+  docker-quality:
+    name: Docker quality suite
+    runs-on: ubuntu-latest
+    needs: docker-build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Docker compose lint
+        run: docker compose --profile tools run --rm lint
+
+      - name: Docker compose type-check
+        run: docker compose --profile tools run --rm type-check
+
+      - name: Docker compose tests
+        run: docker compose --profile tools run --rm test
+
+      - name: Docker compose tests with coverage
+        run: docker compose --profile tools run --rm test-coverage
+
+      - name: Docker compose build
+        run: docker compose --profile tools run --rm build
+
+  docker-prod-smoke:
+    name: Docker production smoke test
+    runs-on: ubuntu-latest
+    needs: docker-quality
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start prod container
+        run: docker compose --profile production up -d --build prod
+
+      - name: Wait for prod endpoint
+        run: |
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8080/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "Prod endpoint did not become healthy in time"
+          exit 1
+
+      - name: Validate core endpoints
+        run: |
+          curl -fIsS http://127.0.0.1:8080/ | grep "200"
+          curl -fIsS http://127.0.0.1:8080/manifest.json | grep "200"
+
+      - name: Validate security headers
+        run: |
+          curl -fsSI http://127.0.0.1:8080/ | grep -i "x-content-type-options: nosniff"
+          curl -fsSI http://127.0.0.1:8080/ | grep -i "x-frame-options: DENY"
+          curl -fsSI http://127.0.0.1:8080/ | grep -i "content-security-policy:"
+
+      - name: Tear down compose stack
+        if: always()
+        run: docker compose --profile production down -v --remove-orphans
