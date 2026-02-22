@@ -40,6 +40,7 @@ make help             # List all commands
 ```bash
 Node.js 22+ required.
 npm ci
+npm run check
 npm run dev
 ```
 

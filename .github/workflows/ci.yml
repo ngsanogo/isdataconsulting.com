@@ -24,16 +24,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run ESLint
-        run: npm run lint
+      - name: Run quality checks
+        run: npm run check
 
-      - name: Run TypeScript type check
-        run: npm run type-check
-
-      - name: Run tests
+      - name: Run tests with coverage
         run: npm run test:coverage
 
-      - name: Build production
-        run: npm run build
+      - name: Security audit
+        run: npm audit --audit-level=high
 
 
