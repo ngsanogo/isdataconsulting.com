@@ -69,6 +69,29 @@ describe("UI quality audit", () => {
     expect(document.getElementById("services-menu")).toHaveAttribute("role", "menu");
   });
 
+  it("opens and closes services dropdown on hover", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const servicesButton = screen.getByRole("button", { name: "Services" });
+    const menuContainer = servicesButton.closest("div");
+
+    expect(servicesButton).toHaveAttribute("aria-expanded", "false");
+
+    if (!menuContainer) {
+      throw new Error("Services menu container not found");
+    }
+
+    fireEvent.mouseEnter(menuContainer);
+    expect(servicesButton).toHaveAttribute("aria-expanded", "true");
+
+    fireEvent.mouseLeave(menuContainer);
+    expect(servicesButton).toHaveAttribute("aria-expanded", "false");
+  });
+
   it("renders skip link to main content", () => {
     render(
       <MemoryRouter>
