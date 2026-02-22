@@ -1,53 +1,63 @@
-# isdataconsulting.com
+# ISData Consulting Website
 
-Personal consulting website for Issa Sanogo. Built with React, TypeScript, and Vite. All development runs in Docker containers.
+Official repository for the ISData Consulting website.
 
-**Live**: [isdataconsulting.com](https://isdataconsulting.com)
+Live website: https://isdataconsulting.com
 
-## Quick Start
+## Vision
 
-### Stateless Dev Container (Recommended)
+This project provides a production-grade, fast, and secure web presence for ISData Consulting.
 
-1. Open the repository in VS Code/Cursor.
-2. Run **Dev Containers: Reopen in Container**.
-3. Wait for `postCreateCommand` to finish (`npm ci` + extensions).
-4. Run `npm run dev` (or `make dev`) inside the container terminal.
+Engineering goals:
+- Docker-first reproducibility
+- Strict quality gates (lint, types, tests, build)
+- Dependency and security hygiene by default
+- Minimal, maintainable repository structure
 
-The host macOS is used only as UI: dependencies/build artifacts are isolated to Docker volumes (`node_modules`, `.venv`, `.uv`, `target`, `__pycache__`, caches).
+## Architecture
 
-Environment guarantees:
+Application layers:
+- UI: React 19 + TypeScript
+- Build/runtime: Vite 7
+- Styling: Tailwind CSS 4
+- Routing: React Router 7
+- Quality: ESLint, OXLint, Vitest
 
-- Toolchain is container-only and reproducible (Node 22, `git`, `python3`, `make`).
-- On **every container start**, bootstrap audit is re-executed (`postStartCommand`): PATH validation + required binaries + writable volumes.
-- Dependency installation is deterministic on container creation (`postCreateCommand`: `npm ci`) and on explicit reset (`make reset`).
-- No dependency/build artifacts are written to macOS; only source code is bind-mounted.
-- Setup matches CI/Netlify flow (`npm ci`, `npm run build`) to reduce drift.
+Repository layout (minimal):
+- src: application source code
+- public: static assets
+- scripts: automation and quality/security scripts
+- .github/workflows: CI pipelines
 
-### Docker (Recommended)
+## Quick Setup (Docker)
+
+Recommended commands:
 
 ```bash
-make dev              # Start dev server at http://localhost:5173
-make launch           # Rebuild + start dev server at http://localhost:5173
-make reset            # Full project reset (purge + rebuild)
-make test             # Run tests
-make lint             # Lint code
-make build            # Production build
-make help             # List all commands
+make dev     # Start development server
+make test    # Run tests
+make lint    # Run lint checks
+make build   # Build production artifacts
+make help    # Show all available commands
 ```
 
-### Local Setup
+If you do not use Make:
 
 ```bash
-Node.js 22+ required.
 npm ci
 npm run check
 npm run dev
 ```
 
-## Tech Stack
+## Quality & Security Gates
 
-React 18 · TypeScript 5.9 · Vite 7.3 · Tailwind CSS 3.4 · React Router 7 · Vitest 4 · ESLint 10 · OXLint
+```bash
+npm run test:secrets  # Detect committed secrets patterns
+npm run test:deps     # Fail on actionable outdated deps or vulnerabilities
+npm run check         # Full project gate (security + quality + build)
+```
 
 ## License
 
-© 2026 ISData Consulting. All rights reserved.
+Proprietary software.
+All rights reserved by ISData Consulting.

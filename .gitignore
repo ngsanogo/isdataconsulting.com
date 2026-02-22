@@ -1,9 +1,12 @@
 # Dependencies
 node_modules/
+.pnpm-store/
+.yarn/
 
 # Build output
 dist/
 build/
+.turbo/
 
 # Local development
 *.local
@@ -14,18 +17,29 @@ build/
 venv/
 .npm/
 .cache/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.coverage
 __pycache__/
 
 # IDE / Editor
 .idea/
 .vscode/
+.history/
 *.swp
 *.swo
 *~
 
 # OS files
 .DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
 Thumbs.db
+Desktop.ini
 
 # Logs
 *.log
@@ -42,3 +56,10 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+
+# Python virtual env tools
+.python-version
+
+# Container/runtime
+*.pid
+*.seed
