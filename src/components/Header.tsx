@@ -29,6 +29,13 @@ export default function Header() {
               className="relative group"
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
+              onFocus={() => setServicesOpen(true)}
+              onBlur={(event) => {
+                const nextFocusedNode = event.relatedTarget as Node | null;
+                if (!event.currentTarget.contains(nextFocusedNode)) {
+                  setServicesOpen(false);
+                }
+              }}
             >
               <button
                 type="button"
@@ -36,6 +43,11 @@ export default function Header() {
                 aria-haspopup="menu"
                 aria-expanded={servicesOpen}
                 aria-controls="services-menu"
+                onKeyDown={(event) => {
+                  if (event.key === "Escape") {
+                    setServicesOpen(false);
+                  }
+                }}
                 className="flex items-center gap-1 text-sm opacity-60 hover:opacity-100 transition-opacity py-4"
               >
                 Services

@@ -92,6 +92,23 @@ describe("UI quality audit", () => {
     expect(servicesButton).toHaveAttribute("aria-expanded", "false");
   });
 
+  it("opens on focus and closes on Escape", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const servicesButton = screen.getByRole("button", { name: "Services" });
+    expect(servicesButton).toHaveAttribute("aria-expanded", "false");
+
+    fireEvent.focus(servicesButton);
+    expect(servicesButton).toHaveAttribute("aria-expanded", "true");
+
+    fireEvent.keyDown(servicesButton, { key: "Escape" });
+    expect(servicesButton).toHaveAttribute("aria-expanded", "false");
+  });
+
   it("renders skip link to main content", () => {
     render(
       <MemoryRouter>
