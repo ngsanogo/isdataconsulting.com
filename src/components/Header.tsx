@@ -32,8 +32,10 @@ export default function Header() {
             >
               <button
                 type="button"
+                id="services-menu-button"
                 aria-haspopup="menu"
                 aria-expanded={servicesOpen}
+                aria-controls="services-menu"
                 className="flex items-center gap-1 text-sm opacity-60 hover:opacity-100 transition-opacity py-4"
               >
                 Services
@@ -46,6 +48,9 @@ export default function Header() {
               </button>
 
               <div
+                id="services-menu"
+                role="menu"
+                aria-labelledby="services-menu-button"
                 className={`absolute top-full left-0 w-80 bg-white dark:bg-black border border-black/10 dark:border-white/10 shadow-lg transition-all ${
                   servicesOpen
                     ? "opacity-100 visible translate-y-0"

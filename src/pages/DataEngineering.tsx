@@ -107,6 +107,12 @@ const BENEFITS = [
 export default function DataEngineering() {
   return (
     <div className="min-h-screen">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-black focus:px-4 focus:py-2 focus:text-white dark:focus:bg-white dark:focus:text-black"
+      >
+        Aller au contenu principal
+      </a>
       <SEO 
         title="Pipelines de données automatisés | Expert Data indépendant Bezons (95) | ISData"
         description="Automatisation de vos flux de données : gain de temps, fiabilité et vue d'ensemble. Expert data indépendant basé en Île-de-France (Bezons, 95). Cloud ou On-Premise."
@@ -114,7 +120,7 @@ export default function DataEngineering() {
         canonicalPath="/services/data-engineering"
       />
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="min-h-[70vh] flex items-center pt-14">
           <div className="container mx-auto">
             <div className="max-w-3xl">

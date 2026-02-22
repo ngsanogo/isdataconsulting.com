@@ -36,9 +36,9 @@ const FAQS = [
   },
 ] as const;
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
+function FAQItem({ question, answer, index }: { question: string; answer: string; index: number }) {
   const [isOpen, setIsOpen] = useState(false);
-  const panelId = `faq-panel-${question.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+  const panelId = `faq-panel-${index}`;
 
   return (
     <div className="border-b border-black/10 dark:border-white/10 last:border-0">
@@ -84,8 +84,8 @@ export default function FAQSection() {
         </div>
 
         <div className="border border-black/10 dark:border-white/10 divide-y divide-black/10 dark:divide-white/10">
-          {FAQS.map((faq) => (
-            <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+          {FAQS.map((faq, index) => (
+            <FAQItem key={faq.question} question={faq.question} answer={faq.answer} index={index} />
           ))}
         </div>
       </div>

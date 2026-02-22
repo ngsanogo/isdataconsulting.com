@@ -5,6 +5,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import Header from "@/components/Header";
 import SEO from "@/components/SEO";
 import { SITE_CONFIG } from "@/config/site";
+import Index from "@/pages/Index";
 
 describe("UI quality audit", () => {
   it("renders accessible mobile navigation toggle", () => {
@@ -28,6 +29,33 @@ describe("UI quality audit", () => {
     for (const service of SITE_CONFIG.services) {
       expect(screen.getAllByText(service.title).length).toBeGreaterThan(0);
     }
+  });
+
+  it("exposes desktop services menu semantics", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const servicesButton = screen.getByRole("button", { name: "Services" });
+    expect(servicesButton).toHaveAttribute("aria-haspopup", "menu");
+    expect(servicesButton).toHaveAttribute("aria-controls", "services-menu");
+    expect(document.getElementById("services-menu")).toHaveAttribute("role", "menu");
+  });
+
+  it("renders skip link to main content", () => {
+    render(
+      <MemoryRouter>
+        <Index />
+      </MemoryRouter>,
+    );
+
+    const skipLink = screen.getByRole("link", {
+      name: "Aller au contenu principal",
+    });
+
+    expect(skipLink).toHaveAttribute("href", "#main-content");
   });
 
   it("injects canonical and social metadata", async () => {

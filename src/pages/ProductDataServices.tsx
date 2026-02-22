@@ -178,6 +178,12 @@ const SKILLS = [
 export default function ProductDataServices() {
   return (
     <div className="min-h-screen">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-black focus:px-4 focus:py-2 focus:text-white dark:focus:bg-white dark:focus:text-black"
+      >
+        Aller au contenu principal
+      </a>
       <SEO 
         title="Pilotage de projet Data | Chef de Projet & Product Owner | Expert Bezons (95) | ISData"
         description="Je pilote votre projet data de A à Z : cadrage, exécution agile, transfert. Gain de temps, livrables fiables. Expert indépendant basé en Île-de-France."
@@ -185,7 +191,7 @@ export default function ProductDataServices() {
         canonicalPath="/services/product-data"
       />
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="min-h-[70vh] flex items-center pt-14">
           <div className="container mx-auto">
             <div className="max-w-3xl">

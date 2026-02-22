@@ -152,6 +152,12 @@ const DESIGN_PRINCIPLES = [
 export default function ArchitectureData() {
   return (
     <div className="min-h-screen">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-black focus:px-4 focus:py-2 focus:text-white dark:focus:bg-white dark:focus:text-black"
+      >
+        Aller au contenu principal
+      </a>
       <SEO 
         title="Architecture Data Cloud & On-Premise | Expert indépendant Bezons (95) | ISData"
         description="Architecture de données fiable sur Cloud (AWS, Azure) ou vos serveurs locaux (On-Premise). Gain de temps, fiabilité et souveraineté. Expert basé en Île-de-France."
@@ -159,7 +165,7 @@ export default function ArchitectureData() {
         canonicalPath="/services/architecture-data"
       />
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="min-h-[70vh] flex items-center pt-14">
           <div className="container mx-auto">
             <div className="max-w-3xl">
