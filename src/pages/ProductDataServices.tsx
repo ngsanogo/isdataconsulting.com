@@ -41,7 +41,7 @@ export default function ProductDataServices() {
       </a>
       <SEO
         title="Data Product Owner & Chef de projet Data freelance | ISData Consulting"
-        description="Data Product Owner et Chef de projet Data freelance: cadrage, priorisation, coordination métier/tech et delivery data."
+        description="Data Product Owner et Chef de projet Data: cadrage, priorisation, coordination métier/tech et delivery avec livrables clairs."
         keywords={["data product owner", "chef de projet data", "pilotage data", "freelance data", "jira", "confluence"]}
         canonicalPath="/services/product-data"
       />

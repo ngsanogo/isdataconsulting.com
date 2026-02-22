@@ -46,7 +46,7 @@ export default function ArchitectureData() {
       </a>
       <SEO
         title="Architecte Data freelance | Architecture de plateforme data | ISData Consulting"
-        description="Architecte Data freelance: architecture de plateforme data, modélisation, qualité et gouvernance des données."
+        description="Architecte Data freelance: plateforme data maintenable, modélisation claire et gouvernance pour des flux robustes."
         keywords={["architecte data", "architecture data", "qualité des données", "gouvernance", "modélisation"]}
         canonicalPath="/services/architecture-data"
       />

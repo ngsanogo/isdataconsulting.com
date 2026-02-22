@@ -51,7 +51,7 @@ export default function DataEngineering() {
       </a>
       <SEO
         title="Data Engineer freelance | Flux & Pipelines de données | ISData Consulting"
-        description="Data Engineer freelance: conception et industrialisation de pipelines de données, migration, qualité et reporting."
+        description="Conception de pipelines data fiables: migration, qualité, automatisation et reporting pour des décisions plus rapides."
         keywords={["data engineer freelance", "data engineering", "pipelines", "migration de données", "airflow", "sql", "python"]}
         canonicalPath="/services/data-engineering"
       />
