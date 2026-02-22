@@ -78,10 +78,12 @@ jobs:
 
       - name: Validate security headers
         run: |
-          curl -fsS -D /tmp/headers.txt -o /dev/null http://127.0.0.1:8080/
-          grep -i "^x-content-type-options: nosniff" /tmp/headers.txt
-          grep -i "^x-frame-options: DENY" /tmp/headers.txt
-          grep -i "^content-security-policy:" /tmp/headers.txt
+          curl -fsS -D /tmp/headers.raw -o /dev/null http://127.0.0.1:8080/
+          tr -d '\r' < /tmp/headers.raw > /tmp/headers.txt
+          cat /tmp/headers.txt
+          grep -Eiq "^x-content-type-options:[[:space:]]*nosniff$" /tmp/headers.txt
+          grep -Eiq "^x-frame-options:[[:space:]]*deny$" /tmp/headers.txt
+          grep -Eiq "^content-security-policy:[[:space:]]*.+$" /tmp/headers.txt
 
       - name: Tear down prod container
         if: always()
