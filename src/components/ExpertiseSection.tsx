@@ -5,43 +5,40 @@ const SERVICES = [
   {
     icon: Database,
     id: "centralisation-warehouse",
-    title: "Centralisation de vos données",
-    subtitle: "Entrepôt de données",
+    title: "Centralisation des données",
+    subtitle: "Entrepôt et modélisation",
     description:
-      "Vos données sont réparties entre Excel, votre CRM et votre logiciel métier ? Je construis un socle unique (entrepôt de données) pour que vous ayez une vue d'ensemble fiable sur votre activité.",
-    example: "Exemple : Institut de recherche avec données patients éparpillées → 1 base centralisée sécurisée",
+      "Construction d'un socle unique pour fiabiliser et exploiter vos données métier.",
     benefits: [
-      "Toutes vos sources connectées en un seul endroit",
-      "Historique complet et fiable",
-      "Requêtes rapides pour vos analyses",
+      "Sources unifiées",
+      "Historique exploitable",
+      "Base prête pour l'analyse",
     ],
   },
   {
     icon: BarChart3,
-    id: "automatisation-rapports",
-    title: "Automatisation de vos rapports",
-    subtitle: "Tableaux de bord & BI",
+    id: "reporting-bi",
+    title: "Reporting et BI",
+    subtitle: "Power BI, Tableau, Looker Studio",
     description:
-      "Finis les copier-coller manuels chaque lundi matin. Je développe des tableaux de bord automatisés (Power BI, Tableau) qui se mettent à jour seuls pour vous aider à décider plus vite.",
-    example: "Exemple : Direction d'hôpital avec reporting manuel → Dashboards temps réel",
+      "Mise en place de tableaux de bord automatisés pour le suivi opérationnel et décisionnel.",
     benefits: [
-      "Rapports automatiques chaque matin",
-      "Indicateurs clés visibles en un coup d'œil",
-      "Alertes si anomalie détectée",
+      "Indicateurs partagés",
+      "Mise à jour automatisée",
+      "Décision plus rapide",
     ],
   },
   {
     icon: RefreshCw,
-    id: "migration-recuperation",
-    title: "Migration & Récupération de données",
-    subtitle: "Changement de système",
+    id: "migration-pipelines",
+    title: "Migration et pipelines",
+    subtitle: "Fiabilisation des flux",
     description:
-      "Vous changez de logiciel ou d'ERP ? Je sécurise la reprise de l'historique de vos données clients pour qu'aucune information ne se perde et que vos nouveaux outils soient opérationnels immédiatement.",
-    example: "Exemple : Scale-up santé avec migration système critique → 0 perte de données",
+      "Migration de données, standardisation et industrialisation des flux pour des volumes importants.",
     benefits: [
-      "Récupération complète de l'historique",
-      "Tests rigoureux avant mise en production",
-      "Formation de vos équipes sur le nouvel outil",
+      "Qualité de données renforcée",
+      "Pipelines maintenables",
+      "Documentation opérationnelle",
     ],
   },
 ] as const;
@@ -51,9 +48,9 @@ export default function ExpertiseSection() {
     <section id="solutions" className="section">
       <div className="container mx-auto">
         <SectionHeader
-          tag="Exemples concrets"
-          title="Ce que je fais pour résoudre vos problèmes"
-          description="Des situations réelles que j'ai déjà rencontrées et résolues."
+          tag="Compétences"
+          title="Ce que je fais"
+          description="Prestations alignées avec mon parcours de Data Engineer."
         />
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
@@ -63,11 +60,7 @@ export default function ExpertiseSection() {
               <h3 className="font-bold text-2xl mb-2">{service.title}</h3>
               <p className="text-sm opacity-50 mb-4 italic">{service.subtitle}</p>
               <p className="opacity-70 leading-relaxed mb-4">{service.description}</p>
-              
-              <div className="p-4 bg-gray-50 dark:bg-gray-800/50 border-l-4 border-black dark:border-white mb-6">
-                <p className="text-sm opacity-80 italic">{service.example}</p>
-              </div>
-              
+
               <div className="mt-auto">
                 <p className="text-sm font-semibold mb-3 opacity-60">Ce que vous obtenez :</p>
                 <ul className="space-y-2">
@@ -87,15 +80,13 @@ export default function ExpertiseSection() {
           <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
             <p className="font-semibold mb-2">Architecture adaptée</p>
             <p className="text-sm opacity-70">
-              <strong>Je ne vous impose pas le Cloud.</strong> Je travaille aussi bien sur AWS/Azure que sur vos serveurs locaux (On-Premise) 
-              pour garantir votre souveraineté. L'architecture est <strong>adaptée à vos murs, pas aux tendances</strong>.
+              Architecture de plateforme et règles de qualité adaptées à votre contexte et à vos contraintes métier.
             </p>
           </div>
           <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
             <p className="font-semibold mb-2">Transparence totale</p>
             <p className="text-sm opacity-70">
-              Mon code est documenté et mes architectures sont transférées à vos équipes. 
-              <strong>Mon but : que vous ne dépendiez jamais de moi.</strong>
+              Documentation, transmission et montée en autonomie des équipes.
             </p>
           </div>
         </div>

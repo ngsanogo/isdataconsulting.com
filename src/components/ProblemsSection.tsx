@@ -25,17 +25,13 @@ export default function ProblemsSection() {
       <div className="container mx-auto">
         <SectionHeader
           tag="Pourquoi les PME ?"
-          title="Vous méritez mieux qu'un pilotage à vue"
+          title="Sortir du pilotage à vue"
           description=""
         />
 
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-xl opacity-80 leading-relaxed text-center">
-            Vous avez des données, mais elles sont éparpillées entre Excel, votre ERP et vos outils marketing. 
-            <strong> Résultat : vous pilotez à vue</strong>, ou pire, avec des chiffres faux. 
-          </p>
-          <p className="text-xl opacity-80 leading-relaxed text-center mt-4">
-            Vous méritez <strong>des données fiables et centralisées</strong>, sans l'usine à gaz.
+            Données dispersées, reporting manuel, chiffres peu fiables : ce sont les problèmes que je traite en mission.
           </p>
         </div>
 
@@ -54,9 +50,7 @@ export default function ProblemsSection() {
 
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg leading-relaxed opacity-70">
-            <strong>La bonne nouvelle ?</strong> Ces problèmes ont des solutions. 
-            Je ne suis pas là pour vous vendre une transformation digitale à 6 chiffres. 
-            Je suis là pour <strong>nettoyer, connecter et automatiser</strong> ce qui doit l'être.
+            Objectif : fiabiliser, connecter et automatiser les flux utiles.
           </p>
         </div>
       </div>

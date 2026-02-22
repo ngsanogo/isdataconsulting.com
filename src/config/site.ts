@@ -26,7 +26,7 @@ export const SITE_CONFIG = {
       id: "architecture-data",
       title: "Architecture Data (Cloud ou On-Premise)",
       shortTitle: "Architecture",
-      description: "Une structure de données fiable, sur le Cloud (AWS, Azure) ou vos serveurs locaux.",
+      description: "Une structure de données fiable et maintenable selon votre contexte.",
       href: "/services/architecture-data",
     },
     {

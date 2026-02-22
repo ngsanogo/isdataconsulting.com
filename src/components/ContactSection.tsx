@@ -24,8 +24,7 @@ export default function ContactSection() {
               Parlons de vos données
             </h2>
             <p className="opacity-70 mb-8 text-lg leading-relaxed">
-              Je vous écoute, je vous conseille, et on voit ensemble si je peux vous aider. 
-              Pas de vente forcée, pas de jargon.
+              Cadrage rapide, évaluation de faisabilité, puis plan d'action clair.
             </p>
 
             <ul className="space-y-4 mb-10">
@@ -68,11 +67,10 @@ export default function ContactSection() {
                 <div>
                   <p className="font-semibold text-lg mb-2">Visio de découverte métier (1h)</p>
                   <p className="text-base opacity-70 mb-3">
-                    On sort de la technique pure pour comprendre votre business.
+                    Compréhension du contexte, des objectifs et des contraintes.
                   </p>
                   <p className="text-sm opacity-60">
-                    <strong>Objectif :</strong> Identifier vos sources de données (ERP, CRM, Excel), 
-                    vos flux actuels et vos points de douleur opérationnels.
+                    Identification des sources, des flux existants et des priorités.
                   </p>
                 </div>
               </li>
@@ -81,12 +79,10 @@ export default function ContactSection() {
                 <div>
                   <p className="font-semibold text-lg mb-2">Phase d'étude et d'évaluation (24-48h)</p>
                   <p className="text-base opacity-70 mb-3">
-                    Le travail de l'ingénieur se fait ici, à tête reposée.
+                    Analyse technique et estimation du périmètre.
                   </p>
                   <p className="text-sm opacity-60">
-                    <strong>La réponse :</strong> Sous 48h, je vous reviens avec une proposition concrète. 
-                    Si je ne peux pas garantir une solution fiable et industrielle, je vous le dis franchement 
-                    et je vous oriente vers un confrère.
+                    Proposition concrète avec livrables, risques et planning.
                   </p>
                 </div>
               </li>
@@ -95,12 +91,10 @@ export default function ContactSection() {
                 <div>
                   <p className="font-semibold text-lg mb-2">Contractualisation et Delivery Agile</p>
                   <p className="text-base opacity-70 mb-3">
-                    Une fois d'accord sur la direction, on lance l'exécution.
+                    Exécution par étapes avec points réguliers.
                   </p>
                   <p className="text-sm opacity-60">
-                    <strong>Méthode Agile :</strong> On avance par itérations. Vous voyez des résultats concrets 
-                    rapidement (pipelines testés, premiers dashboards), pas dans 6 mois. 
-                    Chaque brique posée est documentée pour que vos équipes soient autonomes après mon passage.
+                    Livrables documentés et transfert aux équipes.
                   </p>
                 </div>
               </li>

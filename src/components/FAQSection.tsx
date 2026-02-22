@@ -8,7 +8,7 @@ const FAQS = [
   },
   {
     question: "Quelles technologies maîtrisez-vous ?",
-    answer: "J'adapte les outils au contexte. Pour l'orchestration : Airflow, Dagster. Pour la transformation : dbt, Spark. Pour le stockage : Snowflake, BigQuery, PostgreSQL. Cloud (AWS, Azure) ou sur vos propres serveurs (On-Premise). Je choisis ce qui est le plus adapté à votre budget et vos contraintes.",
+    answer: "Côté langage : Python, R, SQL. Côté bases : PostgreSQL, SQL Server, MySQL. Pour l'orchestration et l'industrialisation : Airflow, Docker, Git. Pour la visualisation : Power BI, Tableau, Looker Studio.",
   },
   {
     question: "Pouvez-vous aussi piloter le projet ?",
@@ -24,7 +24,7 @@ const FAQS = [
   },
   {
     question: "Intervenez-vous en remote ou sur site ?",
-    answer: "Les deux. Remote par défaut, mais je me déplace facilement en Île-de-France (basé à Bezons, 95). Hybride ou onsite selon le projet.",
+    answer: "Les deux. J'interviens en remote et sur site selon les besoins du projet.",
   },
   {
     question: "Que se passe-t-il si les livrables ne conviennent pas ?",

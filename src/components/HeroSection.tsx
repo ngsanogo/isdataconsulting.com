@@ -17,27 +17,22 @@ export default function HeroSection() {
                   loading="eager"
                 />
                 <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black dark:bg-white text-white dark:text-black text-xs font-medium px-3 py-1 whitespace-nowrap">
-                  9 ans d'expertise
+                  8 ans d'expérience
                 </span>
               </div>
             </div>
 
             <p className="text-sm font-medium opacity-60 mb-4 uppercase tracking-wide">
-              PME & ETI · Île-de-France
+              Data Engineer · Freelance
             </p>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight mb-8 text-black/95 dark:text-white/95">
-              J'ai structuré les données de l'AP-HP et de l'Institut Jérôme Lejeune.
-              Aujourd'hui, je mets cette rigueur au service de votre PME.
+              Data Engineer avec 8 ans d'expérience en architecture de plateformes data et qualité des données.
             </h1>
 
-            <div className="max-w-3xl mx-auto space-y-6 text-xl opacity-80 leading-relaxed mb-12">
+            <div className="max-w-3xl mx-auto space-y-4 text-xl opacity-80 leading-relaxed mb-12">
               <p>
-                Je suis <strong>Issa Sanogo</strong>, expert data indépendant. Pas une agence, pas un commercial : je suis l'ingénieur qui met les mains dans vos bases de données.
-              </p>
-              <p>
-                Pendant 9 ans, on m'a confié des <strong>données de santé</strong>, là où une erreur peut avoir des conséquences graves.
-                J'apporte cette même exigence à vos données de vente, de stocks ou de clients.
+                <strong>Issa Sanogo</strong> — j'interviens de la collecte à la mise à disposition des données : cadrage, pipelines, qualité, reporting.
               </p>
             </div>
 
@@ -52,18 +47,18 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 pt-12 border-t border-black/10 dark:border-white/10">
+            <div className="grid md:grid-cols-3 gap-6 pt-12 border-t border-black/10 dark:border-white/10">
             <div className="text-center">
-              <p className="text-3xl font-bold mb-2">9 ans</p>
-              <p className="text-sm opacity-70">d'expertise terrain</p>
+              <p className="text-3xl font-bold mb-2">8 ans</p>
+              <p className="text-sm opacity-70">d'expérience data</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-bold mb-2">Santé & Tech</p>
-              <p className="text-sm opacity-70">AP-HP, Lejeune, Padoa</p>
+              <p className="text-3xl font-bold mb-2">Secteurs exigeants</p>
+              <p className="text-sm opacity-70">santé, recherche médicale, SaaS</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-bold mb-2">Bezons (95)</p>
-              <p className="text-sm opacity-70">Île-de-France · Interventions nationales</p>
+              <p className="text-3xl font-bold mb-2">Mission freelance</p>
+              <p className="text-sm opacity-70">Padoa (depuis 08/2025), Peasy (2025)</p>
             </div>
           </div>
         </div>

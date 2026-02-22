@@ -15,7 +15,7 @@ export default function Footer() {
             <p className="text-base opacity-70 mb-3">Expert Data indépendant</p>
             <p className="text-sm opacity-60 flex items-start gap-2">
               <MapPin size={16} className="mt-0.5 shrink-0" />
-              <span>Basé à Bezons (95) · Interventions France entière</span>
+              <span>Interventions remote et sur site selon projet</span>
             </p>
           </div>
 
