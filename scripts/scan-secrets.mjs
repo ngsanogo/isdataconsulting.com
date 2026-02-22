@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 const patterns = [
   { name: "AWS access key", regex: /AKIA[0-9A-Z]{16}/g },
@@ -29,6 +29,9 @@ const tracked = execSync("git ls-files", { encoding: "utf8" })
 const findings = [];
 
 for (const file of tracked) {
+  if (!existsSync(file)) {
+    continue;
+  }
   const content = readFileSync(file, "utf8");
   for (const pattern of patterns) {
     const matches = content.match(pattern.regex);

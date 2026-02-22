@@ -11,71 +11,54 @@ concurrency:
   group: preprod-gate-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
-  docker-build:
-    name: Docker multi-target build
+  docker-quality:
+    name: Docker quality suite
     runs-on: ubuntu-latest
+    timeout-minutes: 25
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build dev-runtime target
+      - name: Build dev-runtime image for this job
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
           target: dev-runtime
           push: false
-          load: false
+          load: true
+          tags: isdata-consulting-web:dev-ci
 
-      - name: Build prod target
+      - name: Run strict quality gate in Docker
+        run: docker run --rm isdata-consulting-web:dev-ci sh -lc "npm run check && npm run test:coverage"
+
+  docker-prod-smoke:
+    name: Docker production smoke test
+    runs-on: ubuntu-latest
+    needs: docker-quality
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build prod image for this job
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
           target: prod
           push: false
-          load: false
-
-  docker-quality:
-    name: Docker quality suite
-    runs-on: ubuntu-latest
-    needs: docker-build
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Docker compose lint
-        run: docker compose --profile tools run --rm lint
-
-      - name: Docker compose type-check
-        run: docker compose --profile tools run --rm type-check
-
-      - name: Docker compose tests
-        run: docker compose --profile tools run --rm test
-
-      - name: Docker compose tests with coverage
-        run: docker compose --profile tools run --rm test-coverage
-
-      - name: Docker compose build
-        run: docker compose --profile tools run --rm build
-
-  docker-prod-smoke:
-    name: Docker production smoke test
-    runs-on: ubuntu-latest
-    needs: docker-quality
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+          load: true
+          tags: isdata-consulting-web:prod-ci
 
       - name: Start prod container
-        run: docker compose --profile production up -d --build prod
+        run: docker run -d --name isdata-prod-ci -p 8080:8080 isdata-consulting-web:prod-ci
 
       - name: Wait for prod endpoint
         run: |
@@ -99,6 +82,6 @@ jobs:
           curl -fsSI http://127.0.0.1:8080/ | grep -i "x-frame-options: DENY"
           curl -fsSI http://127.0.0.1:8080/ | grep -i "content-security-policy:"
 
-      - name: Tear down compose stack
+      - name: Tear down prod container
         if: always()
-        run: docker compose --profile production down -v --remove-orphans
+        run: docker rm -f isdata-prod-ci || true

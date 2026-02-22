@@ -24,5 +24,4 @@ dist
 .devcontainer
 docker-compose.yml
 Makefile
-scripts
 .githooks

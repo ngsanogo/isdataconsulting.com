@@ -25,6 +25,7 @@ Application layers:
 
 Repository layout (minimal):
 - src: application source code
+- src/test: test suite
 - public: static assets
 - scripts: automation and quality/security scripts
 - .github/workflows: CI pipelines

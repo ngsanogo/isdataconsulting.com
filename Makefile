@@ -57,16 +57,15 @@ prod: ## Start production server
 	docker compose --profile production up prod
 
 gate: ## Run full pre-production gate in Docker (quality + prod smoke test)
-	docker compose --profile tools run --rm lint
-	docker compose --profile tools run --rm type-check
-	docker compose --profile tools run --rm test
-	docker compose --profile tools run --rm test-coverage
-	docker compose --profile tools run --rm build
+	docker compose --profile tools run --rm shell sh -lc "npm ci && npm run check && npm run test:coverage"
 	@set -e; \
 	trap 'docker compose --profile production down -v --remove-orphans' EXIT; \
 	docker compose --profile production up -d --build prod; \
 	wget -qO- http://127.0.0.1:8080/ > /dev/null; \
-	wget -qO- http://127.0.0.1:8080/manifest.json > /dev/null
+	wget -qO- http://127.0.0.1:8080/manifest.json > /dev/null; \
+	wget -S --spider http://127.0.0.1:8080/ 2>&1 | grep -i "x-content-type-options: nosniff" > /dev/null; \
+	wget -S --spider http://127.0.0.1:8080/ 2>&1 | grep -i "x-frame-options: DENY" > /dev/null; \
+	wget -S --spider http://127.0.0.1:8080/ 2>&1 | grep -i "content-security-policy:" > /dev/null
 
 pre-commit: ## Run pre-commit checks
 	@$(MAKE) lint-fix
