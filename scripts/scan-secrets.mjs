@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 
 const patterns = [
   { name: "AWS access key", regex: /AKIA[0-9A-Z]{16}/g },
@@ -11,6 +11,9 @@ const patterns = [
 ];
 
 const ignoreFiles = [
+  /^\.git\//,
+  /^\.github\//,
+  /^\.devcontainer\//,
   /^coverage\//,
   /^dist\//,
   /^target\//,
@@ -20,11 +23,40 @@ const ignoreFiles = [
   /^LICENSE$/,
 ];
 
-const tracked = execSync("git ls-files", { encoding: "utf8" })
-  .split("\n")
-  .map((entry) => entry.trim())
-  .filter(Boolean)
-  .filter((file) => !ignoreFiles.some((rule) => rule.test(file)));
+function shouldIgnore(file) {
+  return ignoreFiles.some((rule) => rule.test(file));
+}
+
+function listFilesWithGit() {
+  try {
+    return execSync("git ls-files", { encoding: "utf8" })
+      .split("\n")
+      .map((entry) => entry.trim())
+      .filter(Boolean);
+  } catch {
+    return null;
+  }
+}
+
+function listFilesWithoutGit(directory = ".") {
+  const files = [];
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const fullPath = directory === "." ? entry.name : `${directory}/${entry.name}`;
+    if (shouldIgnore(fullPath)) {
+      continue;
+    }
+    if (entry.isDirectory()) {
+      files.push(...listFilesWithoutGit(fullPath));
+      continue;
+    }
+    files.push(fullPath);
+  }
+  return files;
+}
+
+const tracked = (listFilesWithGit() ?? listFilesWithoutGit()).filter(
+  (file) => !shouldIgnore(file),
+);
 
 const findings = [];
 
