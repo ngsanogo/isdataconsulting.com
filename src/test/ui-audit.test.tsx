@@ -56,6 +56,25 @@ describe("UI quality audit", () => {
     );
   });
 
+  it("closes mobile menu on Escape key", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "Ouvrir le menu" }));
+
+    const closeButton = screen.getByRole("button", { name: "Fermer le menu" });
+    expect(closeButton).toHaveAttribute("aria-expanded", "true");
+
+    fireEvent.keyDown(closeButton, { key: "Escape" });
+    expect(screen.getByRole("button", { name: "Ouvrir le menu" })).toHaveAttribute(
+      "aria-expanded",
+      "false",
+    );
+  });
+
   it("exposes desktop services menu semantics", () => {
     render(
       <MemoryRouter>

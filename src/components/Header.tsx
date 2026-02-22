@@ -102,6 +102,11 @@ export default function Header() {
             type="button"
             className="md:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
+            onKeyDown={(event) => {
+              if (event.key === "Escape") {
+                setIsOpen(false);
+              }
+            }}
             aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={isOpen}
           >
