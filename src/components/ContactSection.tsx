@@ -42,7 +42,7 @@ export default function ContactSection() {
                 className="flex items-center justify-center sm:justify-start gap-3 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-90 transition-opacity w-full sm:w-auto order-1"
               >
                 <Mail size={18} />
-                M'envoyer un email
+                Réserver une visio découverte (1h)
                 <ArrowRight size={16} className="hidden sm:inline" />
               </a>
               

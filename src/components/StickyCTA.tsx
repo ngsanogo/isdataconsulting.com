@@ -56,7 +56,7 @@ export default function StickyCTA() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-black text-black dark:text-white text-sm font-medium hover:opacity-90 transition-opacity"
               onClick={() => setIsVisible(false)}
             >
-              Me contacter
+              Réserver une visio découverte (1h)
               <ArrowRight size={14} />
             </a>
             

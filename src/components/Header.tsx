@@ -95,7 +95,7 @@ export default function Header() {
               FAQ
             </Link>
             <Link to="/#contact" className="btn-primary text-sm">
-              Contact
+              Réserver une visio découverte (1h)
             </Link>
           </div>
 
@@ -157,7 +157,7 @@ export default function Header() {
                 className="btn-primary text-center mt-2"
                 onClick={() => setIsOpen(false)}
               >
-                Contact
+                Réserver une visio découverte (1h)
               </Link>
             </div>
           </div>

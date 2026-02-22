@@ -47,7 +47,7 @@ describe("UI quality audit", () => {
       "aria-expanded",
       "true",
     );
-    expect(screen.getAllByText("Contact").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Réserver une visio découverte (1h)").length).toBeGreaterThan(0);
 
     fireEvent.click(screen.getByRole("button", { name: "Fermer le menu" }));
     expect(screen.getByRole("button", { name: "Ouvrir le menu" })).toHaveAttribute(
@@ -206,13 +206,13 @@ describe("UI quality audit", () => {
     render(<StickyCTA />);
     fireEvent.scroll(window);
 
-    const contactLink = await screen.findByRole("link", { name: "Me contacter" });
+    const contactLink = await screen.findByRole("link", { name: "Réserver une visio découverte (1h)" });
     expect(contactLink).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "Fermer" }));
 
     await waitFor(() => {
-      expect(screen.queryByRole("link", { name: "Me contacter" })).not.toBeInTheDocument();
+      expect(screen.queryByRole("link", { name: "Réserver une visio découverte (1h)" })).not.toBeInTheDocument();
     });
   });
 
