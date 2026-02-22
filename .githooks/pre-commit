@@ -6,17 +6,16 @@ set -e
 echo "Running pre-commit checks..."
 
 if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then
-	# Lint and auto-fix
-	echo "\n→ Linting code..."
-	docker compose run --rm lint-fix
-
-	# Type checking
-	echo "\n→ Type checking..."
-	docker compose run --rm type-check
-
-	# Tests with coverage
-	echo "\n→ Running tests..."
-	docker compose run --rm test-coverage
+	echo "\n→ Running checks in Docker..."
+	docker compose run --rm shell sh -lc '
+		if [ ! -x node_modules/.bin/oxlint ] || [ ! -x node_modules/.bin/eslint ]; then
+			echo "Dependencies missing in container volume, running npm ci..."
+			npm ci
+		fi
+		npm run lint:fix
+		npm run type-check
+		npm run test:coverage
+	'
 else
 	echo "\n→ Docker unavailable, running local npm checks..."
 	npm run lint:fix
