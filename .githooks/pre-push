@@ -1,24 +1,38 @@
 #!/bin/sh
-# Pre-push hook - validates production build in Docker
+# Pre-push hook - runs full parity gate before push
 
 set -e
 
 echo "Running pre-push checks..."
-echo "\n→ Building production bundle..."
+echo "\n→ Running full gate..."
 
 if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then
-	docker compose run --rm shell sh -lc '
-		if [ ! -x node_modules/.bin/vite ] || [ ! -x node_modules/.bin/tsc ]; then
-			echo "Dependencies missing in container volume, running npm ci..."
-			npm ci
-		fi
-		npm run build
-	'
+	echo "\n→ Docker detected, executing make gate (CI parity + prod smoke)..."
+	make gate
 else
-	echo "\n→ Docker unavailable, running local npm build..."
-	npm run build
+	echo "\n→ Docker unavailable, running strict local fallback..."
+	npm run check
+	npm run test:coverage
+
+	echo "\n→ Running local runtime smoke test..."
+	npm run preview -- --host 127.0.0.1 --port 4173 >/tmp/isdata-preview.log 2>&1 &
+	PREVIEW_PID=$!
+	trap 'kill "$PREVIEW_PID" >/dev/null 2>&1 || true' EXIT INT TERM
+
+	ATTEMPT=0
+	until wget -qO- http://127.0.0.1:4173/ >/dev/null; do
+		ATTEMPT=$((ATTEMPT + 1))
+		if [ "$ATTEMPT" -ge 30 ]; then
+			echo "Preview server did not become ready in time"
+			exit 1
+		fi
+		sleep 1
+	done
+
+	wget -qO- http://127.0.0.1:4173/ >/dev/null
+	wget -qO- http://127.0.0.1:4173/manifest.json >/dev/null
 fi
 
-echo "\n✓ Production build successful\n"
+echo "\n✓ Pre-push gate successful\n"
 
 exit 0
