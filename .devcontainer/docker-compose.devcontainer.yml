@@ -5,9 +5,14 @@ services:
       dockerfile: Dockerfile
       target: dev
     init: true
-    user: node
+    user: root
     working_dir: /workspace
-    command: sleep infinity
+    command: >
+      sh -lc "
+      mkdir -p /workspace/node_modules /workspace/.npm /workspace/.cache /workspace/.vite /workspace/dist /workspace/.venv /workspace/.uv /workspace/target /workspace/__pycache__ &&
+      chown -R node:node /workspace/node_modules /workspace/.npm /workspace/.cache /workspace/.vite /workspace/dist /workspace/.venv /workspace/.uv /workspace/target /workspace/__pycache__ &&
+      exec sleep infinity
+      "
     environment:
       NODE_ENV: development
       PATH: /workspace/node_modules/.bin:/home/node/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

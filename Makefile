@@ -1,4 +1,4 @@
-.PHONY: help dev launch stop clean reset install test test-watch test-coverage lint lint-fix type-check build shell prod setup-hooks pre-commit npm
+.PHONY: help dev launch doctor stop clean reset install test test-watch test-coverage lint lint-fix type-check build shell prod setup-hooks pre-commit npm
 
 help: ## Show available commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -8,6 +8,9 @@ dev: ## Start development server
 
 launch: ## Launch local test server at http://localhost:5173 (with rebuild)
 	docker compose up --build dev
+
+doctor: ## Audit container environment (PATH, required binaries, writable volumes)
+	docker compose run --rm shell sh -lc "bash .devcontainer/doctor.sh"
 
 stop: ## Stop all containers
 	docker compose down
