@@ -35,6 +35,7 @@ export default class ErrorBoundary extends Component<Props, State> {
               Je m'excuse pour la gêne occasionnée.
             </p>
             <button
+              type="button"
               onClick={() => window.location.reload()}
               className="btn-primary"
             >

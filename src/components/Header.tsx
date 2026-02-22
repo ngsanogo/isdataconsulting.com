@@ -31,6 +31,9 @@ export default function Header() {
               onMouseLeave={() => setServicesOpen(false)}
             >
               <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={servicesOpen}
                 className="flex items-center gap-1 text-sm opacity-60 hover:opacity-100 transition-opacity py-4"
               >
                 Services
@@ -53,6 +56,7 @@ export default function Header() {
                   <Link
                     key={service.href}
                     to={service.href}
+                    role="menuitem"
                     className="block p-5 hover:bg-gray-50 dark:hover:bg-gray-900/50 transition-colors border-b border-black/5 dark:border-white/5 last:border-0"
                   >
                     <span className="font-semibold text-base block mb-2">

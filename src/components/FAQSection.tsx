@@ -38,13 +38,16 @@ const FAQS = [
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
+  const panelId = `faq-panel-${question.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
   return (
     <div className="border-b border-black/10 dark:border-white/10 last:border-0">
       <button
+        type="button"
         className="w-full py-6 flex items-start justify-between gap-4 text-left"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
+        aria-controls={panelId}
       >
         <span className="font-medium text-base leading-relaxed pr-4">{question}</span>
         <ChevronDown 
@@ -54,7 +57,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       </button>
       
       {isOpen && (
-        <div className="pb-6 pr-8">
+        <div id={panelId} className="pb-6 pr-8">
           <p className="text-base opacity-70 leading-relaxed">
             {answer}
           </p>
