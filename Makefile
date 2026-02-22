@@ -20,7 +20,7 @@ test: ## Run tests
 	docker compose run --rm test
 
 test-watch: ## Run tests in watch mode
-	docker compose run --rm test npm run test
+	docker compose run --rm test npm run test:watch
 
 test-coverage: ## Run tests with coverage
 	docker compose run --rm test-coverage

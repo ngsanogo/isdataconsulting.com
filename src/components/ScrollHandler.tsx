@@ -7,7 +7,6 @@ export default function ScrollHandler() {
   useEffect(() => {
     if (hash) {
       const id = hash.slice(1);
-      // Small delay to ensure DOM is ready after route change
       const timer = setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
@@ -17,7 +16,7 @@ export default function ScrollHandler() {
       return () => clearTimeout(timer);
     }
 
-    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    window.scrollTo({ top: 0, behavior: "auto" });
   }, [pathname, hash]);
 
   return null;
