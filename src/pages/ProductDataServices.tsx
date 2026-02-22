@@ -150,7 +150,7 @@ export default function ProductDataServices() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={`mailto:${SITE_CONFIG.email}?subject=Visio découverte — Pilotage projet data`}
+                href={`mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent("Visio découverte (1h) — Data Product Owner & Chef de projet Data")}`}
                 className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-80 transition-opacity"
               >
                 Réserver une visio découverte (1h)

@@ -38,7 +38,7 @@ export default function ContactSection() {
 
             <div className="space-y-4 flex flex-col sm:flex-row sm:gap-4">
               <a
-                href={`mailto:${SITE_CONFIG.email}?subject=Visio de découverte métier (1h)`}
+                href={`mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent("Visio découverte (1h) — Projet data")}`}
                 className="flex items-center justify-center sm:justify-start gap-3 px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-medium hover:opacity-90 transition-opacity w-full sm:w-auto order-1"
               >
                 <Mail size={18} />
