@@ -1,7 +1,5 @@
 # @ngsanogo/isdataconsulting-website
 
-This file specifies code owners and automatic reviewers for consistency.
-
 # Default owners for everything
 * @ngsanogo
 
@@ -19,8 +17,6 @@ This file specifies code owners and automatic reviewers for consistency.
 /eslint.config.js @ngsanogo
 
 # Security & compliance
-/SECURITY.md @ngsanogo
-/CONTRIBUTING.md @ngsanogo
 /.env* @ngsanogo
 
 # Package management
@@ -30,8 +26,6 @@ This file specifies code owners and automatic reviewers for consistency.
 # Tests
 /*.test.* @ngsanogo
 /src/test/ @ngsanogo
-/vitest.config.ts @ngsanogo
 
 # Documentation
 /*.md @ngsanogo
-/docs/ @ngsanogo

@@ -28,18 +28,6 @@ npm run dev
 
 React 18 · TypeScript 5.8 · Vite 5.4 · Tailwind CSS 3.4 · React Router 7 · Vitest 4
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines, code standards, and testing requirements.
-
-## Security
-
-See [SECURITY.md](SECURITY.md) for vulnerability reporting and security policies.
-
-## Community
-
-See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community standards.
-
-See [CHANGELOG.md](CHANGELOG.md) for version history.
-
 ## License
 
-© 2024 ISData Consulting. All rights reserved.
+© 2026 ISData Consulting. All rights reserved.

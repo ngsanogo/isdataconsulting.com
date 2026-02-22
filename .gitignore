@@ -11,6 +11,10 @@ build/
 .env.local
 .env.*.local
 .venv/
+venv/
+.npm/
+.cache/
+__pycache__/
 
 # IDE / Editor
 .idea/
@@ -31,6 +35,9 @@ yarn-error.log*
 
 # Testing
 coverage/
+
+# Python artifacts
+*.pyc
 
 # Temporary files
 *.tmp

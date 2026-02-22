@@ -1,167 +1,77 @@
+x-app-base: &app-base
+  build:
+    context: .
+    dockerfile: Dockerfile
+    target: dev
+  image: isdataconsulting.com:dev
+  volumes:
+    - .:/app:cached
+    - /app/node_modules
+    - /app/.npm
+    - /app/.cache
+    - /app/.venv
+    - /app/venv
+    - /app/__pycache__
+
 services:
-  # Service de développement avec hot-reload
   dev:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: dev
-    image: isdataconsulting.com:dev
+    <<: *app-base
     ports:
       - "5173:5173"
-    volumes:
-      - .:/app:cached
-      - /app/node_modules
-      - /app/.npm
-      - /app/.cache
-      - /app/.venv
-      - /app/venv
-      - /app/__pycache__
     environment:
       - NODE_ENV=development
     command: npm run dev
     stdin_open: true
     tty: true
 
-  # Service pour exécuter les tests
   test:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: test
-    image: isdataconsulting.com:test
+    <<: *app-base
     profiles:
       - tools
-    volumes:
-      - .:/app:cached
-      - /app/node_modules
-      - /app/.npm
-      - /app/.cache
-      - /app/.venv
-      - /app/venv
-      - /app/__pycache__
     environment:
       - NODE_ENV=test
     command: npm run test
 
-  # Service pour exécuter les tests avec coverage
   test-coverage:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: test
-    image: isdataconsulting.com:test
+    <<: *app-base
     profiles:
       - tools
-    volumes:
-      - .:/app:cached
-      - /app/node_modules
-      - /app/.npm
-      - /app/.cache
-      - /app/.venv
-      - /app/venv
-      - /app/__pycache__
     environment:
       - NODE_ENV=test
     command: npm run test:coverage
 
-  # Service pour le linting
   lint:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: lint
-    image: isdataconsulting.com:lint
+    <<: *app-base
     profiles:
       - tools
-    volumes:
-      - .:/app:cached
-      - /app/node_modules
-      - /app/.npm
-      - /app/.cache
-      - /app/.venv
-      - /app/venv
-      - /app/__pycache__
     command: npm run lint
 
-  # Service pour le linting avec auto-fix
   lint-fix:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: lint
-    image: isdataconsulting.com:lint
+    <<: *app-base
     profiles:
       - tools
-    volumes:
-      - .:/app:cached
-      - /app/node_modules
-      - /app/.npm
-      - /app/.cache
-      - /app/.venv
-      - /app/venv
-      - /app/__pycache__
     command: npm run lint:fix
 
-  # Service pour le type checking
   type-check:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: lint
-    image: isdataconsulting.com:lint
+    <<: *app-base
     profiles:
       - tools
-    volumes:
-      - .:/app:cached
-      - /app/node_modules
-      - /app/.npm
-      - /app/.cache
-      - /app/.venv
-      - /app/venv
-      - /app/__pycache__
     command: npm run type-check
 
-  # Service pour le build de production
   build:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: builder
-    image: isdataconsulting.com:builder
+    <<: *app-base
     profiles:
       - tools
-    volumes:
-      - .:/app:cached
-      - /app/node_modules
-      - /app/.npm
-      - /app/.cache
-      - /app/.venv
-      - /app/venv
-      - /app/__pycache__
     command: npm run build
 
-  # Service pour exécuter une commande shell
   shell:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: dev
-    image: isdataconsulting.com:dev
+    <<: *app-base
     profiles:
       - tools
-    volumes:
-      - .:/app:cached
-      - /app/node_modules
-      - /app/.npm
-      - /app/.cache
-      - /app/.venv
-      - /app/venv
-      - /app/__pycache__
     command: sh
     stdin_open: true
     tty: true
 
-  # Service de production nginx
   prod:
     build:
       context: .
@@ -171,4 +81,4 @@ services:
     profiles:
       - production
     ports:
-      - "8080:80"
+      - "8080:8080"
