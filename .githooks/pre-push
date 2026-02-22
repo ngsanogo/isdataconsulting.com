@@ -6,7 +6,18 @@ set -e
 echo "Running pre-push checks..."
 echo "\n→ Building production bundle..."
 
-docker compose run --rm build
+if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then
+	docker compose run --rm shell sh -lc '
+		if [ ! -x node_modules/.bin/vite ] || [ ! -x node_modules/.bin/tsc ]; then
+			echo "Dependencies missing in container volume, running npm ci..."
+			npm ci
+		fi
+		npm run build
+	'
+else
+	echo "\n→ Docker unavailable, running local npm build..."
+	npm run build
+fi
 
 echo "\n✓ Production build successful\n"
 
