@@ -1,0 +1,26 @@
+services:
+  devcontainer:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: dev
+    init: true
+    user: node
+    working_dir: /workspace
+    command: sleep infinity
+    environment:
+      NODE_ENV: development
+      PATH: /workspace/node_modules/.bin:/home/node/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      npm_config_cache: /workspace/.npm
+      XDG_CACHE_HOME: /workspace/.cache
+    volumes:
+      - ..:/workspace:cached
+      - /workspace/node_modules
+      - /workspace/.npm
+      - /workspace/.cache
+      - /workspace/.vite
+      - /workspace/dist
+      - /workspace/.venv
+      - /workspace/.uv
+      - /workspace/target
+      - /workspace/__pycache__

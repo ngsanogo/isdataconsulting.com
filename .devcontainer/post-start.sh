@@ -1,34 +1,21 @@
-#!/bin/sh
-set -eu
+#!/usr/bin/env bash
+set -euo pipefail
 
-mkdir -p /commandhistory
+cd /workspace
 
-touch /commandhistory/.zsh_history
-touch /commandhistory/.bash_history
+export PATH="/workspace/node_modules/.bin:/home/node/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
-if [ ! -f /root/.zshrc ]; then
-  touch /root/.zshrc
+if [[ "$PATH" == *"/opt/homebrew"* ]] || [[ "$PATH" == *"/Users/"* ]] || [[ "$PATH" == *"/Volumes/"* ]]; then
+  echo "Forbidden host path detected in PATH: $PATH"
+  exit 1
 fi
 
-if ! grep -q 'HISTFILE=/commandhistory/.zsh_history' /root/.zshrc; then
-  cat >> /root/.zshrc <<'EOF'
-export HISTFILE=/commandhistory/.zsh_history
-export HISTSIZE=50000
-export SAVEHIST=50000
-setopt HIST_IGNORE_DUPS
-setopt SHARE_HISTORY
-EOF
-fi
+required_bins=(node npm git python3 make)
+for bin in "${required_bins[@]}"; do
+  if ! command -v "$bin" >/dev/null 2>&1; then
+    echo "Required binary missing in container: $bin"
+    exit 1
+  fi
+done
 
-if [ ! -f /root/.bashrc ]; then
-  touch /root/.bashrc
-fi
-
-if ! grep -q 'HISTFILE=/commandhistory/.bash_history' /root/.bashrc; then
-  cat >> /root/.bashrc <<'EOF'
-export HISTFILE=/commandhistory/.bash_history
-export HISTSIZE=50000
-export HISTFILESIZE=50000
-shopt -s histappend
-EOF
-fi
+npm ci

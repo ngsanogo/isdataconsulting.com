@@ -1,4 +1,4 @@
-.PHONY: help dev stop clean install test test-watch test-coverage lint lint-fix type-check build shell prod setup-hooks pre-commit npm
+.PHONY: help dev launch stop clean reset install test test-watch test-coverage lint lint-fix type-check build shell prod setup-hooks pre-commit npm
 
 help: ## Show available commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -6,12 +6,19 @@ help: ## Show available commands
 dev: ## Start development server
 	docker compose up dev
 
+launch: ## Launch local test server at http://localhost:5173 (with rebuild)
+	docker compose up --build dev
+
 stop: ## Stop all containers
 	docker compose down
 
 clean: ## Remove containers, volumes and images
 	docker compose down -v
 	docker system prune -f
+
+reset: ## Total project reset: stop, purge project volumes/images, rebuild dev image
+	docker compose down --volumes --remove-orphans --rmi local
+	docker compose build --no-cache dev
 
 install: ## Rebuild Docker images
 	docker compose build --no-cache dev

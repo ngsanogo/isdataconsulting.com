@@ -4,6 +4,7 @@ COPY package*.json ./
 RUN npm ci
 
 FROM deps AS dev
+RUN apk add --no-cache bash git openssh-client make python3 g++
 COPY . .
 EXPOSE 5173
 

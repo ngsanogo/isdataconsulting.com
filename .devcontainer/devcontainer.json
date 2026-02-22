@@ -1,29 +1,30 @@
 {
-  "name": "isdataconsulting.com (Zero-Install)",
+  "name": "isdataconsulting-stateless",
   "dockerComposeFile": [
-    "../docker-compose.yml"
+    "docker-compose.devcontainer.yml"
   ],
-  "service": "dev",
-  "workspaceFolder": "/app",
+  "service": "devcontainer",
+  "workspaceFolder": "/workspace",
   "shutdownAction": "stopCompose",
-  "overrideCommand": true,
-  "remoteUser": "root",
-  "initializeCommand": "sh -c 'if command -v colima >/dev/null 2>&1; then colima start --mount-type=virtiofs >/dev/null 2>&1 || true; fi'",
-  "postCreateCommand": "sh .devcontainer/setup.sh",
-  "postStartCommand": "sh .devcontainer/post-start.sh",
-  "mounts": [
-    "source=isdataconsulting-commandhistory,target=/commandhistory,type=volume"
-  ],
+  "overrideCommand": false,
+  "remoteUser": "node",
+  "updateRemoteUserUID": true,
+  "remoteEnv": {
+    "PATH": "/workspace/node_modules/.bin:/home/node/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "npm_config_cache": "/workspace/.npm",
+    "XDG_CACHE_HOME": "/workspace/.cache"
+  },
+  "postCreateCommand": "chmod +x .devcontainer/post-create.sh && ./.devcontainer/post-create.sh",
+  "postStartCommand": "chmod +x .devcontainer/post-start.sh && ./.devcontainer/post-start.sh",
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-azuretools.vscode-docker",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "ms-vscode.makefile-tools",
-        "vitest.explorer"
+        "bradlc.vscode-tailwindcss",
+        "ms-azuretools.vscode-docker",
+        "vitest.explorer",
+        "ms-vscode.makefile-tools"
       ],
       "settings": {
         "files.watcherExclude": {
@@ -31,8 +32,11 @@
           "**/.cache/**": true,
           "**/__pycache__/**": true,
           "**/.venv/**": true,
-          "**/venv/**": true
-        }
+          "**/venv/**": true,
+          "**/target/**": true,
+          "**/.uv/**": true
+        },
+        "terminal.integrated.defaultProfile.linux": "bash"
       }
     }
   }
