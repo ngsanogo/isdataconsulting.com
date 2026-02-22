@@ -78,9 +78,10 @@ jobs:
 
       - name: Validate security headers
         run: |
-          curl -fsSI http://127.0.0.1:8080/ | grep -i "x-content-type-options: nosniff"
-          curl -fsSI http://127.0.0.1:8080/ | grep -i "x-frame-options: DENY"
-          curl -fsSI http://127.0.0.1:8080/ | grep -i "content-security-policy:"
+          curl -fsS -D /tmp/headers.txt -o /dev/null http://127.0.0.1:8080/
+          grep -i "^x-content-type-options: nosniff" /tmp/headers.txt
+          grep -i "^x-frame-options: DENY" /tmp/headers.txt
+          grep -i "^content-security-policy:" /tmp/headers.txt
 
       - name: Tear down prod container
         if: always()
