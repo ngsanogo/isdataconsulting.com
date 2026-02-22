@@ -1,0 +1,39 @@
+{
+  "name": "isdataconsulting.com (Zero-Install)",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "dev",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
+  "overrideCommand": true,
+  "remoteUser": "root",
+  "initializeCommand": "sh -c 'if command -v colima >/dev/null 2>&1; then colima start --mount-type=virtiofs >/dev/null 2>&1 || true; fi'",
+  "postCreateCommand": "sh .devcontainer/setup.sh",
+  "postStartCommand": "sh .devcontainer/post-start.sh",
+  "mounts": [
+    "source=isdataconsulting-commandhistory,target=/commandhistory,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.makefile-tools",
+        "vitest.explorer"
+      ],
+      "settings": {
+        "files.watcherExclude": {
+          "**/node_modules/**": true,
+          "**/.cache/**": true,
+          "**/__pycache__/**": true,
+          "**/.venv/**": true,
+          "**/venv/**": true
+        }
+      }
+    }
+  }
+}
