@@ -1,6 +1,7 @@
 node_modules
 npm-debug.log
 .git
+.github
 .venv
 venv
 .vscode
@@ -14,6 +15,12 @@ coverage
 __pycache__
 .cache
 .npm
+.vite
+.uv
+target
+dist
+.env
+.env.*
 .devcontainer
 docker-compose.yml
 Makefile

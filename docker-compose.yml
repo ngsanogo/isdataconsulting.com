@@ -2,8 +2,8 @@ x-app-base: &app-base
   build:
     context: .
     dockerfile: Dockerfile
-    target: dev
-  image: isdataconsulting.com:dev
+    target: dev-runtime
+  image: isdata-consulting-web:dev
   volumes:
     - .:/app:cached
     - /app/node_modules
@@ -16,6 +16,7 @@ x-app-base: &app-base
 services:
   dev:
     <<: *app-base
+    container_name: isdata-web-dev
     ports:
       - "5173:5173"
     environment:
@@ -26,6 +27,7 @@ services:
 
   test:
     <<: *app-base
+    container_name: isdata-web-test
     profiles:
       - tools
     environment:
@@ -34,6 +36,7 @@ services:
 
   test-coverage:
     <<: *app-base
+    container_name: isdata-web-test-coverage
     profiles:
       - tools
     environment:
@@ -42,30 +45,35 @@ services:
 
   lint:
     <<: *app-base
+    container_name: isdata-web-lint
     profiles:
       - tools
     command: npm run lint
 
   lint-fix:
     <<: *app-base
+    container_name: isdata-web-lint-fix
     profiles:
       - tools
     command: npm run lint:fix
 
   type-check:
     <<: *app-base
+    container_name: isdata-web-type-check
     profiles:
       - tools
     command: npm run type-check
 
   build:
     <<: *app-base
+    container_name: isdata-web-build
     profiles:
       - tools
     command: npm run build
 
   shell:
     <<: *app-base
+    container_name: isdata-web-shell
     profiles:
       - tools
     command: sh
@@ -73,11 +81,12 @@ services:
     tty: true
 
   prod:
+    container_name: isdata-web-prod
     build:
       context: .
       dockerfile: Dockerfile
       target: prod
-    image: isdataconsulting.com:prod
+    image: isdata-consulting-web:prod
     profiles:
       - production
     ports:

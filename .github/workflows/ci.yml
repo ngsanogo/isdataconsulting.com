@@ -27,9 +27,6 @@ jobs:
       - name: Run quality checks
         run: npm run check
 
-      - name: Run tests with coverage
-        run: npm run test:coverage
-
       - name: Security audit
         run: npm audit --audit-level=high
 

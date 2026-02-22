@@ -1,12 +1,17 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --no-audit --no-fund
 
-FROM deps AS dev
-RUN apk add --no-cache bash git openssh-client make python3 g++
+FROM node:22-alpine AS dev-runtime
+WORKDIR /app
+ENV NODE_ENV=development
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 EXPOSE 5173
+
+FROM dev-runtime AS devcontainer
+RUN apk add --no-cache bash git openssh-client make python3 g++
 
 FROM deps AS builder
 COPY . .
