@@ -18,7 +18,8 @@ The host macOS is used only as UI: dependencies/build artifacts are isolated to 
 Environment guarantees:
 
 - Toolchain is container-only and reproducible (Node 22, `git`, `python3`, `make`).
-- On **every container start**, bootstrap is re-executed (`postStartCommand`): PATH validation + `npm ci`.
+- On **every container start**, bootstrap audit is re-executed (`postStartCommand`): PATH validation + required binaries + writable volumes.
+- Dependency installation is deterministic on container creation (`postCreateCommand`: `npm ci`) and on explicit reset (`make reset`).
 - No dependency/build artifacts are written to macOS; only source code is bind-mounted.
 - Setup matches CI/Netlify flow (`npm ci`, `npm run build`) to reduce drift.
 
