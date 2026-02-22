@@ -33,6 +33,29 @@ describe("UI quality audit", () => {
     }
   });
 
+  it("toggles mobile navigation drawer", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const menuToggle = screen.getByRole("button", { name: "Ouvrir le menu" });
+    fireEvent.click(menuToggle);
+
+    expect(screen.getByRole("button", { name: "Fermer le menu" })).toHaveAttribute(
+      "aria-expanded",
+      "true",
+    );
+    expect(screen.getAllByText("Contact").length).toBeGreaterThan(0);
+
+    fireEvent.click(screen.getByRole("button", { name: "Fermer le menu" }));
+    expect(screen.getByRole("button", { name: "Ouvrir le menu" })).toHaveAttribute(
+      "aria-expanded",
+      "false",
+    );
+  });
+
   it("exposes desktop services menu semantics", () => {
     render(
       <MemoryRouter>
