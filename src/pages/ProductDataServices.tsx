@@ -63,7 +63,7 @@ export default function ProductDataServices() {
               <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Data Product Owner & Chef de projet Data</p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Data Product Owner et Chef de projet Data
+                Data Product Owner & Chef de projet Data freelance
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">

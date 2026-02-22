@@ -68,7 +68,7 @@ export default function ArchitectureData() {
               <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Architecture Data</p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Architecture Data : des fondations solides
+                Architecte Data freelance : Architecture Data de plateforme
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">

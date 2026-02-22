@@ -73,7 +73,7 @@ export default function DataEngineering() {
               <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Data Engineering</p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Data Engineering : industrialiser vos flux data
+                Data Engineer freelance : Data Engineering & Pipelines
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
