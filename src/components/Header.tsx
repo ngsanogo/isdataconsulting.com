@@ -95,7 +95,7 @@ export default function Header() {
               FAQ
             </Link>
             <Link to="/#contact" className="btn-primary text-sm">
-              Réserver une visio découverte (1h)
+              Contact
             </Link>
           </div>
 
