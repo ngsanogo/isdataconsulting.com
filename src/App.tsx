@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async";
 import ScrollHandler from "./components/ScrollHandler";
 import Index from "./pages/Index";
 
@@ -21,37 +20,35 @@ function PageLoader() {
 
 export default function App() {
   return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <ScrollHandler />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route
-            path="/services/data-engineering"
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <DataEngineering />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/services/architecture-data"
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <ArchitectureData />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/services/product-data"
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <ProductDataServices />
-              </Suspense>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
-    </HelmetProvider>
+    <BrowserRouter>
+      <ScrollHandler />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route
+          path="/services/data-engineering"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <DataEngineering />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/services/architecture-data"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <ArchitectureData />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/services/product-data"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <ProductDataServices />
+            </Suspense>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }

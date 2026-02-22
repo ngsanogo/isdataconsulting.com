@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { HelmetProvider } from "react-helmet-async";
 import { MemoryRouter } from "react-router-dom";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Header from "@/components/Header";
@@ -218,14 +217,12 @@ describe("UI quality audit", () => {
 
   it("injects canonical and social metadata", async () => {
     render(
-      <HelmetProvider>
-        <SEO
-          title="Audit SEO"
-          description="Description de test"
-          canonicalPath="/services/data-engineering"
-          keywords={["data", "consulting"]}
-        />
-      </HelmetProvider>,
+      <SEO
+        title="Audit SEO"
+        description="Description de test"
+        canonicalPath="/services/data-engineering"
+        keywords={["data", "consulting"]}
+      />,
     );
 
     await waitFor(() => {
