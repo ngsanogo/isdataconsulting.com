@@ -39,13 +39,13 @@ make help             # List all commands
 
 ```bash
 Node.js 22+ required.
-npm install
+npm ci
 npm run dev
 ```
 
 ## Tech Stack
 
-React 18 · TypeScript 5.8 · Vite 5.4 · Tailwind CSS 3.4 · React Router 7 · Vitest 4
+React 18 · TypeScript 5.9 · Vite 7.3 · Tailwind CSS 3.4 · React Router 7 · Vitest 4 · ESLint 10 · OXLint
 
 ## License
 
