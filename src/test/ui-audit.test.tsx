@@ -1,11 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { HelmetProvider } from "react-helmet-async";
 import { MemoryRouter } from "react-router-dom";
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Header from "@/components/Header";
 import SEO from "@/components/SEO";
 import { SITE_CONFIG } from "@/config/site";
 import Index from "@/pages/Index";
+import FAQSection from "@/components/FAQSection";
+import StickyCTA from "@/components/StickyCTA";
 
 describe("UI quality audit", () => {
   it("renders accessible mobile navigation toggle", () => {
@@ -56,6 +58,42 @@ describe("UI quality audit", () => {
     });
 
     expect(skipLink).toHaveAttribute("href", "#main-content");
+  });
+
+  it("toggles FAQ items with correct aria-expanded state", () => {
+    render(<FAQSection />);
+
+    const firstQuestion = screen.getByRole("button", {
+      name: "Quelle est la différence avec une ESN ?",
+    });
+
+    expect(firstQuestion).toHaveAttribute("aria-expanded", "false");
+    fireEvent.click(firstQuestion);
+    expect(firstQuestion).toHaveAttribute("aria-expanded", "true");
+  });
+
+  it("shows and dismisses sticky CTA after scroll", async () => {
+    Object.defineProperty(document.body, "offsetHeight", {
+      configurable: true,
+      value: 5000,
+    });
+
+    Object.defineProperty(window, "scrollY", {
+      configurable: true,
+      value: 900,
+    });
+
+    render(<StickyCTA />);
+    fireEvent.scroll(window);
+
+    const contactLink = await screen.findByRole("link", { name: "Me contacter" });
+    expect(contactLink).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Fermer" }));
+
+    await waitFor(() => {
+      expect(screen.queryByRole("link", { name: "Me contacter" })).not.toBeInTheDocument();
+    });
   });
 
   it("injects canonical and social metadata", async () => {

@@ -61,7 +61,11 @@ export default function StickyCTA() {
             </a>
             
             <button
-              onClick={() => setIsDismissed(true)}
+              type="button"
+              onClick={() => {
+                setIsDismissed(true);
+                setIsVisible(false);
+              }}
               className="p-2 hover:opacity-70 transition-opacity"
               aria-label="Fermer"
             >
