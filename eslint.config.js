@@ -22,5 +22,11 @@ export default [
       'react-refresh/only-export-components': 'warn',
     },
   },
+  {
+    files: ['src/test/**/*.{ts,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
   ...tseslint.configs.recommended,
 ]
