@@ -16,7 +16,7 @@ const FAQS = [
   },
   {
     question: "Comment se déroule une mission type ?",
-    answer: "Visio de découverte métier (1h), puis analyse de faisabilité technique (48h). Si c'est faisable, on contractualise et j'exécute en sprints courts avec des livrables visibles. Sinon, je vous le dis franchement.",
+    answer: "Visio de cadrage (1h), analyse de faisabilité (48h), puis exécution par étapes avec livrables visibles.",
   },
   {
     question: "Quels sont vos tarifs ?",
@@ -79,7 +79,7 @@ export default function FAQSection() {
             Tout ce que vous devez savoir
           </h2>
           <p className="opacity-70 text-lg">
-            Questions sur le perimetre ou les livrables ? <a href="#contact" className="underline underline-offset-2 font-medium">Contactez-moi</a>.
+            Questions sur le périmètre ou les livrables ? <a href="#contact" className="underline underline-offset-2 font-medium">Contactez-moi</a>.
           </p>
         </div>
 

@@ -45,7 +45,7 @@ export default function ArchitectureData() {
         Aller au contenu principal
       </a>
       <SEO
-        title="Architecture de plateforme data | ISData Consulting"
+        title="Architecte Data | ISData Consulting"
         description="Architecture, qualité et gouvernance des données pour des plateformes data fiables."
         keywords={["architecture data", "qualité des données", "gouvernance", "modélisation"]}
         canonicalPath="/services/architecture-data"
@@ -60,10 +60,10 @@ export default function ArchitectureData() {
                 Retour à l'accueil
               </Link>
 
-              <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Architecture de plateforme data</p>
+              <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Architecte Data</p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Structurer une plateforme data fiable
+                Concevoir une architecture data solide
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">

@@ -23,16 +23,16 @@ export default function HeroSection() {
             </div>
 
             <p className="text-sm font-medium opacity-60 mb-4 uppercase tracking-wide">
-              Data Engineer · Freelance
+              Data Engineer · Architecte Data · Data Product Owner · Chef de projet Data
             </p>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight mb-8 text-black/95 dark:text-white/95">
-              Data Engineer avec 8 ans d'expérience en architecture de plateformes data et qualité des données.
+              Vos données deviennent fiables, exploitables et pilotables.
             </h1>
 
             <div className="max-w-3xl mx-auto space-y-4 text-xl opacity-80 leading-relaxed mb-12">
               <p>
-                <strong>Issa Sanogo</strong> — j'interviens de la collecte à la mise à disposition des données : cadrage, pipelines, qualité, reporting.
+                <strong>Issa Sanogo</strong> — j'interviens de la collecte à la décision: data engineering, architecture data, pilotage produit et pilotage projet.
               </p>
             </div>
 

@@ -1,18 +1,18 @@
 import { Briefcase, Clock, Users } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
-const POSITIONING = [
+const EXECUTION_MODEL = [
   {
-    title: "Data Engineer",
-    details: "Conception de pipelines, fiabilisation de données, automatisation et reporting opérationnel.",
+    title: "Cadrage clair",
+    details: "Objectifs, périmètre et critères de succès définis avant le démarrage.",
   },
   {
-    title: "Data Product Owner",
-    details: "Cadrage des besoins, priorisation des sujets data et alignement métier/technique.",
+    title: "Delivery incrémental",
+    details: "Avancement par étapes courtes avec livrables visibles et retours réguliers.",
   },
   {
-    title: "Chef de projet Data",
-    details: "Pilotage des chantiers, coordination transverse et livraison de livrables documentés.",
+    title: "Transmission",
+    details: "Documentation, passation et montée en autonomie des équipes.",
   },
 ] as const;
 
@@ -39,13 +39,13 @@ export default function SocialProofSection() {
     <section className="section bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto">
         <SectionHeader
-          tag="Positionnement"
-          title="Rôles et périmètre d'intervention"
+          tag="Méthode"
+          title="Comment se déroule la mission"
           description=""
         />
 
         <div className="grid lg:grid-cols-3 gap-6 mb-16">
-          {POSITIONING.map((item) => (
+          {EXECUTION_MODEL.map((item) => (
             <div 
               key={item.title}
               className="flex flex-col p-8 bg-white dark:bg-gray-900 border border-black/10 dark:border-white/10"

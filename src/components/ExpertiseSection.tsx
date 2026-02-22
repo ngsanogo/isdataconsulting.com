@@ -1,44 +1,58 @@
 import { Database, RefreshCw, BarChart3 } from "lucide-react";
 import SectionHeader from "./SectionHeader";
+import { Layers } from "lucide-react";
 
 const SERVICES = [
   {
     icon: Database,
-    id: "centralisation-warehouse",
-    title: "Centralisation des données",
-    subtitle: "Entrepôt et modélisation",
+    id: "data-engineering",
+    title: "Data Engineering",
+    subtitle: "Pipelines et qualité de données",
     description:
-      "Construction d'un socle unique pour fiabiliser et exploiter vos données métier.",
+      "Conception et industrialisation des flux de données de bout en bout.",
     benefits: [
-      "Sources unifiées",
-      "Historique exploitable",
-      "Base prête pour l'analyse",
+      "Ingestion et transformation fiables",
+      "Données prêtes pour l'usage métier",
+      "Pipelines maintenables",
     ],
   },
   {
-    icon: BarChart3,
-    id: "reporting-bi",
-    title: "Reporting et BI",
-    subtitle: "Power BI, Tableau, Looker Studio",
+    icon: Layers,
+    id: "architecte-data",
+    title: "Architecte Data",
+    subtitle: "Modélisation et architecture de plateforme",
     description:
-      "Mise en place de tableaux de bord automatisés pour le suivi opérationnel et décisionnel.",
+      "Structuration d'une plateforme data claire, robuste et adaptée à vos contraintes.",
     benefits: [
-      "Indicateurs partagés",
-      "Mise à jour automatisée",
-      "Décision plus rapide",
+      "Architecture explicite",
+      "Règles de qualité définies",
+      "Documentation technique",
     ],
   },
   {
     icon: RefreshCw,
-    id: "migration-pipelines",
-    title: "Migration et pipelines",
-    subtitle: "Fiabilisation des flux",
+    id: "data-product-owner",
+    title: "Data Product Owner",
+    subtitle: "Cadrage et priorisation",
     description:
-      "Migration de données, standardisation et industrialisation des flux pour des volumes importants.",
+      "Traduction des besoins métier en backlog data priorisé et livrable.",
     benefits: [
-      "Qualité de données renforcée",
-      "Pipelines maintenables",
-      "Documentation opérationnelle",
+      "Vision produit data",
+      "Priorités claires",
+      "Alignement métier/tech",
+    ],
+  },
+  {
+    icon: BarChart3,
+    id: "chef-projet-data",
+    title: "Chef de projet Data",
+    subtitle: "Pilotage et coordination",
+    description:
+      "Pilotage opérationnel des chantiers data avec suivi de l'exécution et des livrables.",
+    benefits: [
+      "Plan d'action concret",
+      "Coordination transverse",
+      "Livraison documentée",
     ],
   },
 ] as const;
@@ -49,8 +63,8 @@ export default function ExpertiseSection() {
       <div className="container mx-auto">
         <SectionHeader
           tag="Compétences"
-          title="Ce que je fais"
-          description="Prestations alignées avec mon parcours de Data Engineer."
+          title="Services proposés"
+          description="4 offres claires pour structurer, fiabiliser et piloter vos données."
         />
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
@@ -80,13 +94,13 @@ export default function ExpertiseSection() {
           <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
             <p className="font-semibold mb-2">Architecture adaptée</p>
             <p className="text-sm opacity-70">
-              Architecture de plateforme et règles de qualité adaptées à votre contexte et à vos contraintes métier.
+              Chaque mission démarre par le besoin métier, puis le choix du bon niveau d'architecture.
             </p>
           </div>
           <div className="p-6 bg-gray-50 dark:bg-gray-900/30 border border-black/10 dark:border-white/10">
             <p className="font-semibold mb-2">Transparence totale</p>
             <p className="text-sm opacity-70">
-              Documentation, transmission et montée en autonomie des équipes.
+              Livrables clairs, documentation et transmission aux équipes.
             </p>
           </div>
         </div>
