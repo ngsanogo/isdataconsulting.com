@@ -23,16 +23,20 @@ export default function HeroSection() {
             </div>
 
             <p className="text-sm font-medium opacity-60 mb-4 uppercase tracking-wide">
-              Data Engineer · Data Product Management · Data Product Owner · Chef de projet Data
+              Expert Data Senior Freelance
             </p>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight mb-8 text-black/95 dark:text-white/95">
-              Transformez vos données en décisions fiables.
+              Issa Sanogo - Expert Data Senior (8 ans d&apos;XP)
             </h1>
 
             <div className="max-w-3xl mx-auto space-y-4 text-xl opacity-80 leading-relaxed mb-12">
               <p>
-                <strong>Issa Sanogo</strong> — j'interviens de la collecte à la décision : Data Engineering, Data Product Management, pilotage produit et pilotage projet.
+                Je construis des systèmes de données robustes, automatisés et maintenables.
+              </p>
+              <p className="text-lg opacity-75">
+                Fini les copier-coller sur Excel et les architectures usines à gaz. J&apos;accompagne les entreprises
+                (Santé, SaaS, Logistique) de la conception technique au pilotage métier. Simple, explicite et documenté.
               </p>
             </div>
 
@@ -50,15 +54,15 @@ export default function HeroSection() {
             <div className="grid md:grid-cols-3 gap-6 pt-12 border-t border-black/10 dark:border-white/10">
             <div className="text-center">
               <p className="text-3xl font-bold mb-2">8 ans</p>
-              <p className="text-sm opacity-70">d'expérience data</p>
+              <p className="text-sm opacity-70">d&apos;expérience en data</p>
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold mb-2">Secteurs exigeants</p>
-              <p className="text-sm opacity-70">santé, recherche médicale, SaaS</p>
+              <p className="text-sm opacity-70">santé, SaaS, logistique</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-bold mb-2">Mission freelance</p>
-              <p className="text-sm opacity-70">Data Engineering, data product et pilotage</p>
+              <p className="text-3xl font-bold mb-2">0% boîte noire</p>
+              <p className="text-sm opacity-70">livrables documentés et transmissibles</p>
             </div>
           </div>
         </div>

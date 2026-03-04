@@ -4,18 +4,18 @@ import SectionHeader from "./SectionHeader";
 const REALITY_POINTS = [
   {
     icon: FileSpreadsheet,
-    title: "Des données éparpillées",
-    description: "Entre Excel, votre ERP, vos outils marketing... Impossible d'avoir une vue d'ensemble claire.",
+    title: "Le syndrome du fichier Excel",
+    description: "Vos équipes perdent des heures chaque semaine à croiser manuellement les données de votre ERP, de votre CRM et de vos outils métier. Le risque d'erreur est maximal.",
   },
   {
     icon: Database,
-    title: "Un pilotage à vue",
-    description: "Vous prenez des décisions importantes sans être certain de vos chiffres. Et ça vous pèse.",
+    title: "Des indicateurs qui arrivent trop tard",
+    description: "Vous prenez des décisions stratégiques avec des chiffres qui datent du mois dernier, sans être certain de leur fiabilité.",
   },
   {
     icon: TrendingUp,
-    title: "Une croissance freinée",
-    description: "Vos process manuels ne suivent plus. Vous perdez du temps à consolider au lieu de décider.",
+    title: "Une infrastructure qui ne tient plus la charge",
+    description: "Vos processus actuels cassent à chaque nouveau volume de données. Vos équipes techniques passent leur temps à réparer au lieu de construire.",
   },
 ] as const;
 
@@ -25,13 +25,13 @@ export default function ProblemsSection() {
       <div className="container mx-auto">
         <SectionHeader
           tag="Pourquoi les PME ?"
-          title="Sortir du pilotage à vue"
+          title="Les blocages que je vois sur le terrain"
           description=""
         />
 
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-xl opacity-80 leading-relaxed text-center">
-            Données dispersées, reporting manuel, chiffres peu fiables : ce sont les problèmes que je traite en mission.
+            Pas de jargon : des situations concrètes qui ralentissent vos équipes et vos décisions.
           </p>
         </div>
 
@@ -50,7 +50,7 @@ export default function ProblemsSection() {
 
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg leading-relaxed opacity-70">
-            Résultat : des flux fiabilisés, des données exploitables et des décisions plus rapides.
+            Résultat : des flux fiabilisés, des données exploitables et des décisions prises au bon moment.
           </p>
         </div>
       </div>

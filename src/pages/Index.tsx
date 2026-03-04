@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProblemsSection from "@/components/ProblemsSection";
+import PhilosophySection from "@/components/PhilosophySection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import SocialProofSection from "@/components/SocialProofSection";
 import FAQSection from "@/components/FAQSection";
@@ -21,6 +22,7 @@ export default function Index() {
       <main id="main-content" tabIndex={-1}>
         <HeroSection />
         <ProblemsSection />
+        <PhilosophySection />
         <ExpertiseSection />
         <SocialProofSection />
         <FAQSection />

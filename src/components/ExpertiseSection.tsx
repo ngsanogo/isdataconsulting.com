@@ -1,62 +1,48 @@
-import { Database, RefreshCw, BarChart3, BriefcaseBusiness } from "lucide-react";
+import { Database, Settings, Compass } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import { Link } from "react-router-dom";
 
 const SERVICES = [
   {
     icon: Database,
-    id: "data-engineering",
+    id: "architecture-fondations",
     href: "/services/data-engineering",
-    title: "Data Engineering",
-    subtitle: "Intervention en tant que Data Engineer",
+    title: "Architecture & Fondations",
+    subtitle: "Le plan",
     description:
-      "Conception et industrialisation des flux de données de bout en bout.",
+      "Conception d'une infrastructure de données souveraine et adaptée à vos besoins réels. Pas d'usine à gaz, juste ce qu'il faut pour scaler.",
     benefits: [
-      "Ingestion et transformation fiables",
-      "Données prêtes pour l'usage métier",
-      "Pipelines maintenables",
+      "Architecture lisible et évolutive",
+      "Choix technologiques justifiés",
+      "Socle fiable avant accélération",
     ],
   },
   {
-    icon: BriefcaseBusiness,
-    id: "data-product-management",
-    href: "/services/product-data",
-    title: "Data Product Management",
-    subtitle: "Stratégie et priorisation",
+    icon: Settings,
+    id: "ingenierie-automatisation",
+    href: "/services/data-engineering",
+    title: "Ingénierie & Automatisation",
+    subtitle: "La plomberie",
     description:
-      "Pilotage de la roadmap data produit pour maximiser la valeur métier.",
+      "Création de flux robustes pour extraire, nettoyer et centraliser vos données de manière 100% automatisée.",
     benefits: [
-      "Roadmap data priorisée",
-      "Arbitrages explicites",
-      "Valeur métier suivie",
+      "Pipelines robustes de bout en bout",
+      "Moins de manipulations manuelles",
+      "Données à jour et exploitables",
     ],
   },
   {
-    icon: RefreshCw,
-    id: "data-product-owner",
+    icon: Compass,
+    id: "pilotage-strategie",
     href: "/services/product-data",
-    title: "Data Product Owner",
-    subtitle: "Cadrage et priorisation",
+    title: "Pilotage & Stratégie",
+    subtitle: "La boussole",
     description:
-      "Traduction des besoins métier en backlog data priorisé et livrable.",
+      "Traduction de vos enjeux métier en chantiers techniques concrets. J'assure la coordination entre vos équipes et la livraison des tableaux de bord.",
     benefits: [
-      "Vision produit data",
-      "Priorités claires",
-      "Alignement métier/tech",
-    ],
-  },
-  {
-    icon: BarChart3,
-    id: "chef-projet-data",
-    href: "/services/product-data",
-    title: "Chef de projet Data",
-    subtitle: "Pilotage et coordination",
-    description:
-      "Pilotage opérationnel des chantiers data avec suivi de l'exécution et des livrables.",
-    benefits: [
-      "Plan d'action concret",
-      "Coordination transverse",
-      "Livraison documentée",
+      "Priorités métier-tech claires",
+      "Coordination des parties prenantes",
+      "Livraison utile et documentée",
     ],
   },
 ] as const;
@@ -66,12 +52,12 @@ export default function ExpertiseSection() {
     <section id="solutions" className="section">
       <div className="container mx-auto">
         <SectionHeader
-          tag="Compétences"
-          title="Services proposés"
-          description="4 offres claires pour fiabiliser, piloter et valoriser vos données rapidement."
+          tag="Services"
+          title="Concevoir, construire et piloter"
+          description="Une offre organisée par cycle de vie de la donnée : fondations, automatisation, pilotage."
         />
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {SERVICES.map((service) => (
             <div key={service.id} className="flex flex-col p-8 bg-white dark:bg-gray-900 border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors">
               <service.icon className="w-12 h-12 mb-4 opacity-70" strokeWidth={1.5} />

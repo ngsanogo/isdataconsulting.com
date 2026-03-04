@@ -13,7 +13,7 @@ export default function Footer() {
             <p className="font-bold text-lg mb-2">
               ISData<span className="font-normal opacity-60"> Consulting</span>
             </p>
-            <p className="text-base opacity-70 mb-3">Data Engineer · Data Product Management · Data Product Owner · Chef de projet Data</p>
+            <p className="text-base opacity-70 mb-3">Expert Data Senior - systemes robustes, automatises et maintenables.</p>
             <p className="text-sm opacity-60 flex items-start gap-2">
               <MapPin size={16} className="mt-0.5 shrink-0" />
               <span>Interventions remote et sur site selon projet</span>
