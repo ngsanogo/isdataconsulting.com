@@ -27,7 +27,7 @@ export default function HeroSection() {
             </p>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight mb-8 text-black/95 dark:text-white/95">
-              Issa Sanogo - Expert Data Senior (8 ans d&apos;XP)
+              Issa Sanogo - Expert Data Senior (8 ans d&apos;experience)
             </h1>
 
             <div className="max-w-3xl mx-auto space-y-4 text-xl opacity-80 leading-relaxed mb-12">
@@ -35,8 +35,8 @@ export default function HeroSection() {
                 Je construis des systèmes de données robustes, automatisés et maintenables.
               </p>
               <p className="text-lg opacity-75">
-                Fini les copier-coller sur Excel et les architectures usines à gaz. J&apos;accompagne les entreprises
-                (Santé, SaaS, Logistique) de la conception technique au pilotage métier. Simple, explicite et documenté.
+                Fini les copier-coller sur Excel et les architectures qui cassent au premier imprévu. J&apos;accompagne les PME et ETI de la conception technique au pilotage métier, avec une approche simple,
+                explicite et documentée.
               </p>
             </div>
 

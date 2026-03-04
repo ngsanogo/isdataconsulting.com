@@ -18,7 +18,7 @@ export default function PhilosophySection() {
         <SectionHeader
           tag="Ma philosophie technique"
           title="Pourquoi me confier vos données"
-          description="J'ai forgé mes 8 ans d'expérience dans des environnements où l'erreur a un coût réel : AP-HP, institut de recherche médicale, SaaS santé. J'applique cette même rigueur à vos données d'entreprise."
+          description="J'ai forgé mes 8 ans d'expérience dans des environnements où l'erreur est interdite : AP-HP, Institut Lejeune et SaaS en hypercroissance (Padoa). J'applique cette même rigueur à vos données d'entreprise."
         />
 
         <div className="grid md:grid-cols-2 gap-6">

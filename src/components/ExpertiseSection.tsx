@@ -10,7 +10,7 @@ const SERVICES = [
     title: "Architecture & Fondations",
     subtitle: "Le plan",
     description:
-      "Conception d'une infrastructure de données souveraine et adaptée à vos besoins réels. Pas d'usine à gaz, juste ce qu'il faut pour scaler.",
+      "Je définis un plan technique clair, adapté à vos vrais besoins. Objectif : un socle solide, sans usine à gaz, prêt à évoluer avec votre activité.",
     benefits: [
       "Architecture lisible et évolutive",
       "Choix technologiques justifiés",
@@ -24,7 +24,7 @@ const SERVICES = [
     title: "Ingénierie & Automatisation",
     subtitle: "La plomberie",
     description:
-      "Création de flux robustes pour extraire, nettoyer et centraliser vos données de manière 100% automatisée.",
+      "Je construis des flux robustes pour extraire, nettoyer et centraliser vos données automatiquement. Objectif : supprimer la saisie manuelle, fiabiliser vos chiffres et gagner du temps.",
     benefits: [
       "Pipelines robustes de bout en bout",
       "Moins de manipulations manuelles",
@@ -38,7 +38,7 @@ const SERVICES = [
     title: "Pilotage & Stratégie",
     subtitle: "La boussole",
     description:
-      "Traduction de vos enjeux métier en chantiers techniques concrets. J'assure la coordination entre vos équipes et la livraison des tableaux de bord.",
+      "Je fais le lien entre vos enjeux métier et l'exécution technique. Objectif : prioriser les bons chantiers, coordonner les équipes et livrer des dashboards utiles pour décider vite.",
     benefits: [
       "Priorités métier-tech claires",
       "Coordination des parties prenantes",
@@ -54,7 +54,7 @@ export default function ExpertiseSection() {
         <SectionHeader
           tag="Services"
           title="Concevoir, construire et piloter"
-          description="Une offre organisée par cycle de vie de la donnée : fondations, automatisation, pilotage."
+          description="Trois étapes logiques pour prendre le contrôle de vos données, sans jargon et sans détour."
         />
 
         <div className="grid lg:grid-cols-3 gap-8 mb-12">

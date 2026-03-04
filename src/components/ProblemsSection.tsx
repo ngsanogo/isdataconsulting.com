@@ -5,17 +5,17 @@ const REALITY_POINTS = [
   {
     icon: FileSpreadsheet,
     title: "Le syndrome du fichier Excel",
-    description: "Vos équipes perdent des heures chaque semaine à croiser manuellement les données de votre ERP, de votre CRM et de vos outils métier. Le risque d'erreur est maximal.",
+    description: "Vos équipes passent des heures à recoller des exports ERP, CRM et outils métier. Un onglet change, une formule saute, et tout le reporting devient douteux.",
   },
   {
     icon: Database,
     title: "Des indicateurs qui arrivent trop tard",
-    description: "Vous prenez des décisions stratégiques avec des chiffres qui datent du mois dernier, sans être certain de leur fiabilité.",
+    description: "Vous pilotez avec des chiffres vieux de trois semaines. Les décisions importantes se prennent sans visibilité fiable sur ce qui se passe aujourd'hui.",
   },
   {
     icon: TrendingUp,
     title: "Une infrastructure qui ne tient plus la charge",
-    description: "Vos processus actuels cassent à chaque nouveau volume de données. Vos équipes techniques passent leur temps à réparer au lieu de construire.",
+    description: "Dès que le volume monte, les traitements plantent, les délais explosent, et vos équipes techniques passent plus de temps à réparer qu'à avancer.",
   },
 ] as const;
 
@@ -24,14 +24,14 @@ export default function ProblemsSection() {
     <section className="section bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto">
         <SectionHeader
-          tag="Pourquoi les PME ?"
-          title="Les blocages que je vois sur le terrain"
+          tag="Pourquoi me contacter ?"
+          title="Le quotidien qui vous coûte du temps"
           description=""
         />
 
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-xl opacity-80 leading-relaxed text-center">
-            Pas de jargon : des situations concrètes qui ralentissent vos équipes et vos décisions.
+            Ce ne sont pas des concepts. Ce sont des blocages que je vois chaque semaine sur le terrain.
           </p>
         </div>
 
