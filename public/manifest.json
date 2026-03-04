@@ -1,7 +1,7 @@
 {
   "name": "ISData Consulting",
   "short_name": "ISData",
-  "description": "Cabinet de conseil en Data Engineering, Architecture Data Cloud et Product Data Services",
+  "description": "Cabinet de conseil en Data Engineering, Data Product Management et pilotage de projets data",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

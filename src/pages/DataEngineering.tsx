@@ -41,7 +41,7 @@ const STACK = [
 ] as const;
 
 const RELATED_SERVICES = [
-  { label: "Architecture Data", href: "/services/architecture-data" },
+  { label: "Data Product Management", href: "/services/product-data" },
   { label: "Data Product Owner & Chef de projet Data", href: "/services/product-data" },
 ] as const;
 
@@ -144,7 +144,7 @@ export default function DataEngineering() {
             />
             <div className="flex flex-wrap gap-3">
               {RELATED_SERVICES.map((service) => (
-                <Link key={service.href} to={service.href} className="btn-secondary">
+                <Link key={service.label} to={service.href} className="btn-secondary">
                   {service.label}
                 </Link>
               ))}

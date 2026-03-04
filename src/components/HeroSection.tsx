@@ -23,7 +23,7 @@ export default function HeroSection() {
             </div>
 
             <p className="text-sm font-medium opacity-60 mb-4 uppercase tracking-wide">
-              Data Engineer · Architecte Data · Data Product Owner · Chef de projet Data
+              Data Engineer · Data Product Management · Data Product Owner · Chef de projet Data
             </p>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight mb-8 text-black/95 dark:text-white/95">
@@ -32,7 +32,7 @@ export default function HeroSection() {
 
             <div className="max-w-3xl mx-auto space-y-4 text-xl opacity-80 leading-relaxed mb-12">
               <p>
-                <strong>Issa Sanogo</strong> — j'interviens de la collecte à la décision : Data Engineering, Architecture Data, pilotage produit et pilotage projet.
+                <strong>Issa Sanogo</strong> — j'interviens de la collecte à la décision : Data Engineering, Data Product Management, pilotage produit et pilotage projet.
               </p>
             </div>
 

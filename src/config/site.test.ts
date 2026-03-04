@@ -19,7 +19,7 @@ describe("SITE_CONFIG", () => {
 
     const serviceIds = SITE_CONFIG.services.map((s) => s.id);
     expect(serviceIds).toContain("data-engineering");
-    expect(serviceIds).toContain("architecture-data");
+    expect(serviceIds).toContain("product-management-data");
     expect(serviceIds).toContain("product-data");
   });
 

@@ -32,7 +32,7 @@ const TOOLS = ["Jira", "Confluence", "Power BI", "Tableau", "Looker Studio"] as 
 
 const RELATED_SERVICES = [
   { label: "Data Engineering", href: "/services/data-engineering" },
-  { label: "Architecture Data", href: "/services/architecture-data" },
+  { label: "Data Product Management", href: "/services/product-data" },
 ] as const;
 
 export default function ProductDataServices() {
@@ -45,9 +45,9 @@ export default function ProductDataServices() {
         Aller au contenu principal
       </a>
       <SEO
-        title="Data Product Owner & Chef de projet Data freelance | ISData Consulting"
-        description="Data Product Owner et Chef de projet Data: cadrage, priorisation, coordination métier/tech et delivery avec livrables clairs."
-        keywords={["data product owner", "chef de projet data", "pilotage data", "freelance data", "jira", "confluence"]}
+        title="Data Product Management, Product Owner & Chef de projet Data freelance | ISData Consulting"
+        description="Data Product Management, Data Product Owner et chefferie de projet data: cadrage, priorisation, coordination métier/tech et delivery avec livrables clairs."
+        keywords={["data product management", "data product owner", "chef de projet data", "pilotage data", "freelance data", "jira", "confluence"]}
         canonicalPath="/services/product-data"
       />
       <Header />
@@ -60,10 +60,10 @@ export default function ProductDataServices() {
                 Retour à l'accueil
               </Link>
 
-              <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Data Product Owner & Chef de projet Data</p>
+              <p className="text-sm opacity-50 mb-4 tracking-wide uppercase">Data Product Management · Product Owner · Chefferie de projet Data</p>
 
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight mb-6">
-                Data Product Owner & Chef de projet Data freelance
+                Data Product Management, Product Owner & Chef de projet Data freelance
               </h1>
 
               <p className="text-lg opacity-70 leading-relaxed mb-8 max-w-2xl">
@@ -135,7 +135,7 @@ export default function ProductDataServices() {
             />
             <div className="flex flex-wrap gap-3">
               {RELATED_SERVICES.map((service) => (
-                <Link key={service.href} to={service.href} className="btn-secondary">
+                <Link key={service.label} to={service.href} className="btn-secondary">
                   {service.label}
                 </Link>
               ))}

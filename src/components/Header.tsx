@@ -70,8 +70,8 @@ export default function Header() {
                 }`}
               >
                 {SITE_CONFIG.services.map((service) => (
-                  <Link
-                    key={service.href}
+                    <Link
+                      key={service.id}
                     to={service.href}
                     role="menuitem"
                     onClick={() => setServicesOpen(false)}
@@ -133,7 +133,7 @@ export default function Header() {
                 <div className="pl-4 space-y-2">
                   {SITE_CONFIG.services.map((service) => (
                     <Link
-                      key={service.href}
+                      key={service.id}
                       to={service.href}
                       className="block text-base opacity-60 hover:opacity-100 transition-opacity py-1"
                       onClick={() => setIsOpen(false)}

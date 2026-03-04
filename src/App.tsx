@@ -1,10 +1,9 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import ScrollHandler from "./components/ScrollHandler";
 import Index from "./pages/Index";
 
 const DataEngineering = lazy(() => import("./pages/DataEngineering"));
-const ArchitectureData = lazy(() => import("./pages/ArchitectureData"));
 const ProductDataServices = lazy(() => import("./pages/ProductDataServices"));
 
 function PageLoader() {
@@ -32,14 +31,7 @@ export default function App() {
             </Suspense>
           }
         />
-        <Route
-          path="/services/architecture-data"
-          element={
-            <Suspense fallback={<PageLoader />}>
-              <ArchitectureData />
-            </Suspense>
-          }
-        />
+        <Route path="/services/architecture-data" element={<Navigate to="/services/product-data" replace />} />
         <Route
           path="/services/product-data"
           element={

@@ -1,6 +1,5 @@
-import { Database, RefreshCw, BarChart3 } from "lucide-react";
+import { Database, RefreshCw, BarChart3, BriefcaseBusiness } from "lucide-react";
 import SectionHeader from "./SectionHeader";
-import { Layers } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const SERVICES = [
@@ -19,17 +18,17 @@ const SERVICES = [
     ],
   },
   {
-    icon: Layers,
-    id: "architecte-data",
-    href: "/services/architecture-data",
-    title: "Architecture Data",
-    subtitle: "Intervention en tant qu'Architecte Data",
+    icon: BriefcaseBusiness,
+    id: "data-product-management",
+    href: "/services/product-data",
+    title: "Data Product Management",
+    subtitle: "Stratégie et priorisation",
     description:
-      "Structuration d'une plateforme data claire, robuste et adaptée à vos contraintes.",
+      "Pilotage de la roadmap data produit pour maximiser la valeur métier.",
     benefits: [
-      "Architecture explicite",
-      "Règles de qualité définies",
-      "Documentation technique",
+      "Roadmap data priorisée",
+      "Arbitrages explicites",
+      "Valeur métier suivie",
     ],
   },
   {
@@ -69,7 +68,7 @@ export default function ExpertiseSection() {
         <SectionHeader
           tag="Compétences"
           title="Services proposés"
-          description="4 offres claires pour structurer, fiabiliser et piloter vos données rapidement."
+          description="4 offres claires pour fiabiliser, piloter et valoriser vos données rapidement."
         />
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
