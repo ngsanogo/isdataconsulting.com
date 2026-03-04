@@ -18,7 +18,6 @@ __pycache__
 .vite
 .uv
 target
-dist
 .env
 .env.*
 .devcontainer

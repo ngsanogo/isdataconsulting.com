@@ -5,23 +5,21 @@ set -e
 
 echo "Running pre-commit checks..."
 
-if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then
-	echo "\n→ Running checks in Docker..."
-	docker compose run --rm shell sh -lc '
-		if [ ! -x node_modules/.bin/oxlint ] || [ ! -x node_modules/.bin/eslint ]; then
-			echo "Dependencies missing in container volume, running npm ci..."
-			npm ci
-		fi
-		npm run lint:fix
-		npm run type-check
-		npm run test:coverage
-	'
-else
-	echo "\n→ Docker unavailable, running local npm checks..."
+if ! command -v docker >/dev/null 2>&1 || ! docker compose version >/dev/null 2>&1; then
+	echo "Docker + docker compose are required for repository checks"
+	exit 1
+fi
+
+echo "\n→ Running checks in Docker..."
+docker compose run --rm shell sh -lc '
+	if [ ! -x node_modules/.bin/oxlint ] || [ ! -x node_modules/.bin/eslint ]; then
+		echo "Dependencies missing in container volume, running npm ci..."
+		npm ci --include=optional
+	fi
 	npm run lint:fix
 	npm run type-check
 	npm run test:coverage
-fi
+'
 
 echo "\n✓ Pre-commit checks passed\n"
 

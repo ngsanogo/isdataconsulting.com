@@ -9,9 +9,6 @@ x-app-base: &app-base
     - /app/node_modules
     - /app/.npm
     - /app/.cache
-    - /app/.venv
-    - /app/venv
-    - /app/__pycache__
 
 services:
   dev:

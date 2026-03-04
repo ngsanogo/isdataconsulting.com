@@ -13,7 +13,7 @@ doctor: ## Audit container environment (PATH, required binaries, writable volume
 	docker compose run --rm shell sh -lc "bash .devcontainer/doctor.sh"
 
 deps-refresh: ## Reinstall dependencies deterministically (npm ci)
-	docker compose run --rm shell sh -lc "npm ci"
+	docker compose run --rm shell sh -lc "npm ci --include=optional"
 
 stop: ## Stop all containers
 	docker compose down
@@ -57,7 +57,7 @@ prod: ## Start production server
 	docker compose --profile production up prod
 
 gate: ## Run full pre-production gate in Docker (quality + prod smoke test)
-	docker compose --profile tools run --rm shell sh -lc "npm ci && npm run check && npm run test:coverage"
+	docker compose --profile tools run --rm shell sh -lc "npm ci --include=optional && npm run check && npm run test:coverage"
 	@set -e; \
 	trap 'docker compose --profile production down -v --remove-orphans' EXIT; \
 	docker compose --profile production up -d --build prod; \

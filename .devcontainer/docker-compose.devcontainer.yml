@@ -9,8 +9,8 @@ services:
     working_dir: /workspace
     command: >
       sh -lc "
-      mkdir -p /workspace/node_modules /workspace/.npm /workspace/.cache /workspace/.vite /workspace/dist /workspace/.venv /workspace/.uv /workspace/target /workspace/__pycache__ &&
-      chown -R node:node /workspace/node_modules /workspace/.npm /workspace/.cache /workspace/.vite /workspace/dist /workspace/.venv /workspace/.uv /workspace/target /workspace/__pycache__ &&
+      mkdir -p /workspace/node_modules /workspace/.npm /workspace/.cache /workspace/.vite /workspace/dist /workspace/target &&
+      chown -R node:node /workspace/node_modules /workspace/.npm /workspace/.cache /workspace/.vite /workspace/dist /workspace/target &&
       exec sleep infinity
       "
     environment:
@@ -25,7 +25,4 @@ services:
       - /workspace/.cache
       - /workspace/.vite
       - /workspace/dist
-      - /workspace/.venv
-      - /workspace/.uv
       - /workspace/target
-      - /workspace/__pycache__

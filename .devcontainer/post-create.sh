@@ -3,7 +3,7 @@ set -euo pipefail
 
 bash .devcontainer/doctor.sh /workspace
 
-npm ci
+npm ci --include=optional
 
 if command -v code >/dev/null 2>&1; then
   code --install-extension dbaeumer.vscode-eslint --force

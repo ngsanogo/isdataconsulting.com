@@ -30,11 +30,7 @@
         "files.watcherExclude": {
           "**/node_modules/**": true,
           "**/.cache/**": true,
-          "**/__pycache__/**": true,
-          "**/.venv/**": true,
-          "**/venv/**": true,
-          "**/target/**": true,
-          "**/.uv/**": true
+          "**/target/**": true
         },
         "terminal.integrated.defaultProfile.linux": "bash"
       }
