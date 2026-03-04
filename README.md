@@ -39,23 +39,23 @@ make dev     # Start development server
 make test    # Run tests
 make lint    # Run lint checks
 make build   # Build production artifacts
+make gate    # Full pre-production gate (quality + security + prod smoke)
 make help    # Show all available commands
 ```
 
-If you do not use Make:
+If you do not use Make (still Docker-only):
 
 ```bash
-npm ci
-npm run check
-npm run dev
+docker compose up dev
+docker compose run --rm lint
+docker compose run --rm test
+docker compose run --rm build
 ```
 
 ## Quality & Security Gates
 
 ```bash
-npm run test:secrets  # Detect committed secrets patterns
-npm run test:deps     # Fail on actionable outdated deps or vulnerabilities
-npm run check         # Full project gate (security + quality + build)
+make gate             # Canonical full gate executed in containers
 ```
 
 ## License

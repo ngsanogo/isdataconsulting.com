@@ -12,7 +12,7 @@ Describe what changes are introduced and why.
 
 ## Validation
 
-- [ ] npm run check executed locally
+- [ ] make gate executed successfully
 - [ ] No breaking behavior introduced
 - [ ] Relevant screenshots or logs attached (if UI/infra change)
 
@@ -21,6 +21,7 @@ Describe what changes are introduced and why.
 - [ ] No secrets added
 - [ ] Security impact reviewed
 - [ ] Rollback path identified
+- [ ] Docker/infra impact documented
 
 ## Notes for Reviewers
 

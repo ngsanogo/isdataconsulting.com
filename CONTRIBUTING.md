@@ -7,13 +7,14 @@ This repository follows a simplified GitFlow.
 - main: production-ready code only
 - feature/<short-topic>: new feature or enhancement
 - hotfix/<short-topic>: urgent production fix
+- release/<version>: optional stabilization branch before production release
 
 ## Workflow
 
 1. Create a branch from main.
 2. Keep commits focused and atomic.
-3. Run quality gates before opening a PR:
-   - npm run check
+3. Run quality gates in Docker before opening a PR:
+   - make gate
 4. Open a Pull Request to main using the repository template.
 5. Require review before merge.
 6. Use squash merge to keep history clean.

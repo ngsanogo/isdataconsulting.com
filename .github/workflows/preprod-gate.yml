@@ -57,33 +57,25 @@ jobs:
           load: true
           tags: isdata-consulting-web:prod-ci
 
+      - name: Build smoke-runner image for this job
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          target: dev-runtime
+          push: false
+          load: true
+          tags: isdata-consulting-web:dev-ci
+
       - name: Start prod container
         run: docker run -d --name isdata-prod-ci -p 8080:8080 isdata-consulting-web:prod-ci
 
-      - name: Wait for prod endpoint
-        run: |
-          for i in {1..30}; do
-            if curl -fsS http://127.0.0.1:8080/ > /dev/null; then
-              exit 0
-            fi
-            sleep 1
-          done
-          echo "Prod endpoint did not become healthy in time"
-          exit 1
-
-      - name: Validate core endpoints
-        run: |
-          curl -fIsS http://127.0.0.1:8080/ | grep "200"
-          curl -fIsS http://127.0.0.1:8080/manifest.json | grep "200"
-
-      - name: Validate security headers
-        run: |
-          curl -fsS -D /tmp/headers.raw -o /dev/null http://127.0.0.1:8080/
-          tr -d '\r' < /tmp/headers.raw > /tmp/headers.txt
-          cat /tmp/headers.txt
-          grep -Eiq "^x-content-type-options:[[:space:]]*nosniff$" /tmp/headers.txt
-          grep -Eiq "^x-frame-options:[[:space:]]*deny$" /tmp/headers.txt
-          grep -Eiq "^content-security-policy:[[:space:]]*.+$" /tmp/headers.txt
+      - name: Validate prod endpoints and security headers in Docker
+        run: >
+          docker run --rm
+          --network container:isdata-prod-ci
+          isdata-consulting-web:dev-ci
+          sh -lc "node /app/scripts/prod-smoke.mjs http://127.0.0.1:8080"
 
       - name: Tear down prod container
         if: always()
