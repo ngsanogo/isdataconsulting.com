@@ -61,12 +61,7 @@ gate: ## Run full pre-production gate in Docker (quality + prod smoke test)
 	@set -e; \
 	trap 'docker compose --profile production down -v --remove-orphans' EXIT; \
 	docker compose --profile production up -d --build prod; \
-	for i in 1 2 3 4 5; do curl -fsS http://127.0.0.1:8080/ > /dev/null && break; sleep 1; done; \
-	curl -fsS http://127.0.0.1:8080/ > /dev/null; \
-	curl -fsS http://127.0.0.1:8080/manifest.json > /dev/null; \
-	curl -fsSI http://127.0.0.1:8080/ | grep -i "x-content-type-options: nosniff" > /dev/null; \
-	curl -fsSI http://127.0.0.1:8080/ | grep -i "x-frame-options: DENY" > /dev/null; \
-	curl -fsSI http://127.0.0.1:8080/ | grep -i "content-security-policy:" > /dev/null
+	docker compose --profile tools run --rm shell sh -lc "node scripts/prod-smoke.mjs http://prod:8080"
 
 pre-commit: ## Run pre-commit checks
 	@$(MAKE) lint-fix
