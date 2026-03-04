@@ -1,4 +1,4 @@
-.PHONY: help dev launch doctor deps-refresh stop clean reset install test test-watch test-coverage lint lint-fix type-check build shell prod gate setup-hooks pre-commit npm
+.PHONY: help dev launch doctor deps-refresh deps-safe-update stop clean reset install test test-watch test-coverage lint lint-fix type-check build shell prod gate setup-hooks pre-commit npm
 
 help: ## Show available commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -14,6 +14,9 @@ doctor: ## Audit container environment (PATH, required binaries, writable volume
 
 deps-refresh: ## Reinstall dependencies deterministically (npm ci)
 	docker compose run --rm shell sh -lc "npm ci --include=optional"
+
+deps-safe-update: ## Safe dependency update (patch/minor in range + lockfile audit fix)
+	docker compose run --rm shell sh -lc "npm run deps:update:safe"
 
 stop: ## Stop all containers
 	docker compose down

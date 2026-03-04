@@ -58,6 +58,26 @@ docker compose run --rm build
 make gate             # Canonical full gate executed in containers
 ```
 
+## Dependency Updates (Safe Mode)
+
+Why you see update messages:
+- `npm` notifies when a new npm CLI major is available.
+- `npm outdated` reports libraries where a newer version exists.
+- `npm audit` reports known vulnerabilities.
+
+Recommended workflow:
+```bash
+make deps-safe-update  # apply safe in-range updates + lockfile audit fixes
+make gate              # run full checks before merge/deploy
+```
+
+Automation:
+- Dependabot is configured in `.github/dependabot.yml`.
+- Weekly dependency PRs are opened for `npm` and `github-actions` updates.
+- CI (`Preprod Gate`) validates updates before merge.
+- Patch-only Dependabot PRs are auto-merged via `.github/workflows/dependabot-auto-merge.yml`.
+- Minor/major updates remain manual by design.
+
 ## License
 
 Proprietary software.

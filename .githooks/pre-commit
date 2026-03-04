@@ -5,6 +5,19 @@ set -e
 
 echo "Running pre-commit checks..."
 
+author_ident=$(git var GIT_AUTHOR_IDENT)
+committer_ident=$(git var GIT_COMMITTER_IDENT)
+
+case "$author_ident $committer_ident" in
+	*'${'*|*'$GIT_'*)
+		echo "Invalid git identity detected (literal GIT_* placeholder found)."
+		echo "Author: $author_ident"
+		echo "Committer: $committer_ident"
+		echo "Fix by unsetting GIT_AUTHOR_* / GIT_COMMITTER_* and retry."
+		exit 1
+		;;
+esac
+
 if ! command -v docker >/dev/null 2>&1 || ! docker compose version >/dev/null 2>&1; then
 	echo "Docker + docker compose are required for repository checks"
 	exit 1

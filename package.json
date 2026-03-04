@@ -15,6 +15,7 @@
     "test:secrets": "node scripts/scan-secrets.mjs",
     "test:deps": "node scripts/test-dependencies.mjs",
     "deps:update": "npx npm-check-updates -u && npm install --legacy-peer-deps",
+    "deps:update:safe": "npm update && npm audit fix --package-lock-only",
     "lint": "eslint . && npm run lint:ts",
     "lint:ts": "oxlint --tsconfig tsconfig.json --react-plugin --vitest-plugin src",
     "lint:fix": "eslint . --fix && npm run lint:fix:ts",

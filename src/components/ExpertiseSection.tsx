@@ -6,7 +6,7 @@ const SERVICES = [
   {
     icon: Database,
     id: "architecture-fondations",
-    href: "/services/data-engineering",
+    href: "/services/architecture-data",
     title: "Architecture & Fondations",
     subtitle: "Le plan",
     description:
