@@ -29,8 +29,7 @@ docker compose run --rm shell sh -lc '
 		echo "Dependencies missing in container volume, running npm ci..."
 		npm ci --include=optional
 	fi
-	npm run lint:fix
-	npm run type-check
+	npm run check
 	npm run test:coverage
 '
 

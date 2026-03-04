@@ -67,9 +67,7 @@ gate: ## Run full pre-production gate in Docker (quality + prod smoke test)
 	docker compose --profile tools run --rm shell sh -lc "node scripts/prod-smoke.mjs http://prod:8080"
 
 pre-commit: ## Run pre-commit checks
-	@$(MAKE) lint-fix
-	@$(MAKE) type-check
-	@$(MAKE) test-coverage
+	docker compose run --rm shell sh -lc "npm ci --include=optional && npm run check && npm run test:coverage"
 
 setup-hooks: ## Configure git hooks
 	@mkdir -p .git/hooks

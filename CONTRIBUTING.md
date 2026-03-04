@@ -25,3 +25,15 @@ This repository follows a simplified GitFlow.
 - Document test evidence.
 - Highlight security or dependency impacts.
 - Keep changes minimal and purposeful.
+
+## Testing Policy (Strict)
+
+- No change is accepted without tests.
+- Every commit must pass repository checks in Docker.
+- Canonical command: `make gate`.
+- Git hooks enforce checks automatically on commit/push.
+
+Exception policy (only when truly not testable):
+- Explain explicitly why the change cannot be tested.
+- Provide the nearest possible validation evidence (lint, type-check, build, smoke, manual verification steps).
+- Add the rationale in the PR description under `Untestable surface`.
