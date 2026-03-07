@@ -1,39 +1,57 @@
-# Contributing
+# Contribuer
 
-This repository follows a simplified GitFlow.
+## Workflow de branche
 
-## Branching
+Ce projet suit un GitFlow simplifié :
 
-- main: production-ready code only
-- feature/<short-topic>: new feature or enhancement
-- hotfix/<short-topic>: urgent production fix
-- release/<version>: optional stabilization branch before production release
+| Branche       | Rôle                                             |
+| ------------- | ------------------------------------------------ |
+| `main`        | Production — déployé automatiquement sur Netlify |
+| `feat/<nom>`  | Nouvelles fonctionnalités ou pages               |
+| `fix/<nom>`   | Corrections de bugs visuels ou techniques        |
+| `chore/<nom>` | Maintenance, CI, config                          |
 
-## Workflow
+### Cycle de contribution
 
-1. Create a branch from main.
-2. Keep commits focused and atomic.
-3. Run quality gates in Docker before opening a PR:
-   - make gate
-4. Open a Pull Request to main using the repository template.
-5. Require review before merge.
-6. Use squash merge to keep history clean.
+```
+1. Créer une branche depuis main
+   git checkout -b feat/nouveau-service
 
-## Pull Request Rules
+2. Commiter avec un message clair
+   git commit -m "feat: ajout section tarifs"
 
-- Clearly describe scope and risk.
-- Document test evidence.
-- Highlight security or dependency impacts.
-- Keep changes minimal and purposeful.
+3. Pousser et ouvrir une Pull Request
+   git push -u origin feat/nouveau-service
 
-## Testing Policy (Strict)
+4. Merge dans main après review
+```
 
-- No change is accepted without tests.
-- Every commit must pass repository checks in Docker.
-- Canonical command: `make gate`.
-- Git hooks enforce checks automatically on commit/push.
+## Conventions de commit
 
-Exception policy (only when truly not testable):
-- Explain explicitly why the change cannot be tested.
-- Provide the nearest possible validation evidence (lint, type-check, build, smoke, manual verification steps).
-- Add the rationale in the PR description under `Untestable surface`.
+Format : `<type>: <description courte>`
+
+| Type    | Usage                                  |
+| ------- | -------------------------------------- |
+| `feat`  | Nouvelle section, page, fonctionnalité |
+| `fix`   | Correction (bug visuel, lien cassé)    |
+| `style` | Changement CSS uniquement              |
+| `chore` | CI, config, dépendances                |
+| `docs`  | Documentation (README, CONTRIBUTING)   |
+
+## Avant de soumettre
+
+- [ ] Tester localement (ouvrir `site/index.html` dans un navigateur)
+- [ ] Vérifier le responsive (mobile + desktop)
+- [ ] Lancer `npx prettier --check site/` (ou laisser la CI vérifier)
+- [ ] Aucun secret dans le code
+
+## Pre-commit hooks
+
+Si [pre-commit](https://pre-commit.com/) est installé :
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+Les hooks formatent automatiquement le code et vérifient l'absence de secrets.

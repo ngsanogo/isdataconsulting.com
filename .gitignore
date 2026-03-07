@@ -1,65 +1,36 @@
-# Dependencies
-node_modules/
-.pnpm-store/
-.yarn/
+# OS
+.DS_Store
+Thumbs.db
 
-# Build output
-dist/
-build/
-.turbo/
-
-# Local development
-*.local
-.env
-.env.local
-.env.*.local
-.venv/
-venv/
-.npm/
-.cache/
-.ruff_cache/
-.pytest_cache/
-.mypy_cache/
-.coverage
-__pycache__/
-
-# IDE / Editor
+# Editor
 .idea/
 .vscode/
-.history/
 *.swp
 *.swo
 *~
 
-# OS files
-.DS_Store
-.AppleDouble
-.LSOverride
-.Spotlight-V100
-.Trashes
-._*
-Thumbs.db
-Desktop.ini
-
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Testing
-coverage/
-
-# Python artifacts
+# Runtime / cache
+node_modules/
+dist/
+target/
+.cache/
+.npm/
+.vite/
+.uv/
+.venv/
+venv/
+__pycache__/
 *.pyc
 
-# Temporary files
+# Logs & temp
+*.log
+*.bak
 *.tmp
-*.temp
+*.orig
 
-# Python virtual env tools
-.python-version
+# Environment
+.env
+.env.*
 
-# Container/runtime
-*.pid
-*.seed
+# Prettier
+.prettier-cache

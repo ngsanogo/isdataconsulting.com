@@ -1,82 +1,92 @@
-# ISData Consulting Website
+# ISData Consulting — Site vitrine
 
-Official repository for the ISData Consulting website.
+> Site professionnel d'Issa SANOGO, Data Engineer Freelance.
+> Zéro framework, zéro build, zéro dépendance.
 
-Live website: https://isdataconsulting.com
+**Production** : [isdataconsulting.com](https://isdataconsulting.com)
 
-## Vision
-
-This project provides a production-grade, fast, and secure web presence for ISData Consulting.
-
-Engineering goals:
-- Docker-first reproducibility
-- Strict quality gates (lint, types, tests, build)
-- Dependency and security hygiene by default
-- Minimal, maintainable repository structure
+---
 
 ## Architecture
 
-Application layers:
-- UI: React 19 + TypeScript
-- Build/runtime: Vite 7
-- Styling: Tailwind CSS 4
-- Routing: React Router 7
-- Quality: ESLint, OXLint, Vitest
-
-Repository layout (minimal):
-- src: application source code
-- src/test: test suite
-- public: static assets
-- scripts: automation and quality/security scripts
-- .github/workflows: CI pipelines
-
-## Quick Setup (Docker)
-
-Recommended commands:
-
-```bash
-make dev     # Start development server
-make test    # Run tests
-make lint    # Run lint checks
-make build   # Build production artifacts
-make gate    # Full pre-production gate (quality + security + prod smoke)
-make help    # Show all available commands
+```
+site/                 ← Publié tel quel par Netlify
+├── index.html        Page unique (HTML5 sémantique, Open Graph, JSON-LD)
+├── styles.css        Design system dark-first (CSS variables, responsive)
+├── script.js         Navigation mobile + scroll reveal (IntersectionObserver)
+├── robots.txt        Directives crawlers
+└── sitemap.xml       Sitemap Google
+netlify.toml          Headers sécurité, cache, publish dir
 ```
 
-If you do not use Make (still Docker-only):
+Pas de transpilation, pas de bundler. Le dossier `site/` **est** le livrable.
+
+## Développement local
 
 ```bash
-docker compose up dev
-docker compose run --rm lint
-docker compose run --rm test
-docker compose run --rm build
+git clone https://github.com/ngsanogo/isdataconsulting.com
+cd isdataconsulting.com
 ```
 
-## Quality & Security Gates
+**Option 1** — Ouvrir directement `site/index.html` dans un navigateur.
+
+**Option 2** — Serveur local :
 
 ```bash
-make gate             # Canonical full gate executed in containers
+cd site && python3 -m http.server 8000
+# ou
+npx serve site
 ```
 
-## Dependency Updates (Safe Mode)
+**Option 3** — Dev Container (VS Code / GitHub Codespaces) :
 
-Why you see update messages:
-- `npm` notifies when a new npm CLI major is available.
-- `npm outdated` reports libraries where a newer version exists.
-- `npm audit` reports known vulnerabilities.
+Le fichier `.devcontainer/devcontainer.json` configure un environnement Alpine prêt à l'emploi.
 
-Recommended workflow:
+## Déploiement
+
+Netlify déploie automatiquement le contenu de `site/` à chaque push sur `main`.
+
 ```bash
-make deps-safe-update  # apply safe in-range updates + lockfile audit fixes
-make gate              # run full checks before merge/deploy
+git add . && git commit -m "feat: update hero section" && git push
+# → En ligne en ~1 minute
 ```
 
-Automation:
-- Dependabot is configured in `.github/dependabot.yml`.
-- Weekly dependency PRs are opened for `npm` and `github-actions` updates.
-- CI (`Preprod Gate`) validates updates before merge.
-- Patch-only Dependabot PRs are auto-merged via `.github/workflows/dependabot-auto-merge.yml`.
-- Minor/major updates remain manual by design.
+## Stack
+
+| Composant   | Choix                                  |
+| ----------- | -------------------------------------- |
+| HTML        | HTML5 sémantique + JSON-LD             |
+| CSS         | CSS3 natif, variables CSS, responsive  |
+| JS          | Vanilla (IntersectionObserver, scroll) |
+| Fonts       | Instrument Serif · DM Mono · Geist     |
+| Hébergement | Netlify (CDN, headers sécu, HTTPS)     |
+| CI          | GitHub Actions (Prettier check)        |
+
+## Contribuer
+
+Voir [CONTRIBUTING.md](CONTRIBUTING.md) pour le workflow de branche et les conventions.
+
+## Sécurité
+
+Ce repository ne doit contenir **aucun secret** (clé API, token, mot de passe).
+Les headers de sécurité (CSP, X-Frame-Options, etc.) sont configurés dans `netlify.toml`.
+
+Pour signaler un problème de sécurité : ngsanogo@proton.me
+
+## Licence
+
+Propriétaire — Tous droits réservés. Voir [LICENSE](LICENSE).
+| Hébergement | Netlify |
+| CI/CD | Deploy auto sur push main |
+
+## Critères qualité
+
+- Lighthouse Performance > 95
+- Lighthouse SEO > 95
+- Lighthouse Accessibility > 90
+- First Contentful Paint < 1.5s
+- Contenu visible sans JavaScript
+- Responsive mobile-first (breakpoint 900px)
 
 ## License
 

@@ -1,90 +1,20 @@
-x-app-base: &app-base
-  build:
-    context: .
-    dockerfile: Dockerfile
-    target: dev-runtime
-  image: isdata-consulting-web:dev
-  volumes:
-    - .:/app:cached
-    - /app/node_modules
-    - /app/.npm
-    - /app/.cache
-
 services:
-  dev:
-    <<: *app-base
-    container_name: isdata-web-dev
-    ports:
-      - "5173:5173"
-    environment:
-      - NODE_ENV=development
-    command: npm run dev
-    stdin_open: true
-    tty: true
-
-  test:
-    <<: *app-base
-    container_name: isdata-web-test
-    profiles:
-      - tools
-    environment:
-      - NODE_ENV=test
-    command: npm run test
-
-  test-coverage:
-    <<: *app-base
-    container_name: isdata-web-test-coverage
-    profiles:
-      - tools
-    environment:
-      - NODE_ENV=test
-    command: npm run test:coverage
+  format:
+    build: { context: ., target: dev-runtime }
+    command: prettier --write "site/**/*.{html,css,js}" "*.{json,md,yml,yaml}"
+    volumes: ['.:/workspace']
 
   lint:
-    <<: *app-base
-    container_name: isdata-web-lint
-    profiles:
-      - tools
-    command: npm run lint
+    build: { context: ., target: dev-runtime }
+    command: prettier --check "site/**/*.{html,css,js}" "*.{json,md,yml,yaml}"
+    volumes: ['.:/workspace']
 
-  lint-fix:
-    <<: *app-base
-    container_name: isdata-web-lint-fix
-    profiles:
-      - tools
-    command: npm run lint:fix
-
-  type-check:
-    <<: *app-base
-    container_name: isdata-web-type-check
-    profiles:
-      - tools
-    command: npm run type-check
-
-  build:
-    <<: *app-base
-    container_name: isdata-web-build
-    profiles:
-      - tools
-    command: npm run build
-
-  shell:
-    <<: *app-base
-    container_name: isdata-web-shell
-    profiles:
-      - tools
-    command: sh
-    stdin_open: true
-    tty: true
+  serve:
+    build: { context: ., target: dev-runtime }
+    command: serve site -l 3000
+    ports: ['3000:3000']
+    volumes: ['.:/workspace']
 
   prod:
-    container_name: isdata-web-prod
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: prod
-    image: isdata-consulting-web:prod
-    profiles:
-      - production
-    ports:
-      - "8080:8080"
+    build: { context: ., target: prod }
+    ports: ['8080:80']

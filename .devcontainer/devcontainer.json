@@ -1,39 +1,23 @@
 {
-  "name": "isdataconsulting-stateless",
-  "dockerComposeFile": [
-    "docker-compose.devcontainer.yml"
-  ],
-  "service": "devcontainer",
-  "workspaceFolder": "/workspace",
-  "shutdownAction": "stopCompose",
-  "overrideCommand": false,
-  "remoteUser": "node",
-  "updateRemoteUserUID": true,
-  "remoteEnv": {
-    "PATH": "/workspace/node_modules/.bin:/home/node/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-    "npm_config_cache": "/workspace/.npm",
-    "XDG_CACHE_HOME": "/workspace/.cache"
+  "name": "isdataconsulting",
+  "build": {
+    "context": "..",
+    "dockerfile": "../Dockerfile",
+    "target": "devcontainer"
   },
-  "postCreateCommand": "chmod +x .devcontainer/post-create.sh && ./.devcontainer/post-create.sh",
-  "postStartCommand": "chmod +x .devcontainer/post-start.sh && ./.devcontainer/post-start.sh",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "remoteUser": "vscode",
+  "postCreateCommand": "git config --global --add safe.directory /workspace && pre-commit install",
+  "forwardPorts": [3000],
   "customizations": {
     "vscode": {
-      "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss",
-        "ms-azuretools.vscode-docker",
-        "vitest.explorer",
-        "ms-vscode.makefile-tools"
-      ],
       "settings": {
-        "files.watcherExclude": {
-          "**/node_modules/**": true,
-          "**/.cache/**": true,
-          "**/target/**": true
-        },
-        "terminal.integrated.defaultProfile.linux": "bash"
-      }
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "extensions": ["esbenp.prettier-vscode", "ritwickdey.LiveServer", "ecmel.vscode-html-css"]
     }
   }
 }

@@ -1,28 +1,18 @@
-## Summary
+## Type
 
-Describe what changes are introduced and why.
+- [ ] `feat` — Nouvelle section ou fonctionnalité
+- [ ] `fix` — Correction de bug
+- [ ] `style` — Changement CSS uniquement
+- [ ] `chore` — CI, config, documentation
 
-## Scope
+## Description
 
-- [ ] Feature
-- [ ] Fix
-- [ ] Refactor
-- [ ] Documentation
-- [ ] Security/Dependency
+Décrivez les changements introduits et pourquoi.
 
 ## Validation
 
-- [ ] make gate executed successfully
-- [ ] No breaking behavior introduced
-- [ ] Relevant screenshots or logs attached (if UI/infra change)
-
-## Security & Risk
-
-- [ ] No secrets added
-- [ ] Security impact reviewed
-- [ ] Rollback path identified
-- [ ] Docker/infra impact documented
-
-## Notes for Reviewers
-
-Mention any files, behavior, or decisions requiring focused review.
+- [ ] Testé localement (`site/index.html` dans le navigateur)
+- [ ] Pas de lien cassé
+- [ ] Responsive mobile + desktop
+- [ ] `prettier --check` passe (ou CI verte)
+- [ ] Aucun secret commité (clé API, token, mot de passe)
