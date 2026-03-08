@@ -21,6 +21,9 @@ netlify.toml          Headers sécurité, cache, publish dir
 
 Pas de transpilation, pas de bundler. Le dossier `site/` **est** le livrable.
 
+`site/` est la **seule source de vérité** pour la production.
+Les dossiers `dist/`, `target/` et autres caches locaux sont des artefacts de travail et ne participent pas au déploiement Netlify.
+
 ## Développement local
 
 ```bash
@@ -42,6 +45,16 @@ npx serve site
 
 Le fichier `.devcontainer/devcontainer.json` configure un environnement Alpine prêt à l'emploi.
 
+## Commandes de maintenance
+
+```bash
+make format           # Formater le code
+make check            # Format + validation HTML + liens
+make check-lighthouse # Budget Lighthouse local
+make audit            # Check complet (inclut Lighthouse)
+make serve            # Servir le site en local sur :3000
+```
+
 ## Déploiement
 
 Netlify déploie automatiquement le contenu de `site/` à chaque push sur `main`.
@@ -62,6 +75,15 @@ git add . && git commit -m "feat: update hero section" && git push
 | Hébergement | Netlify (CDN, headers sécu, HTTPS)     |
 | CI          | GitHub Actions (Prettier check)        |
 
+## Qualité continue (CI)
+
+La CI GitHub exécute automatiquement :
+
+- Vérification du formatage (`Prettier`)
+- Validation HTML (`html-validate`)
+- Vérification des liens (`lychee`)
+- Budget Lighthouse (Performance, SEO, Accessibilité, Core Web Vitals)
+
 ## Contribuer
 
 Voir [CONTRIBUTING.md](CONTRIBUTING.md) pour le workflow de branche et les conventions.
@@ -76,19 +98,3 @@ Pour signaler un problème de sécurité : ngsanogo@proton.me
 ## Licence
 
 Propriétaire — Tous droits réservés. Voir [LICENSE](LICENSE).
-| Hébergement | Netlify |
-| CI/CD | Deploy auto sur push main |
-
-## Critères qualité
-
-- Lighthouse Performance > 95
-- Lighthouse SEO > 95
-- Lighthouse Accessibility > 90
-- First Contentful Paint < 1.5s
-- Contenu visible sans JavaScript
-- Responsive mobile-first (breakpoint 900px)
-
-## License
-
-Proprietary software.
-All rights reserved by ISData Consulting.

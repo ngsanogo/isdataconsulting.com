@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: Prettier check
+  format:
+    name: Format check (Prettier)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,3 +25,55 @@ jobs:
 
       - name: Check formatting
         run: prettier --check "site/**/*.{html,css,js}" "*.{json,md,yml,yaml}"
+
+  validate-html:
+    name: Validate HTML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate HTML files
+        run: npx --yes html-validate "site/**/*.html"
+
+  validate-links:
+    name: Validate links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          args: >-
+            --verbose
+            --exclude-mail
+            --accept 200,429,999
+            --max-concurrency 8
+            --retry-wait-time 2
+            --no-progress
+            "README.md"
+            "site/**/*.html"
+
+  lighthouse:
+    name: Lighthouse budget
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Lighthouse CI
+        run: npm install --global @lhci/cli@0.14.x serve@14
+
+      - name: Run static server
+        run: npx serve site -l 4173 &
+
+      - name: Run Lighthouse assertions
+        run: lhci autorun --config=.lighthouserc.json
