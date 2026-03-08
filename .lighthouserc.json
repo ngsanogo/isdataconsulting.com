@@ -35,12 +35,6 @@
           {
             "maxNumericValue": 0.1
           }
-        ],
-        "interactive": [
-          "warn",
-          {
-            "maxNumericValue": 3500
-          }
         ]
       }
     },
