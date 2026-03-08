@@ -1,37 +1,57 @@
 name: isdataconsulting
 
+x-dev-service: &dev-service
+  image: isdataconsulting-dev:latest
+  build:
+    context: .
+    target: dev-runtime
+  pull_policy: missing
+  volumes: ['.:/workspace']
+  networks: [isdataconsulting-network]
+
 services:
   format:
-    image: isdataconsulting-dev:latest
+    <<: *dev-service
     container_name: isdataconsulting-format
-    build: { context: ., target: dev-runtime }
     command: prettier --write "site/**/*.{html,css,js}" "*.{json,md,yml,yaml}"
-    volumes: ['.:/workspace']
-    networks: [isdataconsulting-network]
+    profiles: [tools]
 
   lint:
-    image: isdataconsulting-dev:latest
+    <<: *dev-service
     container_name: isdataconsulting-lint
-    build: { context: ., target: dev-runtime }
     command: prettier --check "site/**/*.{html,css,js}" "*.{json,md,yml,yaml}"
-    volumes: ['.:/workspace']
-    networks: [isdataconsulting-network]
+    profiles: [tools]
 
   serve:
-    image: isdataconsulting-dev:latest
-    container_name: isdataconsulting-dev
-    build: { context: ., target: dev-runtime }
+    <<: *dev-service
+    container_name: isdataconsulting-serve
     command: serve site -l 3000
+    restart: unless-stopped
     ports: ['3000:3000']
-    volumes: ['.:/workspace']
-    networks: [isdataconsulting-network]
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -q -O - http://localhost:3000 >/dev/null 2>&1 || exit 1']
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
 
   prod:
-    image: isdataconsulting:latest
-    container_name: isdataconsulting
-    build: { context: ., target: prod }
+    image: isdataconsulting-prod:latest
+    container_name: isdataconsulting-prod
+    build:
+      context: .
+      target: prod
+    pull_policy: missing
+    profiles: [prod]
+    restart: unless-stopped
     ports: ['8080:8080']
     networks: [isdataconsulting-network]
+    healthcheck:
+      test: ['CMD-SHELL', 'curl -fsS http://localhost:8080 >/dev/null || exit 1']
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
 
 networks:
   isdataconsulting-network:
