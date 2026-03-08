@@ -1,6 +1,6 @@
-# ISData Consulting — Site vitrine
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e63dfdb1-22e1-4af4-be2b-129b954c872d/deploy-status)](https://app.netlify.com/projects/isdataconsulting/deploys)
+# ISData Consulting
 
-> Site professionnel d'Issa SANOGO, Data Engineer Freelance.
 > Zéro framework, zéro build, zéro dépendance.
 
 **Production** : [isdataconsulting.com](https://isdataconsulting.com)
