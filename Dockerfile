@@ -25,5 +25,10 @@ USER ${USERNAME}
 
 # ── prod: production-like static preview ─────────────────────
 FROM nginx:1-alpine AS prod
-COPY site/ /usr/share/nginx/html/
-EXPOSE 80
+RUN chown -R nginx:nginx /usr/share/nginx/html /var/cache/nginx /var/log/nginx /etc/nginx/conf.d \
+    && touch /var/run/nginx.pid && chown nginx:nginx /var/run/nginx.pid \
+    && sed -i 's/listen       80;/listen       8080;/' /etc/nginx/conf.d/default.conf \
+    && sed -i '/listen  \[::\]:80;/d' /etc/nginx/conf.d/default.conf
+COPY --chown=nginx:nginx site/ /usr/share/nginx/html/
+USER nginx
+EXPOSE 8080

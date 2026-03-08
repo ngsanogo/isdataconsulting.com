@@ -32,5 +32,8 @@ __pycache__/
 .env
 .env.*
 
+# Lighthouse CI
+.lighthouseci/
+
 # Prettier
 .prettier-cache
