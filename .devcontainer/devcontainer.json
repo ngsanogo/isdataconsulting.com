@@ -7,17 +7,17 @@
     "options": ["--tag", "isdataconsulting-devcontainer:latest"]
   },
   "runArgs": ["--name=isdataconsulting-devcontainer"],
+  "mounts": ["source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"],
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "remoteUser": "vscode",
-  "postCreateCommand": "git config --global --add safe.directory /workspace && pre-commit install",
+  "postCreateCommand": "git config --global --add safe.directory /workspace && pre-commit install && (sudo docker version >/dev/null 2>&1 || true)",
   "forwardPorts": [3000],
   "customizations": {
     "vscode": {
       "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh",
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.formatOnSave": true
       },
       "extensions": ["esbenp.prettier-vscode", "ritwickdey.LiveServer", "ecmel.vscode-html-css"]
     }
