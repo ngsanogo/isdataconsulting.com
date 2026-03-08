@@ -20,9 +20,9 @@ site/                          ← Publié tel quel par Netlify
 └── assets/                    Images (portrait)
 .github/workflows/ci.yml       CI — format, HTML, liens, Lighthouse
 .devcontainer/                  Dev Container (VS Code / Codespaces)
-Dockerfile                      Multi-stage : dev-runtime, devcontainer, prod
-docker-compose.yml              Services : format, lint, serve, prod
-Makefile                        Raccourcis locaux (format, check, serve…)
+Dockerfile                      Multi-stage : dev-tools, dev-runtime, devcontainer, prod
+docker-compose.yml              Services : serve (defaut), format/lint (tools), prod (profile)
+Makefile                        Raccourcis locaux + ops Docker
 netlify.toml                    Headers sécurité, publish dir
 ```
 
@@ -30,7 +30,7 @@ Nommage Docker explicite :
 
 - Dev Container : `isdataconsulting-devcontainer`
 - Image dev : `isdataconsulting-dev:latest`
-- Image prod : `isdataconsulting:latest`
+- Image prod : `isdataconsulting-prod:latest`
 
 Pas de transpilation, pas de bundler. Le dossier `site/` **est** le livrable.
 
@@ -66,6 +66,27 @@ make check-lighthouse # Budget Lighthouse local
 make audit            # Check complet (inclut Lighthouse)
 make serve            # Servir le site en local sur :3000
 ```
+
+## Docker Ops (recommande)
+
+```bash
+make docker-build-dev      # Build image dev une seule fois
+make docker-up             # Demarre uniquement le runtime local (:3000)
+make docker-tools-lint     # Lint one-shot dans le container tools
+make docker-tools-format   # Format one-shot dans le container tools
+make docker-build-prod     # Build image prod uniquement si necessaire
+make docker-up-prod        # Demarre la preview prod (:8080)
+make docker-ci             # Pipeline QA complet en Docker (lint/html/liens/lighthouse)
+make docker-ps             # Etat des services compose
+make docker-down           # Arret propre + cleanup compose
+```
+
+Principes Ops appliques :
+
+- Une seule image dev partagee (`isdataconsulting-dev:latest`) pour `serve`, `format`, `lint`
+- `prod` est optionnel via profile (`--profile prod`) pour eviter build/start inutiles
+- Le devcontainer expose le socket Docker host pour executer les memes commandes Docker depuis VS Code
+- `serve` et `prod` ont un `healthcheck` explicite pour supervision fiable
 
 ## Déploiement
 
