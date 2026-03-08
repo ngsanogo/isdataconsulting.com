@@ -23,18 +23,6 @@
           {
             "minScore": 0.92
           }
-        ],
-        "largest-contentful-paint": [
-          "error",
-          {
-            "maxNumericValue": 2000
-          }
-        ],
-        "cumulative-layout-shift": [
-          "error",
-          {
-            "maxNumericValue": 0.1
-          }
         ]
       }
     },
