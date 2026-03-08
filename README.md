@@ -10,19 +10,24 @@
 ## Architecture
 
 ```
-site/                 ← Publié tel quel par Netlify
-├── index.html        Page unique (HTML5 sémantique, Open Graph, JSON-LD)
-├── styles.css        Design system dark-first (CSS variables, responsive)
-├── script.js         Navigation mobile + scroll reveal (IntersectionObserver)
-├── robots.txt        Directives crawlers
-└── sitemap.xml       Sitemap Google
-netlify.toml          Headers sécurité, cache, publish dir
+site/                          ← Publié tel quel par Netlify
+├── index.html                 Page unique (HTML5 sémantique, Open Graph, JSON-LD)
+├── styles.css                 Design system dark-first (CSS variables, responsive)
+├── script.js                  Navigation mobile + scroll reveal (IntersectionObserver)
+├── robots.txt                 Directives crawlers
+├── sitemap.xml                Sitemap Google
+└── assets/                    Images (portrait)
+.github/workflows/ci.yml       CI — format, HTML, liens, Lighthouse
+.devcontainer/                  Dev Container (VS Code / Codespaces)
+Dockerfile                      Multi-stage : dev-runtime, devcontainer, prod
+docker-compose.yml              Services : format, lint, serve, prod
+Makefile                        Raccourcis locaux (format, check, serve…)
+netlify.toml                    Headers sécurité, publish dir
 ```
 
 Pas de transpilation, pas de bundler. Le dossier `site/` **est** le livrable.
 
 `site/` est la **seule source de vérité** pour la production.
-Les dossiers `dist/`, `target/` et autres caches locaux sont des artefacts de travail et ne participent pas au déploiement Netlify.
 
 ## Développement local
 
@@ -66,14 +71,14 @@ git add . && git commit -m "feat: update hero section" && git push
 
 ## Stack
 
-| Composant   | Choix                                  |
-| ----------- | -------------------------------------- |
-| HTML        | HTML5 sémantique + JSON-LD             |
-| CSS         | CSS3 natif, variables CSS, responsive  |
-| JS          | Vanilla (IntersectionObserver, scroll) |
-| Fonts       | Instrument Serif · DM Mono · Geist     |
-| Hébergement | Netlify (CDN, headers sécu, HTTPS)     |
-| CI          | GitHub Actions (Prettier check)        |
+| Composant   | Choix                                                        |
+| ----------- | ------------------------------------------------------------ |
+| HTML        | HTML5 sémantique + JSON-LD                                   |
+| CSS         | CSS3 natif, variables CSS, responsive                        |
+| JS          | Vanilla (IntersectionObserver, scroll)                       |
+| Fonts       | Instrument Serif · DM Mono · Geist                           |
+| Hébergement | Netlify (CDN, headers sécu, HTTPS)                           |
+| CI          | GitHub Actions (Prettier, html-validate, lychee, Lighthouse) |
 
 ## Qualité continue (CI)
 

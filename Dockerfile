@@ -4,7 +4,7 @@ WORKDIR /workspace
 
 # ── dev-runtime: one-shot tasks (format, lint, serve) ────────
 FROM base AS dev-runtime
-RUN npm install -g prettier serve
+RUN npm install -g prettier@4.0.0-alpha.8 serve@14
 
 # ── devcontainer: interactive development ────────────────────
 FROM base AS devcontainer
@@ -13,7 +13,7 @@ RUN apk add --no-cache \
       bash git curl openssh-client zsh sudo \
       python3 py3-pip \
     && pip3 install --break-system-packages pre-commit \
-    && npm install -g prettier serve
+    && npm install -g prettier@4.0.0-alpha.8 serve@14
 
 ARG USERNAME=vscode
 RUN deluser --remove-home node \

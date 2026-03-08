@@ -1,12 +1,2 @@
-.git
-.github
-.devcontainer
-.cache
-.npm
-.vite
-node_modules
-dist
-target
-*.log
-*.tmp
-.DS_Store
+*
+!site/
