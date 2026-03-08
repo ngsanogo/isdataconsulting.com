@@ -1,20 +1,38 @@
+name: isdataconsulting
+
 services:
   format:
+    image: isdataconsulting-dev:latest
+    container_name: isdataconsulting-format
     build: { context: ., target: dev-runtime }
     command: prettier --write "site/**/*.{html,css,js}" "*.{json,md,yml,yaml}"
     volumes: ['.:/workspace']
+    networks: [isdataconsulting-network]
 
   lint:
+    image: isdataconsulting-dev:latest
+    container_name: isdataconsulting-lint
     build: { context: ., target: dev-runtime }
     command: prettier --check "site/**/*.{html,css,js}" "*.{json,md,yml,yaml}"
     volumes: ['.:/workspace']
+    networks: [isdataconsulting-network]
 
   serve:
+    image: isdataconsulting-dev:latest
+    container_name: isdataconsulting-dev
     build: { context: ., target: dev-runtime }
     command: serve site -l 3000
     ports: ['3000:3000']
     volumes: ['.:/workspace']
+    networks: [isdataconsulting-network]
 
   prod:
+    image: isdataconsulting:latest
+    container_name: isdataconsulting
     build: { context: ., target: prod }
     ports: ['8080:8080']
+    networks: [isdataconsulting-network]
+
+networks:
+  isdataconsulting-network:
+    name: isdataconsulting-network

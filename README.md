@@ -26,6 +26,12 @@ Makefile                        Raccourcis locaux (format, check, serve…)
 netlify.toml                    Headers sécurité, publish dir
 ```
 
+Nommage Docker explicite :
+
+- Dev Container : `isdataconsulting-devcontainer`
+- Image dev : `isdataconsulting-dev:latest`
+- Image prod : `isdataconsulting:latest`
+
 Pas de transpilation, pas de bundler. Le dossier `site/` **est** le livrable.
 
 `site/` est la **seule source de vérité** pour la production.
