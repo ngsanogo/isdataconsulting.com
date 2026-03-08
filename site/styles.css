@@ -400,21 +400,26 @@ h3 {
   color: var(--gray);
   font-size: 0.95rem;
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  align-content: flex-start;
 }
 
 .tags span {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
   color: var(--accent);
-  border: 1px solid var(--border);
-  padding: 0.3rem 0.6rem;
+  border: 1px solid #33401a;
+  background: rgba(200, 240, 77, 0.06);
+  padding: 0.3rem 0.55rem;
   border-radius: 3px;
 }
 
@@ -688,5 +693,14 @@ h3 {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
+  }
+
+  .tags {
+    gap: 0.35rem;
+  }
+
+  .tags span {
+    font-size: 0.64rem;
+    padding: 0.26rem 0.45rem;
   }
 }
