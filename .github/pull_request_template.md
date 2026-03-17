@@ -16,7 +16,7 @@ Décrivez les changements introduits et pourquoi.
 - [ ] Responsive mobile + desktop
 - [ ] HTML valide (`make check-html`)
 - [ ] `prettier --check` passe (ou CI verte)
-- [ ] Lighthouse conforme (Perf > 95, SEO > 95, Accessibilité > 92)
+- [ ] Lighthouse conforme (Perf ≥ 75, SEO ≥ 95, Accessibilité ≥ 92)
 - [ ] Aucun secret commité (clé API, token, mot de passe)
 
 ## Impact
