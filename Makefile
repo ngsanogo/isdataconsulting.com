@@ -30,16 +30,16 @@ check-html:
 
 check-links:
 	@if command -v npx >/dev/null 2>&1; then \
-		npx --yes lychee --exclude-mail --accept 200,429,999 "README.md" "site/**/*.html"; \
+		npx --yes lychee --accept 200,429,999 --max-concurrency 8 --retry-wait-time 2 "README.md" "site/**/*.html"; \
 	else \
-		docker run --rm -v "$(PWD):/work" -w /work $(LYCHEE_IMAGE) --accept '200,429,999' README.md 'site/**/*.html'; \
+		docker run --rm -v "$(PWD):/work" -w /work $(LYCHEE_IMAGE) --accept '200,429,999' --max-concurrency 8 --retry-wait-time 2 README.md 'site/**/*.html'; \
 	fi
 
 check-lighthouse:
 	@if command -v npx >/dev/null 2>&1; then \
 		npx --yes serve site -l 4173 >/tmp/isdata-serve.log 2>&1 & \
 		SERVER_PID=$$!; \
-		sleep 2; \
+		npx --yes wait-on http://localhost:4173 --timeout 10000; \
 		npx --yes @lhci/cli autorun --config=.lighthouserc.json; \
 		STATUS=$$?; \
 		kill $$SERVER_PID >/dev/null 2>&1 || true; \
