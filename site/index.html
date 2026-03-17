@@ -3,26 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Issa Sanogo — Consultant Data Freelance à Paris</title>
+    <title>Issa Sanogo — Data Engineer &amp; Product Manager Data · Paris</title>
     <meta
       name="description"
-      content="Consultant data freelance à Paris. J'aide les équipes à transformer leur data en décisions fiables : data engineering, product data et gouvernance."
+      content="Data Engineer &amp; Product Manager Data freelance à Paris. Je construis des pipelines dbt/Airflow/PostgreSQL fiables ET je pilote la roadmap produit. 8 ans en SaaS et Santé. Zéro boîte noire."
     />
+    <meta
+      name="keywords"
+      content="data engineer freelance Paris, product manager data, data product owner, dbt, Airflow, PostgreSQL, audit data stack, pipeline ETL ELT, roadmap data, gouvernance données, data warehouse, BigQuery, Snowflake, GCP, Azure, migration PostgreSQL, cadrage data"
+    />
+    <meta name="author" content="Issa Sanogo" />
+    <meta name="theme-color" content="#0a0a0a" />
     <meta name="robots" content="index, follow" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="canonical" href="https://isdataconsulting.com" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Issa Sanogo — Consultant Data Freelance" />
+    <!-- Open Graph (LinkedIn, Slack, WhatsApp) -->
+    <meta property="og:site_name" content="IS Data Consulting" />
+    <meta
+      property="og:title"
+      content="Issa Sanogo — Data Engineer & Product Manager Data · Paris"
+    />
     <meta
       property="og:description"
-      content="Conseil data de bout en bout : data engineering, product data et gouvernance. 8 ans d'expérience en santé et SaaS."
+      content="Je construis les pipelines ET je pilote la roadmap. dbt, Airflow, PostgreSQL côté engineering — cadrage, priorisation, backlog côté produit. 8 ans en SaaS et Santé."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://isdataconsulting.com" />
     <meta property="og:locale" content="fr_FR" />
+    <meta
+      property="og:image"
+      content="https://isdataconsulting.com/assets/issa-sanogo-portrait.jpg"
+    />
+    <meta
+      property="og:image:alt"
+      content="Issa Sanogo — Expert Data Engineering & Architecture, Paris"
+    />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Issa Sanogo — Data Engineer & Product Manager Data · Paris"
+    />
+    <meta
+      name="twitter:description"
+      content="Je construis les pipelines ET je pilote la roadmap. dbt, Airflow, PostgreSQL côté engineering — cadrage, priorisation, backlog côté produit."
+    />
+    <meta
+      name="twitter:image"
+      content="https://isdataconsulting.com/assets/issa-sanogo-portrait.jpg"
+    />
+
+    <!-- LCP preload: hero portrait is the largest contentful paint element -->
+    <link rel="preload" as="image" href="assets/issa-sanogo-portrait.jpg" fetchpriority="high" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,13 +75,82 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Issa Sanogo",
-        "jobTitle": "Consultant Data Freelance",
-        "email": "ngsanogo@proton.me",
-        "telephone": "+33651985279",
-        "url": "https://isdataconsulting.com",
-        "sameAs": ["https://www.linkedin.com/in/ngsanogo", "https://github.com/ngsanogo"]
+        "@graph": [
+          {
+            "@type": ["Person", "ProfessionalService"],
+            "name": "Issa Sanogo",
+            "alternateName": "IS Data Consulting",
+            "jobTitle": "Data Engineer & Product Manager Data Freelance",
+            "description": "Data Engineer et Product Manager Data freelance à Paris. Je construis des pipelines robustes (dbt, Airflow, PostgreSQL) et je pilote la roadmap produit data. 8 ans d'expérience en SaaS et Santé.",
+            "email": "ngsanogo@proton.me",
+            "telephone": "+33651985279",
+            "url": "https://isdataconsulting.com",
+            "image": "https://isdataconsulting.com/assets/issa-sanogo-portrait.jpg",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Paris",
+              "addressCountry": "FR"
+            },
+            "areaServed": ["France", "Paris Île-de-France"],
+            "knowsAbout": [
+              "Data Engineering",
+              "PostgreSQL",
+              "dbt",
+              "Apache Airflow",
+              "Dagster",
+              "BigQuery",
+              "Snowflake",
+              "Architecture Data",
+              "Gouvernance des données",
+              "ETL/ELT",
+              "GCP",
+              "Azure",
+              "Python",
+              "Data Warehouse",
+              "Product Management Data",
+              "Roadmap Produit",
+              "Backlog Priorisation"
+            ],
+            "sameAs": ["https://www.linkedin.com/in/ngsanogo", "https://github.com/ngsanogo"]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Quelles technologies maîtrisez-vous en data engineering ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Je travaille principalement avec Python, SQL, PostgreSQL, dbt, Apache Airflow, Dagster, Docker et les plateformes cloud GCP et Azure (BigQuery, Snowflake). Tous mes livrables sont documentés et maintenables par vos équipes."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Comment se déroule un audit de data stack ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Je commence par analyser votre architecture existante, vos pipelines, votre qualité de données et votre gouvernance. Je fournis un rapport détaillé avec des recommandations priorisées et un plan d'action concret, sans jargon inutile."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Intervenez-vous sur des missions de courte durée ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Oui, j'accepte des missions ponctuelles (audit, cadrage, migration PostgreSQL) comme des engagements longue durée. Chaque mission est adaptée à votre contexte et vos contraintes."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quelle est votre expérience en migration PostgreSQL et reprise de données ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "8 ans d'expérience sur des bases de données en production dans des environnements exigeants (Santé, SaaS). J'ai supervisé des migrations et reprises de données à grande échelle, avec des contraintes de disponibilité et de conformité RGPD élevées."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
   </head>
@@ -79,22 +184,18 @@
     <section class="hero" id="hero">
       <div class="section-inner hero-grid">
         <div class="hero-content">
-          <p class="section-label reveal">Consultant Data Freelance · Paris</p>
-          <h1 class="reveal">
-            Je construis des systèmes data qui tiennent
-            <em>vraiment</em>
-            la route.
-          </h1>
+          <p class="section-label reveal">Data Engineer &amp; Product Manager Data · Paris</p>
+          <h1 class="reveal">Je conçois l'infrastructure data et je pilote la vision produit.</h1>
           <p class="hero-sub reveal">
-            J'aligne votre stratégie data, vos enjeux métier et votre exécution technique pour que
-            la donnée devienne un levier de décision, pas une source de friction.
+            Python, dbt, Airflow pour l'engineering — roadmap, priorisation et cadrage pour le
+            produit. Un seul interlocuteur qui maîtrise les deux côtés, sans silos ni boîte noire.
           </p>
           <p class="hero-proof reveal">
-            8 ans d'expérience en santé et SaaS : reprise de données, industrialisation des
-            pipelines et gouvernance durable, avec transmission aux équipes.
+            8 ans en Santé et SaaS. Data Engineer de bout en bout + Product Manager data : de la
+            modélisation au backlog, des pipelines aux décisions métier.
           </p>
           <div class="hero-buttons reveal">
-            <a href="#contact" class="btn btn-primary">Parlons de votre projet</a>
+            <a href="#contact" class="btn btn-primary">Discutons engineering &amp; roadmap</a>
             <a href="#services" class="btn btn-secondary">Ce que je fais →</a>
           </div>
         </div>
@@ -102,9 +203,12 @@
           <figure class="hero-profile">
             <img
               src="assets/issa-sanogo-portrait.jpg"
-              alt="Portrait d'Issa Sanogo, Consultant Data Freelance"
+              alt="Portrait d'Issa Sanogo, Expert Data Engineering &amp; Architecture, Paris"
               loading="eager"
               decoding="async"
+              fetchpriority="high"
+              width="360"
+              height="450"
             />
           </figure>
         </div>
@@ -306,10 +410,11 @@
       <div class="section-inner">
         <div class="contact-content reveal">
           <p class="section-label">Contact</p>
-          <h2>Un projet data ? Parlons-en vraiment.</h2>
+          <h2>Un projet data, une roadmap à structurer ? Parlons-en.</h2>
           <p class="contact-sub">
-            Pas de formulaire à rallonge. Pas d'intermédiaire. Écrivez-moi ou appelez-moi, et nous
-            verrons rapidement si je peux vous aider de façon concrète.
+            Pas de formulaire interminable. Pas d'intermédiaire. Un mail ou un appel suffit — nous
+            ferons le point sur votre stack, vos blocages produit et ce qui est réellement
+            actionnable pour vous.
           </p>
           <div class="contact-links">
             <a href="mailto:ngsanogo@proton.me" class="contact-link">
